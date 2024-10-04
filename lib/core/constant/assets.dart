@@ -1,0 +1,1 @@
+const String _pathPng = "assets/png";class AppAssets {  static const String detectiveLogo = "$_pathPng/Detective Logo.png";  static const String gift = "$_pathPng/gift.png";  static const String background = "$_pathPng/background.png";}
