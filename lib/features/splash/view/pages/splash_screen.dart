@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/constant/string.dart';
-import 'package:textdetection/core/constant/assets.dart';
-import 'package:textdetection/core/constant/colors.dart';
-import 'package:textdetection/core/constant/text_style.dart';
+import '../../../../core/constant/string.dart';
+import '../../../../core/constant/colors.dart';
+import '../../../../core/constant/text_style.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -15,8 +14,8 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-                AppAssets.detectiveLogo), // Replace with your logo image path
+            // Image.asset(
+            //     Assets.detectiveLogo), // Replace with your logo image path
             const SizedBox(height: 20),
             Text(AppString.appName, style: AppTextStyles.style32()),
           ],
