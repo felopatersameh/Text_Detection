@@ -11,15 +11,15 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingSlider(
-      // finishButtonText: 'Skip',
-      // onFinish: () {
-      //   Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) => const LoginScreen(),
-      //     ),
-      //   );
-      // },
+      finishButtonText: 'Login',
+      onFinish: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const LoginScreen(),
+          ),
+        );
+      },
       skipFunctionOverride: () {
         Navigator.push(
           context,
