@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/constant/app_constants.dart';
+import 'package:textdetection/core/constant/string.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
 import 'package:textdetection/core/constant/text_style.dart';
@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
             Image.asset(
                 AppAssets.detectiveLogo), // Replace with your logo image path
             const SizedBox(height: 20),
-            Text(AppConstants.appName, style: AppTextStyles.style32()),
+            Text(AppString.appName, style: AppTextStyles.style32()),
           ],
         ),
       ),

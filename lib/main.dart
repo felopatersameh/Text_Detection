@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/features/auth/view/pages/login_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'Config/Themes/light.dart';
+import 'features/auth/view/pages/login_screen.dart';
+
+import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,15 +25,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Text Detection',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      // home: const SplashScreen(),
-      home: const LoginScreen(),
-      debugShowCheckedModeBanner: false,
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => PasswordVisibilityCubit(),
+          ),
+        ],
+        child: MaterialApp(
+          title: 'Text Detection',
+          theme: themeLight(),
+          // home: const SplashScreen(),
+          home: const LoginScreen(),
+          debugShowCheckedModeBanner: false,
+        ));
   }
 }

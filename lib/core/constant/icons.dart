@@ -1,0 +1,1 @@
+import 'package:flutter/material.dart';class AppIcons {  static const IconData passwordVisibility = Icons.visibility;  static const IconData passwordVisibilityOff = Icons.visibility_off;}

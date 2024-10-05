@@ -1,3 +1,1 @@
-class AppConstants {
-  static const String appName = 'Text Detector App';
-}
+class AppConstants {  static const double defaultCircularBorder = 8;}
