@@ -5,7 +5,6 @@ import '../widgets/form_login.dart';
 
 import 'register_screen.dart';
 
-
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 

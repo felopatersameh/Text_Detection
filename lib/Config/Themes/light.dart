@@ -1,1 +1,1 @@
-import 'package:flutter/material.dart';import '../../core/constant/colors.dart';ThemeData themeLight() => ThemeData(    scaffoldBackgroundColor: AppColors.cream,    );
+import 'package:flutter/material.dart';import '../../core/constant/colors.dart';ThemeData themeLight() => ThemeData(      scaffoldBackgroundColor: AppColors.cream,      appBarTheme: AppBarTheme(          backgroundColor: AppColors.cream,          elevation: 0,          surfaceTintColor: Colors.transparent),    );
