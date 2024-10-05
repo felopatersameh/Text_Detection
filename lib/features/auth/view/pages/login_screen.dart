@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
     // screenWidth = MediaQuery.of(context).size.width;
     // textScaleFactor = MediaQuery.of(context).size.height / 48;
     // var devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
-    print("---------------------------");
+    // print("---------------------------");
     print(
         '${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}');
 
