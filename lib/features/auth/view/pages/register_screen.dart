@@ -28,7 +28,7 @@ class RegisterScreen extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.transparent,
           ),
-          backgroundColor: AppColors.lightBrown,
+          backgroundColor: AppColors.cream,
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.w),
             child: Column(

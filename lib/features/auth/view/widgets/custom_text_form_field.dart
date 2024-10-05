@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/utils/validation.dart';
+
+import '../../../../core/utils/Validation/custom_validation.dart';
 
 class CustomTextFormField extends StatefulWidget {
   CustomTextFormField({
