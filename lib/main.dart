@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:textdetection/features/intro/view/pages/intro_screen.dart';
 import 'Config/Themes/light.dart';
 import 'features/auth/view/pages/login_screen.dart';
-
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 
 void main() {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           title: 'Text Detection',
           theme: themeLight(),
           // home: const SplashScreen(),
-          home: const LoginScreen(),
+          home: IntroScreen(),
           debugShowCheckedModeBanner: false,
         ));
   }
