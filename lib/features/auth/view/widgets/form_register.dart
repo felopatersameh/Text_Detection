@@ -3,8 +3,10 @@ import '../../../../core/utils/Validation/email_validate.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
 import '../../../../core/utils/Widget/build_default_button.dart';
+import '../../../../core/utils/Widget/confirm_password_tfm.dart';
 import '../../../../core/utils/Widget/password_text__form_field.dart';
 
+import '../pages/success_register_screen.dart';
 import '../widgets/custom_text_form_field.dart';
 
 class FormRegister extends StatefulWidget {
@@ -23,55 +25,57 @@ class _FormRegisterState extends State<FormRegister> {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Form(
-        key: keyForm,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: Padding(
-          padding: EdgeInsets.only(left: 32.5, right: 32.5, top: 57),
-          child: Column(
-            children: [
-              Text(
-                AppString.registerHeader,
-                maxLines: AppString.loginHeader.length,
-                style: AppTextStyles.style32(),
+    return Form(
+      key: keyForm,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Padding(
+        padding: EdgeInsets.only(left: 32.5, right: 32.5, top: 57),
+        child: Column(
+          children: [
+            Text(
+              AppString.registerHeader,
+              maxLines: AppString.loginHeader.length,
+              style: AppTextStyles.style30(),
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            CustomTextFormField(
+              hint: AppString.userNameHint,
+              controller: usernameController,
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            CustomTextFormField(
+              hint: AppString.emailHint,
+              controller: emailController,
+              validator: (p0) => validateEmail(email: p0),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            CustomPasswordTextFromField(
+              controller: passwordController,
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            CustomConfirmPasswordTextFromField(
+              controller: confirmController,
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            BuildCustomButton(
+              text: AppString.registerName,
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const SuccessRegister(),
+                ),
               ),
-              SizedBox(
-                height: 32,
-              ),
-              CustomTextFormField(
-                hint: AppString.userNameHint,
-                controller: usernameController,
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              CustomTextFormField(
-                hint: AppString.emailHint,
-                controller: emailController,
-                validator: (p0) => validateEmail(email: p0),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              CustomPasswordTextFromField(
-                controller: passwordController,
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              CustomPasswordTextFromField(
-                controller: confirmController,
-              ),
-              SizedBox(
-                height: 32,
-              ),
-              BuildCustomButton(
-                text: AppString.registerName,
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

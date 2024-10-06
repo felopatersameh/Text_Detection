@@ -12,7 +12,8 @@ class AppColors {
   static const Color charcoalGray = Color(0xFF5D5D5D);
   static const Color deepGray = Color(0xFF262626);
   static const Color darkGray = Color(0xFF4F4F4F);
-  static const Color lightGray = Color(0xFFE8ECF4);
+  static const Color mediumDarkGray = Color(0xFF4F4F4F);
+  static const Color lightGray = Color(0xFF6D6D6D);
   static const Color white = Color(0xffffffff);
   static const Color offWhite = Color(0xffF7F8F9);
   static const Color cream = Color(0xFFF5EDE2);

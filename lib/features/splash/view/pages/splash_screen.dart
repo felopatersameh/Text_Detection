@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
             // Image.asset(
             //     Assets.detectiveLogo), // Replace with your logo image path
             const SizedBox(height: 20),
-            Text(AppString.appName, style: AppTextStyles.style32()),
+            Text(AppString.appName, style: AppTextStyles.style30()),
           ],
         ),
       ),
