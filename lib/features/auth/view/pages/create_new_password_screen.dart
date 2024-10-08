@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:textdetection/core/constant/app_constants.dart';
-import 'package:textdetection/core/constant/app_images.dart';
-import 'package:textdetection/core/constant/colors.dart';
-import 'package:textdetection/core/utils/Widget/form_new_password.dart';
+import '../../../../core/constant/app_images.dart';
+import '../../../../core/constant/colors.dart';
+
+import '../widgets/form_new_password.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   const CreateNewPasswordScreen({super.key});
@@ -33,18 +33,8 @@ class CreateNewPasswordScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: _buildBody(context),
+      body: FormNewPassword(),
       resizeToAvoidBottomInset: false,
     );
   }
-}
-
-SafeArea _buildBody(BuildContext context) {
-  return SafeArea(
-    child: Column(
-      children: [
-        FormNewPassword(),
-      ],
-    ),
-  );
 }
