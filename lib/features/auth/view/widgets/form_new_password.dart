@@ -20,20 +20,17 @@ class FormNewPassword extends StatelessWidget {
           children: [
             Align(
               alignment: Alignment.centerLeft,
-              child: SizedBox(
-                width: 365,
-                child: Text(
-                  AppString.createNewPasswordHeader,
-                  maxLines: AppString.createNewPasswordHeader.length,
-                  style: AppTextStyles.style30(),
-                ),
+              child: Text(
+                AppString.createNewPasswordHeader,
+                maxLines: AppString.createNewPasswordHeader.length,
+                style: AppTextStyles.style30(),
               ),
             ),
             SizedBox(height: 12.0),
             Text(
               AppString.createNewPasswordMessage,
               style: AppTextStyles.style14(),
-              maxLines: 2,
+              maxLines: AppString.createNewPasswordMessage.length,
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(

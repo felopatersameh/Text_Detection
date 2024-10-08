@@ -29,23 +29,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CreateNewPasswordScreen(),
-    );
-
-    // return MultiBlocProvider(
-    //     providers: [
-    //       BlocProvider(
-    //         create: (context) => PasswordVisibilityCubit(),
-    //       ),
-    //     ],
-    //     child: MaterialApp(
-    //       title: 'Text Detection',
-    //       theme: themeLight(),
-    //       // home: const SplashScreen(),
-    //       home: const SplashScreen(),
-    //       debugShowCheckedModeBanner: false,
-    //     ));
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => PasswordVisibilityCubit(),
+          ),
+        ],
+        child: MaterialApp(
+          title: 'Text Detection',
+          theme: themeLight(),
+          home: CreateNewPasswordScreen(),
+          debugShowCheckedModeBanner: false,
+        ));
   }
 }
