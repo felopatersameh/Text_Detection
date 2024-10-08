@@ -6,6 +6,8 @@ import 'package:textdetection/features/splash/view/pages/splash_screen.dart';
 import 'Config/Themes/light.dart';
 import 'features/auth/view/pages/login_screen.dart';
 
+
+
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 
 void main() {
