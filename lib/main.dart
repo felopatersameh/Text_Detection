@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:textdetection/features/auth/view/pages/create_new_password_screen.dart';
 import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
 import 'package:textdetection/features/auth/view/pages/register_screen.dart';
 import 'package:textdetection/features/splash/view/pages/splash_screen.dart';
@@ -30,18 +31,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => PasswordVisibilityCubit(),
-          ),
-        ],
-        child: MaterialApp(
-          title: 'Text Detection',
-          theme: themeLight(),
-          // home: const SplashScreen(),
-          home: const SplashScreen(),
-          debugShowCheckedModeBanner: false,
-        ));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: CreateNewPasswordScreen(),
+    );
+
+    // return MultiBlocProvider(
+    //     providers: [
+    //       BlocProvider(
+    //         create: (context) => PasswordVisibilityCubit(),
+    //       ),
+    //     ],
+    //     child: MaterialApp(
+    //       title: 'Text Detection',
+    //       theme: themeLight(),
+    //       // home: const SplashScreen(),
+    //       home: const SplashScreen(),
+    //       debugShowCheckedModeBanner: false,
+    //     ));
   }
 }
