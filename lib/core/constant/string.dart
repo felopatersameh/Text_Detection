@@ -25,4 +25,5 @@ class AppString {
   static const String createNewPasswordMessage =
       "Your new password must be unique from those previously used.";
   static const String newPasswordHint = "New Password";
+  static const String resetPassWordName = "Reset Password";
 }

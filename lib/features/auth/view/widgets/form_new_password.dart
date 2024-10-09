@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:textdetection/core/constant/string.dart';
 import 'package:textdetection/core/constant/text_style.dart';
+import 'package:textdetection/core/utils/Widget/build_default_button.dart';
+import 'package:textdetection/core/utils/Widget/confirm_password_tfm.dart';
+import 'package:textdetection/core/utils/Widget/password_text__form_field.dart';
 import 'package:textdetection/features/auth/view/widgets/custom_text_form_field.dart';
 
 class FormNewPassword extends StatelessWidget {
@@ -29,7 +32,7 @@ class FormNewPassword extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 12.0),
+            SizedBox(height: 16.0),
             Text(
               AppString.createNewPasswordMessage,
               style: AppTextStyles.style14(),
@@ -39,11 +42,22 @@ class FormNewPassword extends StatelessWidget {
             const SizedBox(
               height: 32,
             ),
-            CustomTextFormField(
-              hint: AppString.newPasswordHint,
+            CustomPasswordTextFromField(
               controller: newPasswordController,
-              
-            )
+              hintText: AppString.newPasswordHint,
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            CustomConfirmPasswordTextFromField(
+                controller: confirmPasswordController),
+            const SizedBox(
+              height: 32,
+            ),
+            BuildCustomButton(
+              text: AppString.resetPassWordName,
+              onPressed: () {},
+            ),
           ],
         ),
       ),

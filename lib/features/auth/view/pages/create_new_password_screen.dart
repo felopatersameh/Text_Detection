@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/core/constant/app_constants.dart';
 import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/colors.dart';
-import 'package:textdetection/core/utils/Widget/form_new_password.dart';
+import 'package:textdetection/features/auth/view/widgets/form_new_password.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   const CreateNewPasswordScreen({super.key});
@@ -41,10 +41,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
 
 SafeArea _buildBody(BuildContext context) {
   return SafeArea(
-    child: Column(
-      children: [
-        FormNewPassword(),
-      ],
-    ),
+    child:FormNewPassword(),
+    
   );
 }

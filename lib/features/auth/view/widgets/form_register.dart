@@ -57,6 +57,7 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             CustomPasswordTextFromField(
               controller: passwordController,
+              hintText: AppString.passwordHint,
             ),
             const SizedBox(
               height: 12,
@@ -81,4 +82,3 @@ class _FormRegisterState extends State<FormRegister> {
     );
   }
 }
-
