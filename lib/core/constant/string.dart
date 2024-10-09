@@ -19,5 +19,10 @@ class AppString {
   static const String orLoginWith = "Or Login with";
   static const String orRegisterWith = "Or Register with";
   static const String otpMessage = "OTP Verification";
-  static const String enterYourOTP = "Enter the verification code we just sent on your email address or phone number.";
+  static const String enterYourOTP =
+      "Enter the verification code we just sent on your email address or phone number.";
+  static const String createNewPasswordHeader = "Creare New Password";
+  static const String createNewPasswordMessage =
+      "Your new password must be unique from those previously used.";
+  static const String newPasswordHint = "New Password";
 }
