@@ -64,7 +64,7 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             CustomPasswordTextFromField(
               controller: confirmController,
-              fieldId: "password1",
+              fieldId: "password2",
               isLogin: false,
             ),
             const SizedBox(
