@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constant/app_constants.dart';
 import '../../../../core/utils/Validation/email_validate.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
@@ -29,7 +30,7 @@ class _FormRegisterState extends State<FormRegister> {
       key: keyForm,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Padding(
-        padding: EdgeInsets.only(left: 32.5, right: 32.5, top: 57),
+        padding: AppConstants.customFormPadding,
         child: Column(
           children: [
             Text(

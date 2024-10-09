@@ -16,6 +16,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leadingWidth: 72.0,
         backgroundColor: AppColors.cream,
         leading: InkWell(
           onTap: () {
@@ -24,6 +25,7 @@ class LoginScreen extends StatelessWidget {
           child: Container(
             width: 19,
             height: 19,
+            margin: EdgeInsets.only(left: 32.0, top: 7.0, bottom: 8.0),
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(color: AppColors.cream),
             child: SvgPicture.asset(

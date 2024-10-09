@@ -1,1 +1,1 @@
-class AppConstants {  static const double defaultCircularBorder = 8;}
+import 'package:flutter/material.dart';class AppConstants {  static const double defaultCircularBorder = 8;  static const int numberOfOtpField = 4;  static const EdgeInsets customFormPadding = EdgeInsets.only(      left: 32.5, right: 32.5, top: 8.0);  static const EdgeInsets customFormMargin = EdgeInsets.symmetric(      horizontal: 16.0);}

@@ -28,16 +28,7 @@ class BuildOtpContent extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 32.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              for (var i = 0; i <4; i++)
-                BuildOtpContainerUnit(),
-              const SizedBox(width: 17.0),
-
-            ],
-          )
+          BuildOtpContainerUnit(),
         ],
       ),
     );

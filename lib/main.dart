@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           title: 'Text Detection',
           theme: themeLight(),
           // home: const SplashScreen(),
-          home: const SplashScreen(),
+          home: const OtpVerificationScreen(),
           debugShowCheckedModeBanner: false,
         ));
   }
