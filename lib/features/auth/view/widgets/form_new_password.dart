@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/constant/string.dart';
-import 'package:textdetection/core/constant/text_style.dart';
-import 'package:textdetection/features/auth/view/widgets/custom_text_form_field.dart';
+import '../../../../core/constant/string.dart';
+import '../../../../core/constant/text_style.dart';
+import 'custom_text_form_field.dart';
 
 class FormNewPassword extends StatelessWidget {
   FormNewPassword({super.key});
@@ -9,6 +9,7 @@ class FormNewPassword extends StatelessWidget {
   final newPasswordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   final GlobalKey<FormState> keyForm = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -39,8 +40,7 @@ class FormNewPassword extends StatelessWidget {
             CustomTextFormField(
               hint: AppString.newPasswordHint,
               controller: newPasswordController,
-              
-            )
+            ),
           ],
         ),
       ),
