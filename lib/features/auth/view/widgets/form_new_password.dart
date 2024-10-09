@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
-import 'custom_text_form_field.dart';
+import '../../../../core/utils/Widget/password_text__form_field.dart';
 
 class FormNewPassword extends StatelessWidget {
   FormNewPassword({super.key});
@@ -37,9 +37,16 @@ class FormNewPassword extends StatelessWidget {
             const SizedBox(
               height: 32,
             ),
-            CustomTextFormField(
-              hint: AppString.newPasswordHint,
+            CustomPasswordTextFromField(
               controller: newPasswordController,
+              fieldId: "ChangePassword",
+              isLogin: false,
+            ),
+            CustomPasswordTextFromField(
+              controller: newPasswordController,
+              fieldId: "SecondChangePassword",
+              isLogin: false,
+              hintText: AppString.confirmPasswordHint,
             ),
           ],
         ),

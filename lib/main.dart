@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Text Detection',
           theme: themeLight(),
-          home: CreateNewPasswordScreen(),
+          home: LoginScreen(),
           debugShowCheckedModeBanner: false,
         ));
   }
