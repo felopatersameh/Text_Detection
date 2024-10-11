@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:textdetection/core/constant/assets.dart';
+import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/colors.dart';
 
-
-
 final userEmail = "Email@gmail.com";
-late final userName = "User Name";
+final userName = "User Name";
+final userImage = "${AppImages.pngPath}welcome3.png";
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -36,9 +34,28 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
         ),
       ),
+      body: _buildBody(context),
       resizeToAvoidBottomInset: false,
     );
   }
 
-
+  Widget _buildBody(BuildContext context) {
+    // double screenWidth = MediaQuery.sizeOf(context).width;
+    return Center(
+      child: Column(
+        children: [
+          SizedBox(height: 22),
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: AssetImage(userImage),
+          ),
+          SizedBox(height: 42),
+          Text(
+            userName,
+            style: TextStyle(fontSize: 14, color: AppColors.darkGray),
+          ),
+        ],
+      ),
+    );
+  }
 }
