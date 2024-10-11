@@ -67,6 +67,9 @@ class _AccountScreenState extends State<AccountScreen> {
             children: [
               Material(
                 elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6),
+                ),
                 child: ListTile(
                   title: Text("Email"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
@@ -75,11 +78,15 @@ class _AccountScreenState extends State<AccountScreen> {
                       TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountEmail),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
                 ),
               ),
               SizedBox(height: 30),
               Material(
                 elevation: 4,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6)),
                 child: ListTile(
                   title: Text("Themes"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
@@ -88,11 +95,15 @@ class _AccountScreenState extends State<AccountScreen> {
                       TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountTheme),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
                 ),
               ),
               SizedBox(height: 30),
               Material(
                 elevation: 4,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6)),
                 child: ListTile(
                   title: Text("Language"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
@@ -101,11 +112,15 @@ class _AccountScreenState extends State<AccountScreen> {
                       TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountLanguage),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
                 ),
               ),
               SizedBox(height: 30),
               Material(
                 elevation: 4,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6)),
                 child: ListTile(
                   title: Text("Account Settings"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
@@ -114,6 +129,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   // TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountSettings),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
                 ),
               ),
             ],
