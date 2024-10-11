@@ -47,16 +47,20 @@ class _AccountScreenState extends State<AccountScreen> {
       child: Column(
         children: [
           SizedBox(height: 22),
-          CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage(userImage),
+          Material(
+            shape: CircleBorder(),
+            elevation: 10,
+            child: CircleAvatar(
+              radius: 70,
+              backgroundImage: AssetImage(userImage),
+            ),
           ),
-          SizedBox(height: 42),
+          SizedBox(height: 20),
           Text(
             userName,
-            style: TextStyle(fontSize: 14, color: AppColors.darkGray),
+            style: TextStyle(fontSize: 18, color: AppColors.darkGray),
           ),
-          SizedBox(height: 51),
+          SizedBox(height: 30),
           ListView(
             shrinkWrap: true,
             padding: EdgeInsets.symmetric(horizontal: 50),
@@ -65,10 +69,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 elevation: 4,
                 child: ListTile(
                   title: Text("Email"),
-                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
                   subtitle: Text(userEmail),
                   subtitleTextStyle:
-                      TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                      TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountEmail),
                 ),
@@ -78,10 +82,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 elevation: 4,
                 child: ListTile(
                   title: Text("Themes"),
-                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
                   subtitle: Text("Light Theme"),
                   subtitleTextStyle:
-                      TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                      TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountTheme),
                 ),
@@ -91,10 +95,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 elevation: 4,
                 child: ListTile(
                   title: Text("Language"),
-                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
                   subtitle: Text("English"),
                   subtitleTextStyle:
-                      TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                      TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountLanguage),
                 ),
@@ -104,10 +108,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 elevation: 4,
                 child: ListTile(
                   title: Text("Account Settings"),
-                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
                   // subtitle: Text(""),
                   // subtitleTextStyle:
-                  // TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                  // TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountSettings),
                 ),
