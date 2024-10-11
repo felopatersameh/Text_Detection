@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
-import 'package:textdetection/features/auth/view/pages/password_changed.dart';
+import '../../features/auth/view/pages/otp_verfication_screen.dart';
+import '../../features/auth/view/pages/password_changed.dart';
 
 import '../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../features/auth/view/pages/login_screen.dart';
 import '../../features/auth/view/pages/register_screen.dart';
 import '../../features/auth/view/pages/create_new_password_screen.dart';
+import '../../features/intro/view/pages/intro_screen.dart';
 import '../../features/splash/view/pages/splash_screen.dart';
 import '../../features/home/view/pages/home_screen.dart';
 
 class AppRoutes {
   static const String splash = '/';
+  static const String onboarding = '/onboarding';
   static const String loginScreen = '/login_screen';
   static const String registerScreen = '/register_screen';
   static const String forgotPassword = '/forgot_password_screen';
@@ -21,6 +23,7 @@ class AppRoutes {
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => const SplashScreen(),
+    onboarding: (_) => const IntroScreen(),
     loginScreen: (_) => const LoginScreen(),
     registerScreen: (_) => const RegisterScreen(),
     forgotPassword: (_) => const ForgotPasswordScreen(),
