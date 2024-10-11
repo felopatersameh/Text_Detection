@@ -21,20 +21,21 @@ class _AccountScreenState extends State<AccountScreen> {
       appBar: AppBar(
         title: Text("My Account"),
         centerTitle: true,
-        leading: Container(
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: IconButton(
-            padding: EdgeInsets.all(10),
-            icon: Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
+        leading: SizedBox(),
+        // leading: Container(
+        //   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        //   decoration: BoxDecoration(
+        //     color: Colors.white,
+        //     borderRadius: BorderRadius.circular(4),
+        //   ),
+        //   child: IconButton(
+        //     padding: EdgeInsets.all(10),
+        //     icon: Icon(Icons.arrow_back_ios),
+        //     onPressed: () {
+        //       Navigator.of(context).pop();
+        //     },
+        //   ),
+        // ),
       ),
       body: _buildBody(context),
       resizeToAvoidBottomInset: false,
@@ -42,7 +43,6 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Widget _buildBody(BuildContext context) {
-    // double screenWidth = MediaQuery.sizeOf(context).width;
     return Center(
       child: Column(
         children: [
