@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
-import 'package:textdetection/core/constant/text_style.dart';
+import '../../constant/text_style.dart';
 
 import '../../constant/app_constants.dart';
 
@@ -11,14 +12,15 @@ class BuildOtpContainerUnit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.maxFinite,
-      height: 32.0,
+      width: MediaQuery.sizeOf(context).width,
       child: OTPTextField(
+          keyboardType: TextInputType.number,
+          otpFieldStyle: OtpFieldStyle(backgroundColor: Colors.white),
           length: AppConstants.numberOfOtpField,
           margin: AppConstants.customFormMargin,
           isDense: true,
           textFieldAlignment: MainAxisAlignment.spaceAround,
-          fieldWidth: 70.0,
+          fieldWidth: MediaQuery.sizeOf(context).width * .15,
           fieldStyle: FieldStyle.box,
           outlineBorderRadius: AppConstants.defaultCircularBorder,
           style: AppTextStyles.style22urbanist(),

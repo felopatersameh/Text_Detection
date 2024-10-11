@@ -8,5 +8,6 @@ class Assets {
   static const String pngWelcome2 = 'assets/png/welcome2.png';
   static const String pngWelcome3 = 'assets/png/welcome3.png';
   static const String splashLogo = 'assets/png/DetectiveLogo.png';
+  static const String arrow = 'assets/svg/back_arrow.svg';
 
 }

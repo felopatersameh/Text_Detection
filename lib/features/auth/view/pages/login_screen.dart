@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
-import 'package:textdetection/features/auth/view/pages/register_screen.dart';
-import '../../../../core/constant/app_images.dart';
-import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/utils/Widget/build_login_with_container.dart';
 import '../../../../core/utils/Widget/build_text_button.dart';

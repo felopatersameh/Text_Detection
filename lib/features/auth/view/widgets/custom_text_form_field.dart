@@ -35,6 +35,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         decoration: InputDecoration(
           hintText: widget.hint,
           border: OutlineInputBorder(
+            borderSide: BorderSide.none,
             borderRadius: BorderRadius.circular(
               AppConstants.defaultCircularBorder,
             ),

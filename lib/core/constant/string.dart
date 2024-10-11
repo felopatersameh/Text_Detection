@@ -12,6 +12,7 @@ class AppString {
   static const String userNameHint = 'Username';
   static const String emailHint = 'Email or Phone';
   static const String forgotPassword = "Forgot Password?";
+  static const String forgotPasswordMassage = "Don't worry! It occurs. Please enter the email address linked with your account.";
   static const String dontHaveAnAccount = "Don’t have an account? ";
   static const String registerNow = "Register Now";
   static const String haveAccount = "Already have an account? ";
@@ -28,4 +29,10 @@ class AppString {
   static const String createNewPasswordMessage =
       "Your new password must be unique from those previously used.";
   static const String newPasswordHint = "New Password";
+  static const String resetPasswordHint = "Reset Password";
+  static const String sendCode = "Send Code";
+  static const String rememberPassword = "Remember Password? ";
+  static const String changedPasswordHeader = "Password Changed!";
+  static const String changedPasswordHint = "Your password has been changed successfully.";
+  static const String backToLogIN = "Back to Login";
 }

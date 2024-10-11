@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/constant/string.dart';
-import 'package:textdetection/core/constant/text_style.dart';
+import '../../../../core/constant/string.dart';
+import '../../../../core/constant/text_style.dart';
 
-import '../../../../core/utils/Widget/build_otp_container_unit.dart';
 
 class BuildOtpContent extends StatelessWidget {
   const BuildOtpContent({super.key});
@@ -28,7 +27,6 @@ class BuildOtpContent extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 32.0),
-          BuildOtpContainerUnit(),
         ],
       ),
     );
