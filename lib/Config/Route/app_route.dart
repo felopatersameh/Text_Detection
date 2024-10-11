@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
 import 'package:textdetection/features/auth/view/pages/password_changed.dart';
+import 'package:textdetection/features/user/view/pages/account_page.dart';
 
 import '../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../features/auth/view/pages/login_screen.dart';
@@ -18,6 +19,7 @@ class AppRoutes {
   static const String createNewPassword = '/create_new_password_screen';
   static const String passwordChanged = '/password_changed_screen';
   static const String homeScreen = '/home_screen';
+  static const String accountScreen = '/account_screen';
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => const SplashScreen(),
@@ -28,6 +30,8 @@ class AppRoutes {
     createNewPassword: (_) => const CreateNewPasswordScreen(),
     passwordChanged: (_) => const PasswordChanged(),
     homeScreen: (_) => const HomeScreen(),
+    accountScreen: (_) => const AccountScreen(),
+
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
