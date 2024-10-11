@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:textdetection/features/auth/view/pages/create_new_password_screen.dart';
 import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
 import 'package:textdetection/features/auth/view/pages/register_screen.dart';
 import 'package:textdetection/features/splash/view/pages/splash_screen.dart';
 import 'Config/Themes/light.dart';
 import 'features/auth/view/pages/login_screen.dart';
+
+
 
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 
@@ -37,8 +40,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Text Detection',
           theme: themeLight(),
-          // home: const SplashScreen(),
-          home: const OtpVerificationScreen(),
+          home: LoginScreen(),
           debugShowCheckedModeBanner: false,
         ));
   }

@@ -4,7 +4,6 @@ import '../../../../core/utils/Validation/email_validate.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
 import '../../../../core/utils/Widget/build_default_button.dart';
-import '../../../../core/utils/Widget/confirm_password_tfm.dart';
 import '../../../../core/utils/Widget/password_text__form_field.dart';
 
 import '../pages/success_register_screen.dart';
@@ -58,12 +57,16 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             CustomPasswordTextFromField(
               controller: passwordController,
+              fieldId: "password1",
+              isLogin: false,
             ),
             const SizedBox(
               height: 12,
             ),
-            CustomConfirmPasswordTextFromField(
+            CustomPasswordTextFromField(
               controller: confirmController,
+              fieldId: "password2",
+              isLogin: false,
             ),
             const SizedBox(
               height: 32,
@@ -82,4 +85,3 @@ class _FormRegisterState extends State<FormRegister> {
     );
   }
 }
-
