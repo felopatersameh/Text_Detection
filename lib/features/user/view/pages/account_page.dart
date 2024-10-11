@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:textdetection/core/constant/app_images.dart';
+import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
 
 final userEmail = "Email@gmail.com";
@@ -54,6 +56,64 @@ class _AccountScreenState extends State<AccountScreen> {
             userName,
             style: TextStyle(fontSize: 14, color: AppColors.darkGray),
           ),
+          SizedBox(height: 51),
+          ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            children: [
+              Material(
+                elevation: 4,
+                child: ListTile(
+                  title: Text("Email"),
+                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  subtitle: Text(userEmail),
+                  subtitleTextStyle:
+                      TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                  tileColor: Colors.white,
+                  leading: SvgPicture.asset(AppAssets.accountEmail),
+                ),
+              ),
+              SizedBox(height: 30),
+              Material(
+                elevation: 4,
+                child: ListTile(
+                  title: Text("Themes"),
+                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  subtitle: Text("Light Theme"),
+                  subtitleTextStyle:
+                      TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                  tileColor: Colors.white,
+                  leading: SvgPicture.asset(AppAssets.accountTheme),
+                ),
+              ),
+              SizedBox(height: 30),
+              Material(
+                elevation: 4,
+                child: ListTile(
+                  title: Text("Language"),
+                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  subtitle: Text("English"),
+                  subtitleTextStyle:
+                      TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                  tileColor: Colors.white,
+                  leading: SvgPicture.asset(AppAssets.accountLanguage),
+                ),
+              ),
+              SizedBox(height: 30),
+              Material(
+                elevation: 4,
+                child: ListTile(
+                  title: Text("Account Settings"),
+                  titleTextStyle: TextStyle(fontSize: 12, color: Colors.black),
+                  // subtitle: Text(""),
+                  // subtitleTextStyle:
+                  // TextStyle(fontSize: 12, color: AppColors.mediumGray),
+                  tileColor: Colors.white,
+                  leading: SvgPicture.asset(AppAssets.accountSettings),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
