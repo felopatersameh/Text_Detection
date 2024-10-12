@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
-import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
-
-final _userEmail = "Email@gmail.com";
-final _userName = "User Name";
-final _userImage = "${AppImages.pngPath}welcome3.png";
+import 'package:textdetection/features/user/model/user_data_model.dart';
+import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -29,6 +27,13 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    context.read<AccountSettingsCubit>().initializeUserData();
+    super.initState();
+  }
+
   Widget _buildBody(BuildContext context) {
     return Center(
       child: Column(
@@ -39,12 +44,13 @@ class _AccountScreenState extends State<AccountScreen> {
             elevation: 10,
             child: CircleAvatar(
               radius: 70,
-              backgroundImage: AssetImage(_userImage),
+              backgroundImage: AssetImage(
+                  context.watch<AccountSettingsCubit>().state.imageUrl),
             ),
           ),
           SizedBox(height: 20),
           Text(
-            _userName,
+            context.watch<AccountSettingsCubit>().state.name,
             style: TextStyle(fontSize: 18, color: AppColors.darkGray),
           ),
           SizedBox(height: 30),
@@ -60,7 +66,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: ListTile(
                   title: Text("Email"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  subtitle: Text(_userEmail),
+                  subtitle: Text(UserDataModel.email),
                   subtitleTextStyle:
                       TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
