@@ -1,17 +1,22 @@
 class UserDataModel {
-  static String? userName;
-  static String? userPassword;
-  static String? imageLink;
+  static String? _name;
+  static String? _email;
+  static String? _password;
+  static String? _imageUrl;
 
-  String? get name => userName;
+  static String? get name => _name;
 
-  String? get password => userPassword;
+  static String? get email => _email;
 
-  String? get imageUrl => imageLink;
+  static String? get password => _password;
 
-  set name(value) => userName = value;
+  static String? get imageUrl => _imageUrl;
 
-  set password(value) => userPassword = value;
+  static set name(value) => _name = value;
 
-  set imageUrl(value) => imageLink = value;
+  static set email(value) => _email = value;
+
+  static set password(value) => _password = value;
+
+  static set imageUrl(value) => _imageUrl = value;
 }
