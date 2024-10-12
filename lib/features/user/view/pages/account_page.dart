@@ -4,7 +4,6 @@ import 'package:textdetection/Config/Route/app_route.dart';
 import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
-import 'package:textdetection/features/user/view/pages/settings_page.dart';
 
 final _userEmail = "Email@gmail.com";
 final _userName = "User Name";
@@ -120,7 +119,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6)),
                   onTap: () {
-                    Navigator.pushNamed(context, AppRoutes.accountSettingsScreen);
+                    Navigator.pushNamed(
+                        context, AppRoutes.accountSettingsScreen);
                   },
                 ),
               ),
