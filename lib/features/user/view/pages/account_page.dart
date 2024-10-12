@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:textdetection/Config/Route/app_route.dart';
 import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
+import 'package:textdetection/features/user/view/pages/settings_page.dart';
 
 final _userEmail = "Email@gmail.com";
 final _userName = "User Name";
@@ -22,20 +24,6 @@ class _AccountScreenState extends State<AccountScreen> {
         title: Text("My Account"),
         centerTitle: true,
         leading: SizedBox(),
-        // leading: Container(
-        //   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-        //   decoration: BoxDecoration(
-        //     color: Colors.white,
-        //     borderRadius: BorderRadius.circular(4),
-        //   ),
-        //   child: IconButton(
-        //     padding: EdgeInsets.all(10),
-        //     icon: Icon(Icons.arrow_back_ios),
-        //     onPressed: () {
-        //       Navigator.of(context).pop();
-        //     },
-        //   ),
-        // ),
       ),
       body: _buildBody(context),
       resizeToAvoidBottomInset: false,
@@ -80,6 +68,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   leading: SvgPicture.asset(AppAssets.accountEmail),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6)),
+                  onTap: () {},
                 ),
               ),
               SizedBox(height: 30),
@@ -97,6 +86,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   leading: SvgPicture.asset(AppAssets.accountTheme),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6)),
+                  onTap: () {},
                 ),
               ),
               SizedBox(height: 30),
@@ -114,6 +104,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   leading: SvgPicture.asset(AppAssets.accountLanguage),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6)),
+                  onTap: () {},
                 ),
               ),
               SizedBox(height: 30),
@@ -124,13 +115,13 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: ListTile(
                   title: Text("Account Settings"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  // subtitle: Text(""),
-                  // subtitleTextStyle:
-                  // TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
                   leading: SvgPicture.asset(AppAssets.accountSettings),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6)),
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.accountSettingsScreen);
+                  },
                 ),
               ),
             ],
