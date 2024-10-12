@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/back_arrow.dart';
-import '../widgets/body_register.dart';
+import '../widgets/Body/body_register.dart';
 
 late double screenWidth;
 late double textScaleFactor;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/constant/field_id_password.dart';
 import '../../model/register_model.dart';
 import '../../../../core/constant/app_constants.dart';
-import '../../../../core/utils/Validation/email_validate.dart';
+import '../../../../core/utils/Validation/validate_email_password.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
 import '../../../../core/utils/Widget/build_default_button.dart';
@@ -51,7 +51,7 @@ class _FormRegisterState extends State<FormRegister> {
             CustomTextFormField(
               hint: AppString.emailHint,
               controller: emailController,
-              validator: (p0) => validateEmail(email: p0),
+              validator: (p0) => validateEmailOrPassword(input: p0),
             ),
             const SizedBox(
               height: 12,
