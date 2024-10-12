@@ -24,14 +24,14 @@ class IntroCustomBody extends StatelessWidget {
           child: Image.asset(
             fit: BoxFit.fitWidth,
             imageUrl,
-            height: 450,
+            width: MediaQuery.sizeOf(context).height*.5,
           ),
         ),
         Container(
           alignment: Alignment.bottomCenter,
           width:MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(30),
-          height: 240,
+          height: MediaQuery.sizeOf(context).height*.25,
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: BorderRadius.only(
