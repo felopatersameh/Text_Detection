@@ -1,6 +1,5 @@
 part of 'account_settings_cubit.dart';
 
-@immutable
 sealed class AccountSettingsState {
   String name = UserDataModel.name;
   String email = UserDataModel.email;
