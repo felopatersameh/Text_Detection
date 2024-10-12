@@ -74,7 +74,10 @@ class _SplashScreenState extends State<SplashScreen>
               builder: (context, child) {
                 return Transform.scale(
                   scale: _scaleAnimation.value,
-                  child: Image.asset(Assets.splashLogo),
+                  child: Image.asset(
+                    Assets.splashLogo,
+                    width: MediaQuery.sizeOf(context).width * .5,
+                  ),
                 );
               },
             ),
