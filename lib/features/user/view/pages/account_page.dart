@@ -4,9 +4,9 @@ import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
 
-final userEmail = "Email@gmail.com";
-final userName = "User Name";
-final userImage = "${AppImages.pngPath}welcome3.png";
+final _userEmail = "Email@gmail.com";
+final _userName = "User Name";
+final _userImage = "${AppImages.pngPath}welcome3.png";
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -52,12 +52,12 @@ class _AccountScreenState extends State<AccountScreen> {
             elevation: 10,
             child: CircleAvatar(
               radius: 70,
-              backgroundImage: AssetImage(userImage),
+              backgroundImage: AssetImage(_userImage),
             ),
           ),
           SizedBox(height: 20),
           Text(
-            userName,
+            _userName,
             style: TextStyle(fontSize: 18, color: AppColors.darkGray),
           ),
           SizedBox(height: 30),
@@ -73,7 +73,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 child: ListTile(
                   title: Text("Email"),
                   titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  subtitle: Text(userEmail),
+                  subtitle: Text(_userEmail),
                   subtitleTextStyle:
                       TextStyle(fontSize: 14, color: AppColors.mediumGray),
                   tileColor: Colors.white,
