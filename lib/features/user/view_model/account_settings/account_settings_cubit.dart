@@ -7,6 +7,16 @@ part 'account_settings_state.dart';
 class AccountSettingsCubit extends Cubit<AccountSettingsState> {
   AccountSettingsCubit() : super(AccountSettingsInitial());
 
+  void initializeUserData() {
+    /// TODO get data from firebase
+    UserDataModel.name;
+    UserDataModel.email;
+    UserDataModel.password;
+    UserDataModel.imageUrl;
+
+    emit(InitializedUser());
+  }
+
   void changeUserName(String newName) {
     UserDataModel.name = newName;
     emit(UserNameChanged());

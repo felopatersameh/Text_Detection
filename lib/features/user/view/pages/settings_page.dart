@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/utils/Widget/build_default_button.dart';
 import 'package:textdetection/core/utils/extension/responsive/WidthExtension.dart';
+import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import '../../../../core/constant/assets.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/utils/Widget/password_text__form_field.dart';
 import '../../../auth/view/widgets/custom_text_form_field.dart';
-
-final _userName = "User Name";
-final _userPassword = "12345";
 
 class AccountSettingsScreen extends StatefulWidget {
   const AccountSettingsScreen({super.key});
@@ -44,9 +44,11 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     );
   }
 
+  final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+  final imageUrlController = TextEditingController();
+
   Widget _buildBody(BuildContext context) {
-    var passwordController = TextEditingController();
-    var nameController = TextEditingController();
     return Center(
       child: Column(
         children: [
@@ -66,7 +68,8 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                       "Change User Name",
                     ),
                     subtitle: Text(
-                      _userName,
+                      // UserDataModel.name,
+                      context.watch<AccountSettingsCubit>().state.name,
                       style: TextStyle(color: AppColors.mediumGray),
                     ),
                     backgroundColor: Colors.amberAccent,
@@ -130,7 +133,34 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: BuildCustomButton(
               text: "Save Changes",
-              onPressed: () {},
+              onPressed: () {
+                if (nameController.text.isNotEmpty) {
+                  context
+                      .read<AccountSettingsCubit>()
+                      .changeUserName(nameController.text);
+                }
+
+                if (passwordController.text.isNotEmpty) {
+                  context
+                      .read<AccountSettingsCubit>()
+                      .changePassword(passwordController.text);
+                }
+                if (imageUrlController.text.isNotEmpty) {
+                  context
+                      .read<AccountSettingsCubit>()
+                      .changePassword(imageUrlController.text);
+                }
+
+                /// Todo this image here is for test only
+                context
+                    .read<AccountSettingsCubit>()
+                    .changeImage("${AppImages.pngPath}welcome3.png");
+                ///
+
+                nameController.clear();
+                passwordController.clear();
+                imageUrlController.clear();
+              },
             ),
           )
         ],
