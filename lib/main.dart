@@ -4,6 +4,7 @@ import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
 
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
+import 'features/auth/view_model/authentication/authentication_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => PasswordVisibilityCubit(),
+          ),
+          BlocProvider(
+            create: (context) => AuthenticationCubit(),
           ),
         ],
         child: MaterialApp(
