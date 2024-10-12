@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:textdetection/features/user/model/user_data_model.dart';
 
 part 'account_settings_state.dart';

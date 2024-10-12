@@ -6,6 +6,9 @@ class UserDataModel {
   static String _password = '';
   static String _imageUrl = AppAssets.accountNoProfileImage;
 
+  // Private Constructor
+  UserDataModel._();
+
   static String get name => _name;
 
   static String get email => _email;
