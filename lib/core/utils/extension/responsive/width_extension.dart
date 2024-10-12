@@ -12,6 +12,9 @@ class SizeConfig {
   static const figmaDesignWidth = 428;
   static const figmaDesignHeight = 926;
 
+  // Private Constructor
+  SizeConfig._();
+
   static void init(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
     screenHeight = MediaQuery.of(context).size.height;

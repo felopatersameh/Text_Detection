@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/utils/Widget/build_default_button.dart';
-import 'package:textdetection/core/utils/extension/responsive/WidthExtension.dart';
+import 'package:textdetection/core/utils/extension/responsive/width_extension.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import '../../../../core/constant/assets.dart';
