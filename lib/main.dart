@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) => PasswordVisibilityCubit(),
+          ),
+          BlocProvider(
+            create: (context) => AccountSettingsCubit(),
           ),
         ],
         child: MaterialApp(
