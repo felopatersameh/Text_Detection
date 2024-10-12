@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
+import '../../../../core/constant/field_id_password.dart';
 import "../../../../core/utils/Widget/build_default_button.dart";
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
@@ -48,12 +49,12 @@ class _FormNewPasswordState extends State<FormNewPassword> {
             ),
             CustomPasswordTextFromField(
               controller: newPasswordController,
-              fieldId: "ChangePassword",
+              fieldId: FieldIdPassword.changePassword1,
               isLogin: false,
             ),
             CustomPasswordTextFromField(
               controller: newPasswordController,
-              fieldId: "SecondChangePassword",
+              fieldId: FieldIdPassword.changePassword2,
               isLogin: false,
               hintText: AppString.confirmPasswordHint,
             ),

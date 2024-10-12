@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:textdetection/core/constant/assets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../constant/assets.dart';
+import '../../../features/auth/view_model/authentication/authentication_cubit.dart';
 
 import '../../../features/auth/view/widgets/custom_login_with_container.dart';
 
@@ -13,31 +14,23 @@ class BuildLoginWithContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomLoginWith(
-          svgPicture: SvgPicture.asset(
-            AppAssets.loginWithFacebook,
-            width: 26.0,
-            height: 26.0,
-          ),
+          onPressed: () =>
+              context.read<AuthenticationCubit>().loginByFacebook(),
+          svgPicture: AppAssets.loginWithFacebook,
         ),
         const SizedBox(
           width: 8.0,
         ),
         CustomLoginWith(
-          svgPicture: SvgPicture.asset(
-            AppAssets.loginWithGoogle,
-            width: 26.0,
-            height: 26.0,
-          ),
+          onPressed: () => context.read<AuthenticationCubit>().loginByGoogle(),
+          svgPicture: AppAssets.loginWithGoogle,
         ),
         const SizedBox(
           width: 8.0,
         ),
         CustomLoginWith(
-          svgPicture: SvgPicture.asset(
-            AppAssets.loginWithApple,
-            width: 26.0,
-            height: 26.0,
-          ),
+          onPressed: () => context.read<AuthenticationCubit>().loginByApple(),
+          svgPicture: AppAssets.loginWithApple,
         ),
       ],
     );

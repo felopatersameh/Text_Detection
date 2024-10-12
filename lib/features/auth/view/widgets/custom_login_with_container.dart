@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:textdetection/core/constant/app_constants.dart';
-import 'package:textdetection/core/constant/colors.dart';
+import '../../../../core/constant/app_constants.dart';
+import '../../../../core/constant/colors.dart';
 
 class CustomLoginWith extends StatelessWidget {
-final SvgPicture svgPicture;
-const CustomLoginWith({super.key, required this.svgPicture});
+final String svgPicture;
+final VoidCallback onPressed;
+const CustomLoginWith({super.key, required this.svgPicture, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +21,13 @@ const CustomLoginWith({super.key, required this.svgPicture});
               BorderRadius.circular(AppConstants.defaultCircularBorder),
         ),
       ),
-      child: IconButton(
-          onPressed: () {
-           // TODO:
-          },
-          icon: svgPicture,
+      child: GestureDetector(
+          onTap:onPressed,
+          child:  SvgPicture.asset(
+            svgPicture,
+            width: 26.0,
+            height: 26.0,
+          ),
           ),
       );
   }

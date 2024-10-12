@@ -1,0 +1,1 @@
+class FieldIdPassword {  static const String  password1Register ="password1";  static const String  password2Register ="password2";  static const String  changePassword1 ="ChangePassword1";  static const String  changePassword2 ="ChangePassword2";}

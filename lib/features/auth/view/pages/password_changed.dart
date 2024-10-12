@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/Config/Route/app_route.dart';
-import 'package:textdetection/core/constant/app_constants.dart';
-import 'package:textdetection/core/utils/Widget/build_default_button.dart';
+import '../../../../Config/Route/app_route.dart';
+import '../../../../core/constant/app_constants.dart';
+import '../../../../core/utils/Widget/build_default_button.dart';
 
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';

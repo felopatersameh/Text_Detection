@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constant/field_id_password.dart';
+import '../../model/register_model.dart';
 import '../../../../core/constant/app_constants.dart';
 import '../../../../core/utils/Validation/email_validate.dart';
 import '../../../../core/constant/string.dart';
@@ -6,7 +8,6 @@ import '../../../../core/constant/text_style.dart';
 import '../../../../core/utils/Widget/build_default_button.dart';
 import '../../../../core/utils/Widget/password_text__form_field.dart';
 
-import '../pages/success_register_screen.dart';
 import '../widgets/custom_text_form_field.dart';
 
 class FormRegister extends StatefulWidget {
@@ -57,7 +58,7 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             CustomPasswordTextFromField(
               controller: passwordController,
-              fieldId: "password1",
+              fieldId: FieldIdPassword.password1Register,
               isLogin: false,
             ),
             const SizedBox(
@@ -65,7 +66,7 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             CustomPasswordTextFromField(
               controller: confirmController,
-              fieldId: "password2",
+              fieldId: FieldIdPassword.password2Register,
               isLogin: false,
             ),
             const SizedBox(
@@ -73,11 +74,14 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             BuildCustomButton(
               text: AppString.registerName,
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const SuccessRegister(),
-                ),
-              ),
+              onPressed: () {
+                final account = RegisterModel(
+                  name: usernameController.text,
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
