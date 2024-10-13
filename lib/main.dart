@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'package:textdetection/core/utils/extension/responsive/responsice_extension.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 import 'Config/Route/app_route.dart';
