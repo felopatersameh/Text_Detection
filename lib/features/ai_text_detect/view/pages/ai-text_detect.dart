@@ -10,19 +10,17 @@ class AiTextDetect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leading: CustomBackButton(),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 40.0),
-          child: Column(
-            children: [
-              UploadImageContainer(),
-              FileList(),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: CustomBackButton(),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 40.0),
+        child: Column(
+          children: [
+            UploadImageContainer(),
+            FileList(),
+          ],
         ),
       ),
     );

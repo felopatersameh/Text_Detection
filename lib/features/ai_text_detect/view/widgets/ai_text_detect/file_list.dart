@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:textdetection/features/ai_text_detect/view/pages/extracted_text.dart';
 import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_process.dart';
 
 import '../../../../../core/constant/colors.dart';
@@ -39,7 +40,10 @@ class FileList extends StatelessWidget {
           color: AppColors.drakBlue,
           height: 0.12,
           onPressed: () {
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ExtractedText()),
+            );
           },
         ),
       ],
