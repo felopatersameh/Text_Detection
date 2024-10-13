@@ -30,7 +30,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: TextFormField(
-        style: AppTextStyles.style16xW500(),
         controller: widget.controller,
         decoration: InputDecoration(
           hintText: widget.hint,
@@ -40,6 +39,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               AppConstants.defaultCircularBorder,
             ),
           ),
+          hintStyle: AppTextStyles.style16xW500(),
           suffixIcon: widget.suffixIcon,
           filled: true,
           fillColor: AppColors.offWhite,
