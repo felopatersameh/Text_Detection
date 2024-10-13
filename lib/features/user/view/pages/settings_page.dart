@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/utils/Widget/build_default_button.dart';
-import 'package:textdetection/core/utils/extension/responsive/width_extension.dart';
+import 'package:textdetection/core/utils/extension/responsive/responsice_extension.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import '../../../../core/constant/assets.dart';
@@ -50,18 +50,23 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
 
   Widget _buildBody(BuildContext context) {
     return Center(
+      // child: Column(
+      //   children: [
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: ListView(
+              // physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              padding: EdgeInsets.symmetric(horizontal: 50.w),
+              padding: EdgeInsets.symmetric(horizontal: 40.w),
               children: [
-                SizedBox(height: 60.w),
+                // SizedBox(height: 60.w),
+                60.h.verticalSpace,
                 Material(
-                  elevation: 4,
+                  elevation: 4.w,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
+                    borderRadius: BorderRadius.circular(6.w),
                   ),
                   child: ExpansionTile(
                     title: Text(
@@ -76,7 +81,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     collapsedBackgroundColor: Colors.white,
                     leading: SvgPicture.asset(AppAssets.accountEmail),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(6.w)),
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -88,11 +93,12 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                // SizedBox(height: 30),
+                30.h.verticalSpace,
                 Material(
-                  elevation: 4,
+                  elevation: 4.w,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
+                      borderRadius: BorderRadius.circular(6.w)),
                   child: ExpansionTile(
                     title: Text(
                       "Change Password",
@@ -101,7 +107,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     collapsedBackgroundColor: Colors.white,
                     leading: Icon(Icons.lock),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(6.w)),
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -112,17 +118,18 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                // SizedBox(height: 30),
+                30.h.verticalSpace,
                 Material(
-                  elevation: 4,
+                  elevation: 4.w,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
+                      borderRadius: BorderRadius.circular(6.w)),
                   child: ListTile(
                     title: Text("Change Profile Image"),
                     tileColor: Colors.white,
                     leading: Icon(Icons.image_outlined),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(6.w)),
                     onTap: () {},
                   ),
                 ),
@@ -155,6 +162,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                 context
                     .read<AccountSettingsCubit>()
                     .changeImage("${AppImages.pngPath}welcome3.png");
+
                 ///
 
                 nameController.clear();

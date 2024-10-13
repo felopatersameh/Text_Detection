@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/utils/extension/responsive/width_extension.dart';
 
 class ResponsiveDesignService {
   static ResponsiveDesignService? _instance;
@@ -17,7 +16,6 @@ class ResponsiveDesignService {
   // Initialize with BuildContext
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
-    SizeConfig.init(context);
   }
 
   // Get screen width

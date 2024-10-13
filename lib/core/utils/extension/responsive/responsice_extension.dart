@@ -4,6 +4,10 @@ extension WidthExtension on num {
   double get w => this * SizeConfig.screenWidth / SizeConfig.figmaDesignWidth;
 
   double get h => this * SizeConfig.screenHeight / SizeConfig.figmaDesignHeight;
+
+  SizedBox get verticalSpace => SizedBox(height: this.toDouble());
+
+  SizedBox get horizontalSpace => SizedBox(width: this.toDouble());
 }
 
 class SizeConfig {
