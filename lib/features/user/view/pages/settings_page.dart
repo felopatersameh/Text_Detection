@@ -156,7 +156,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                       .changeUserName(_nameController.text);
                 }
 
-                if (_passFormKey.currentState!.validate()) {
+                if (_passwordController.text.isNotEmpty && _passFormKey.currentState!.validate()) {
                   context
                       .read<AccountSettingsCubit>()
                       .changePassword(_passwordController.text);
