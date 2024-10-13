@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
+import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'package:textdetection/features/user/model/user_data_model.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
@@ -35,104 +36,102 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          SizedBox(height: 22),
-          Material(
-            shape: CircleBorder(),
-            elevation: 10,
-            child: CircleAvatar(
-              radius: 70,
-              backgroundImage: AssetImage(
-                  context.watch<AccountSettingsCubit>().state.imageUrl),
+    SizeConfig.init(context);
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 50.w),
+        child: Column(
+          children: [
+            20.h.verticalSpace,
+            Material(
+              shape: CircleBorder(),
+              elevation: 10.w,
+              child: CircleAvatar(
+                radius:
+                    MediaQuery.orientationOf(context) == Orientation.portrait
+                        ? 70.w
+                        : 40.w,
+                backgroundImage: AssetImage(
+                    context.watch<AccountSettingsCubit>().state.imageUrl),
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            context.watch<AccountSettingsCubit>().state.name,
-            style: TextStyle(fontSize: 18, color: AppColors.darkGray),
-          ),
-          SizedBox(height: 30),
-          ListView(
-            shrinkWrap: true,
-            padding: EdgeInsets.symmetric(horizontal: 50),
-            children: [
-              Material(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: ListTile(
-                  title: Text("Email"),
-                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  subtitle: Text(UserDataModel.email),
-                  subtitleTextStyle:
-                      TextStyle(fontSize: 14, color: AppColors.mediumGray),
-                  tileColor: Colors.white,
-                  leading: SvgPicture.asset(AppAssets.accountEmail),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
-                  onTap: () {},
-                ),
+            20.h.verticalSpace,
+            Text(
+              context.watch<AccountSettingsCubit>().state.name,
+              style: TextStyle(fontSize: 18, color: AppColors.darkGray),
+            ),
+            30.h.verticalSpace,
+            Material(
+              elevation: 4.w,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(6.w),
               ),
-              SizedBox(height: 30),
-              Material(
-                elevation: 4,
+              child: ListTile(
+                title: Text("Email"),
+                titleTextStyle: TextStyle(color: Colors.black),
+                subtitle: Text(UserDataModel.email),
+                subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
+                tileColor: Colors.white,
+                leading: SvgPicture.asset(AppAssets.accountEmail),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6)),
-                child: ListTile(
-                  title: Text("Themes"),
-                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  subtitle: Text("Light Theme"),
-                  subtitleTextStyle:
-                      TextStyle(fontSize: 14, color: AppColors.mediumGray),
-                  tileColor: Colors.white,
-                  leading: SvgPicture.asset(AppAssets.accountTheme),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
-                  onTap: () {},
-                ),
+                    borderRadius: BorderRadius.circular(6.w)),
+                onTap: () {},
               ),
-              SizedBox(height: 30),
-              Material(
-                elevation: 4,
+            ),
+            30.h.verticalSpace,
+            Material(
+              elevation: 4.w,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6.w)),
+              child: ListTile(
+                title: Text("Themes"),
+                titleTextStyle: TextStyle(color: Colors.black),
+                subtitle: Text("Light Theme"),
+                subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
+                tileColor: Colors.white,
+                leading: SvgPicture.asset(AppAssets.accountTheme),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6)),
-                child: ListTile(
-                  title: Text("Language"),
-                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  subtitle: Text("English"),
-                  subtitleTextStyle:
-                      TextStyle(fontSize: 14, color: AppColors.mediumGray),
-                  tileColor: Colors.white,
-                  leading: SvgPicture.asset(AppAssets.accountLanguage),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
-                  onTap: () {},
-                ),
+                    borderRadius: BorderRadius.circular(6.w)),
+                onTap: () {},
               ),
-              SizedBox(height: 30),
-              Material(
-                elevation: 4,
+            ),
+            30.h.verticalSpace,
+            Material(
+              elevation: 4.w,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6.w)),
+              child: ListTile(
+                title: Text("Language"),
+                titleTextStyle: TextStyle(color: Colors.black),
+                subtitle: Text("English"),
+                subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
+                tileColor: Colors.white,
+                leading: SvgPicture.asset(AppAssets.accountLanguage),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6)),
-                child: ListTile(
-                  title: Text("Account Settings"),
-                  titleTextStyle: TextStyle(fontSize: 14, color: Colors.black),
-                  tileColor: Colors.white,
-                  leading: SvgPicture.asset(AppAssets.accountSettings),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6)),
-                  onTap: () {
-                    Navigator.pushNamed(
-                        context, AppRoutes.accountSettingsScreen);
-                  },
-                ),
+                    borderRadius: BorderRadius.circular(6.w)),
+                onTap: () {},
               ),
-            ],
-          )
-        ],
+            ),
+            30.h.verticalSpace,
+            Material(
+              elevation: 4.w,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6.w)),
+              child: ListTile(
+                title: Text("Account Settings"),
+                titleTextStyle: TextStyle(color: Colors.black),
+                tileColor: Colors.white,
+                leading: SvgPicture.asset(AppAssets.accountSettings),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6.w)),
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.accountSettingsScreen);
+                },
+              ),
+            ),
+            30.h.verticalSpace,
+          ],
+        ),
       ),
     );
   }
