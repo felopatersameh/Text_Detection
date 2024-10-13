@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 import 'package:textdetection/core/constant/assets.dart';
@@ -41,7 +44,22 @@ class UploadImageContainer extends StatelessWidget {
                 color: AppColors.drakBlue,
                 height: 0.1,
                 width: 0.5,
-                onPressed: () {},
+                onPressed: () async {
+                  FilePickerResult? result = await FilePicker.platform.pickFiles(
+                    type: FileType.custom,
+                    allowedExtensions: ['jpg', 'png', 'jpeg','pdf','doc'],
+                  );
+                  if (result != null) {
+                    PlatformFile file = result.files.first;
+                    print(file.name);
+                    print(file.bytes);
+                    print(file.size);
+                    print(file.extension);
+                    print(file.path);
+                  } else {
+                    // User canceled the picker
+                  }
+                },
           ),
         ],
       ),

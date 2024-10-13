@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/constant/colors.dart';
 import 'package:textdetection/core/utils/Widget/custom_back_button.dart';
 import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_image_container.dart';
-import '../../../../core/constant/app_constants.dart';
 import '../widgets/ai_text_detect/file_list.dart';
 
 class AiTextDetect extends StatelessWidget {
