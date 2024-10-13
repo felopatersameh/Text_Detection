@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:textdetection/core/utils/extension/responsive/responsice_extension.dart';
 import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MultiBlocProvider(
         providers: [
           BlocProvider(
