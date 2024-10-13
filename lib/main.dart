@@ -6,7 +6,6 @@ import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.da
 
 void main() {
   runApp(const MyApp());
-
   /*
  Future<void> main() async {
   await Firebase.initializeApp(
