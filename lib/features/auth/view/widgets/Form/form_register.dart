@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/constant/field_id_password.dart';
 import '../../../model/register_model.dart';
 import '../../../../../core/constant/app_constants.dart';
@@ -41,9 +42,7 @@ class _FormRegisterState extends State<FormRegister> {
               hint: AppString.userNameHint,
               controller: usernameController,
             ),
-            const SizedBox(
-              height: 12,
-            ),
+            12.verticalSpace,
             CustomTextFormField(
               hint: AppString.emailHint,
               controller: emailController,
@@ -57,17 +56,14 @@ class _FormRegisterState extends State<FormRegister> {
               fieldId: FieldIdPassword.password1Register,
               isLogin: false,
             ),
-            const SizedBox(
-              height: 12,
-            ),
+            12.verticalSpace,
             CustomPasswordTextFromField(
               controller: confirmController,
               fieldId: FieldIdPassword.password2Register,
               isLogin: false,
             ),
-            const SizedBox(
-              height: 32,
-            ),
+            12.verticalSpace,
+
             BuildCustomButton(
               text: AppString.registerName,
               onPressed: () {

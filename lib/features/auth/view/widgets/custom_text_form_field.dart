@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/core/constant/text_style.dart';
 
 import '../../../../core/constant/app_constants.dart';
@@ -28,17 +29,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.only(bottom: 15).r,
       child: TextFormField(
         controller: widget.controller,
         decoration: InputDecoration(
           hintText: widget.hint,
           border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(
-              AppConstants.defaultCircularBorder,
-            ),
-          ),
+              borderSide: BorderSide.none,
+              borderRadius: AppConstants.defaultCircularBorder),
           hintStyle: AppTextStyles.style16xW500(),
           suffixIcon: widget.suffixIcon,
           filled: true,

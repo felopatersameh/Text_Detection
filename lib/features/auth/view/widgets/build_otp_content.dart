@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constant/text_style.dart';
 
 class BuildContentHeader extends StatelessWidget {
@@ -18,14 +19,14 @@ class BuildContentHeader extends StatelessWidget {
           style: AppTextStyles.style30(),
           maxLines: textHeader.length,
         ),
-        const SizedBox(height: 12.0),
+        12.verticalSpace,
         if (textDescription != null)
           Text(
             textDescription!,
             style: AppTextStyles.style14(),
             maxLines: textDescription!.length,
           ),
-        const SizedBox(height: 32.0),
+        32.verticalSpace,
       ],
     );
   }

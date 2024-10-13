@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
@@ -19,10 +20,10 @@ class BuildOtpContainerUnit extends StatelessWidget {
           length: AppConstants.numberOfOtpField,
           margin: AppConstants.customFormMargin,
           isDense: true,
-          textFieldAlignment: MainAxisAlignment.spaceAround,
-          fieldWidth: MediaQuery.sizeOf(context).width * .15,
+          textFieldAlignment: MainAxisAlignment.spaceEvenly,
+          fieldWidth: .15.sw,
           fieldStyle: FieldStyle.box,
-          outlineBorderRadius: AppConstants.defaultCircularBorder,
+          outlineBorderRadius: 8,
           style: AppTextStyles.style22urbanist(),
           onChanged: (pin) {},
           // ToDo

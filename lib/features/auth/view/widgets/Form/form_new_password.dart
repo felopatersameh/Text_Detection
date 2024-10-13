@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../Config/Route/app_route.dart';
 import '../../../../../core/constant/field_id_password.dart';
 import "../../../../../core/utils/Widget/build_default_button.dart";
@@ -31,14 +32,15 @@ class _FormNewPasswordState extends State<FormNewPassword> {
             maxLines: AppString.createNewPasswordHeader.length,
             style: AppTextStyles.style30(),
           ),
-          SizedBox(height: 12.0),
+          12.verticalSpace,
+
           Text(
             AppString.createNewPasswordMessage,
             style: AppTextStyles.style14(),
             maxLines: AppString.createNewPasswordMessage.length,
             overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(height: 32),
+          32.verticalSpace,
           CustomPasswordTextFromField(
             controller: newPasswordController,
             fieldId: FieldIdPassword.changePassword1,
@@ -51,7 +53,7 @@ class _FormNewPasswordState extends State<FormNewPassword> {
             hintText: AppString.confirmPasswordHint,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 32, bottom: 32),
+            padding: const EdgeInsets.only(top: 32, bottom: 32).r,
             child: BuildCustomButton(
               text: AppString.resetPasswordHint,
               onPressed: () {
