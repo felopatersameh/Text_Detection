@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/core/constant/app_images.dart';
+import 'package:textdetection/core/utils/Validation/custom_validation.dart';
 import 'package:textdetection/core/utils/Widget/build_default_button.dart';
 import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
@@ -44,24 +45,22 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     );
   }
 
-  final passwordController = TextEditingController();
-  final nameController = TextEditingController();
-  final imageUrlController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _imageUrlController = TextEditingController();
+  final GlobalKey<FormState> _passFormKey = GlobalKey<FormState>();
 
   Widget _buildBody(BuildContext context) {
+    SizeConfig.init(context);
     return Center(
-      // child: Column(
-      //   children: [
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: ListView(
-              // physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.symmetric(horizontal: 40.w),
               children: [
-                // SizedBox(height: 60.w),
                 60.h.verticalSpace,
                 Material(
                   elevation: 4.w,
@@ -85,15 +84,20 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: CustomTextFormField(
-                          hint: "Enter Your Name",
-                          controller: nameController,
+                        child: Form(
+                          autovalidateMode: AutovalidateMode.onUnfocus,
+                          child: CustomTextFormField(
+                            hint: "Enter Your Name",
+                            controller: _nameController,
+                            validator: (p0) {
+                              return customValidate(value: p0.toString());
+                            },
+                          ),
                         ),
                       )
                     ],
                   ),
                 ),
-                // SizedBox(height: 30),
                 30.h.verticalSpace,
                 Material(
                   elevation: 4.w,
@@ -110,15 +114,19 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                         borderRadius: BorderRadius.circular(6.w)),
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: CustomPasswordTextFromField(
-                            controller: passwordController,
-                            fieldId: "settingsPass"),
+                        padding: EdgeInsets.symmetric(horizontal: 12.w),
+                        child: Form(
+                          key: _passFormKey,
+                          autovalidateMode: AutovalidateMode.onUnfocus,
+                          child: CustomPasswordTextFromField(
+                            controller: _passwordController,
+                            fieldId: "settingsPass",
+                          ),
+                        ),
                       )
                     ],
                   ),
                 ),
-                // SizedBox(height: 30),
                 30.h.verticalSpace,
                 Material(
                   elevation: 4.w,
@@ -133,6 +141,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     onTap: () {},
                   ),
                 ),
+                30.h.verticalSpace,
               ],
             ),
           ),
@@ -141,21 +150,21 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
             child: BuildCustomButton(
               text: "Save Changes",
               onPressed: () {
-                if (nameController.text.isNotEmpty) {
+                if (_nameController.text.isNotEmpty) {
                   context
                       .read<AccountSettingsCubit>()
-                      .changeUserName(nameController.text);
+                      .changeUserName(_nameController.text);
                 }
 
-                if (passwordController.text.isNotEmpty) {
+                if (_passFormKey.currentState!.validate()) {
                   context
                       .read<AccountSettingsCubit>()
-                      .changePassword(passwordController.text);
+                      .changePassword(_passwordController.text);
                 }
-                if (imageUrlController.text.isNotEmpty) {
+                if (_imageUrlController.text.isNotEmpty) {
                   context
                       .read<AccountSettingsCubit>()
-                      .changePassword(imageUrlController.text);
+                      .changePassword(_imageUrlController.text);
                 }
 
                 /// Todo this image here is for test only
@@ -164,10 +173,9 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                     .changeImage("${AppImages.pngPath}welcome3.png");
 
                 ///
-
-                nameController.clear();
-                passwordController.clear();
-                imageUrlController.clear();
+                _nameController.clear();
+                _passwordController.clear();
+                _imageUrlController.clear();
               },
             ),
           )
