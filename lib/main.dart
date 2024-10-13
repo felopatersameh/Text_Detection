@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:textdetection/core/utils/ResponsiveServices/responsive-design-service.dart';
-import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
-
+import 'package:textdetection/core/utils/extension/responsive/responsice_extension.dart';
 import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
+
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 
 void main() {
@@ -27,21 +26,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ResponsiveDesignService.getInstance().init(context);
+    SizeConfig.init(context);
     return MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => PasswordVisibilityCubit(),
-          ),
-          BlocProvider(
-            create: (context) => AccountSettingsCubit(),
           ),
         ],
         child: MaterialApp(
           title: 'Text Detection',
           theme: themeLight(),
           initialRoute: AppRoutes.loginScreen,
-          // initialRoute: AppRoutes.accountScreen,
           onGenerateRoute: AppRoutes.generateRoute,
           debugShowCheckedModeBanner: false,
         ));
