@@ -13,7 +13,6 @@ class OtpVerificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: backArrow(context),
       body: BodyOtp(phone??"5"),
-      resizeToAvoidBottomInset: false,
     );
   }
 }

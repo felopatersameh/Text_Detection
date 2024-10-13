@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/Body/body_forgetpassword.dart';
+import '../widgets/Body/body_forget_password.dart';
 import '../widgets/back_arrow.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {
@@ -11,7 +11,6 @@ class ForgotPasswordScreen extends StatelessWidget {
     return Scaffold(
       appBar: backArrow(context),
       body: BodyForgetPassword(),
-      resizeToAvoidBottomInset: false,
     );
   }
 }

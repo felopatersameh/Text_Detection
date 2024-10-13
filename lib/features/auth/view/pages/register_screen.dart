@@ -18,7 +18,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       appBar: backArrow(context),
       body: BodyRegister(),
-      resizeToAvoidBottomInset: false,
     );
   }
 

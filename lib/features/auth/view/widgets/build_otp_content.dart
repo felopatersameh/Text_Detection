@@ -1,34 +1,32 @@
 import 'package:flutter/material.dart';
-import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';
 
+class BuildContentHeader extends StatelessWidget {
+  final String textHeader;
+  final String? textDescription;
 
-class BuildOtpContent extends StatelessWidget {
-  const BuildOtpContent({super.key});
+  const BuildContentHeader(
+      {super.key, required this.textHeader, this.textDescription});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.maxFinite,
-      child: Column(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              AppString.otpMessage,
-              style: AppTextStyles.style30(),
-            ),
-          ),
-          const SizedBox(height: 12.0),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          textHeader,
+          style: AppTextStyles.style30(),
+          maxLines: textHeader.length,
+        ),
+        const SizedBox(height: 12.0),
+        if (textDescription != null)
           Text(
-            AppString.enterYourOTP,
+            textDescription!,
             style: AppTextStyles.style14(),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+            maxLines: textDescription!.length,
           ),
-          const SizedBox(height: 32.0),
-        ],
-      ),
+        const SizedBox(height: 32.0),
+      ],
     );
   }
 }

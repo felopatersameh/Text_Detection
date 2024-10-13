@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../widgets/Body/body_new_password.dart';
 import '../widgets/back_arrow.dart';
-import '../widgets/form_new_password.dart';
 
 class CreateNewPasswordScreen extends StatelessWidget {
   const CreateNewPasswordScreen({super.key});
@@ -9,8 +9,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: backArrow(context),
-      body: FormNewPassword(),
-      resizeToAvoidBottomInset: false,
+      body: BodyNewPassword(),
     );
   }
 }
