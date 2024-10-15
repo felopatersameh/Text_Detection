@@ -9,6 +9,7 @@ class Assets {
   static const String pngWelcome3 = 'assets/png/welcome3.png';
   static const String svgApple = 'assets/svg/apple.svg';
   static const String svgBackArrow = 'assets/svg/back_arrow.svg';
+  static const String svgDetectIcon = 'assets/svg/detectIcon.svg';
   static const String svgFacebookIc = 'assets/svg/facebook_ic.svg';
   static const String svgGoogleIc = 'assets/svg/google_ic.svg';
   static const String splashLogo = 'assets/png/DetectiveLogo.png';
