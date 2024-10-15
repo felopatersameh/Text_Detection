@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
 import 'package:textdetection/features/auth/view/pages/password_changed.dart';
 
+import '../../features/ai_text_detect/view/pages/ai-text_detect.dart';
+import '../../features/ai_text_detect/view/pages/extracted_text.dart';
 import '../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../features/auth/view/pages/login_screen.dart';
 import '../../features/auth/view/pages/register_screen.dart';
@@ -18,6 +20,8 @@ class AppRoutes {
   static const String createNewPassword = '/create_new_password_screen';
   static const String passwordChanged = '/password_changed_screen';
   static const String homeScreen = '/home_screen';
+  static const String textDetectScreen = '/text_detect_screen';
+  static const String extractedTextScreen = '/extracted_text_screen';
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => const SplashScreen(),
@@ -28,6 +32,8 @@ class AppRoutes {
     createNewPassword: (_) => const CreateNewPasswordScreen(),
     passwordChanged: (_) => const PasswordChanged(),
     homeScreen: (_) => const HomeScreen(),
+    textDetectScreen: (_) => const AiTextDetect(),
+    extractedTextScreen: (_) => const ExtractedText(),
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {

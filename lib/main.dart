@@ -3,12 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
-
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 
 void main() {
   runApp(const MyApp());
-
   /*
  Future<void> main() async {
   await Firebase.initializeApp(
@@ -36,7 +34,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Text Detection',
           theme: themeLight(),
-          initialRoute: AppRoutes.loginScreen,
+          initialRoute: AppRoutes.textDetectScreen,
           onGenerateRoute: AppRoutes.generateRoute,
           debugShowCheckedModeBanner: false,
         ));

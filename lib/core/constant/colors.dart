@@ -4,6 +4,8 @@ class AppColors {
   static const Color cornFlowerPrimary = Color(0xFF4D61DE);
   static const Color blueLight = Color(0xff4D61DE);
   static const Color blueDark = Color(0xff2120FF);
+  static const Color blueGary = Color(0xff94A3B8);
+  static const Color drakBlue = Color(0xff384A6F);
   static const Color darkBlueGray = Color(0xFF1E232C);
   static const Color nearBlack = Color(0xFF090A0A);
   static const Color offBlack = Color(0xFF010101);
