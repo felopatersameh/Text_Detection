@@ -4,6 +4,8 @@ import 'package:textdetection/features/auth/view/pages/password_changed.dart';
 import 'package:textdetection/features/user/view/pages/account_page.dart';
 import 'package:textdetection/features/user/view/pages/settings_page.dart';
 
+import '../../features/ai_text_detect/view/pages/ai-text_detect.dart';
+import '../../features/ai_text_detect/view/pages/extracted_text.dart';
 import '../../features/auth/view/pages/create_new_password_screen.dart';
 import '../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../features/auth/view/pages/login_screen.dart';
@@ -22,6 +24,8 @@ class AppRoutes {
   static const String homeScreen = '/home_screen';
   static const String accountScreen = '/account_screen';
   static const String accountSettingsScreen = '/account_settings_screen';
+  static const String textDetectScreen = '/text_detect_screen';
+  static const String extractedTextScreen = '/extracted_text_screen';
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => const SplashScreen(),
@@ -34,6 +38,9 @@ class AppRoutes {
     homeScreen: (_) => const HomeScreen(),
     accountScreen: (_) => const AccountScreen(),
     accountSettingsScreen: (_) => const AccountSettingsScreen(),
+    textDetectScreen: (_) => const AiTextDetect(),
+    extractedTextScreen: (_) => const ExtractedText(),
+
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
