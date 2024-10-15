@@ -42,15 +42,10 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => AccountSettingsCubit(),
           ),
+          BlocProvider(
+            create: (context) => AuthenticationCubit(),
+          ),
         ],
-      providers: [
-        BlocProvider(
-          create: (context) => PasswordVisibilityCubit(),
-        ),
-        BlocProvider(
-          create: (context) => AuthenticationCubit(),
-        ),
-      ],
       child: ScreenUtilInit(
         designSize: Size(width, height),
         child: MaterialApp(
