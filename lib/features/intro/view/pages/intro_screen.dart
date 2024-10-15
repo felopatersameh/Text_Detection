@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
-import 'package:textdetection/features/auth/view/pages/login_screen.dart';
-import 'package:textdetection/features/intro/view/widgets/intro_custom.dart';
-import 'package:textdetection/generated/assets.dart';
+import '../../../../Config/Route/app_route.dart';
+import '../../../../core/constant/string.dart';
+import '../widgets/intro_custom.dart';
+import '../../../../generated/assets.dart';
 
 import '../../../../core/constant/colors.dart';
+import '../../../../core/constant/text_style.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -12,30 +14,16 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingSlider(
-      finishButtonText: 'Login',
+      finishButtonText: AppString.loginName,
       onFinish: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
-          ),
-        );
+        _onPressed(context);
       },
       skipFunctionOverride: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
-          ),
-        );
+        _onPressed(context);
       },
       skipTextButton: Text(
         'Skip',
-        style: TextStyle(
-          fontSize: 16,
-          color: AppColors.darkGray,
-          fontWeight: FontWeight.w500,
-        ),
+        style: AppTextStyles.style16xW500(),
       ),
       controllerColor: AppColors.blueDark,
       totalPage: 3,
@@ -43,7 +31,7 @@ class IntroScreen extends StatelessWidget {
       pageBackgroundColor: AppColors.white,
       background: [
         SizedBox(
-          width: 0,
+          width: 10,
         ),
         SizedBox(
           width: 0,
@@ -72,5 +60,10 @@ class IntroScreen extends StatelessWidget {
                 "yourself and your friends, with endless trivia fun at your fingertips."),
       ],
     );
+  }
+
+  Function? _onPressed(context) {
+    Navigator.pushNamed(context, AppRoutes.loginScreen);
+    return null;
   }
 }

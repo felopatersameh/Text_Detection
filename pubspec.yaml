@@ -52,6 +52,7 @@ dependencies:
   mobkit_dashed_border: ^0.0.6
   file_picker: ^8.1.2
   percent_indicator:
+  flutter_screenutil: ^5.9.3
 
 
 dev_dependencies:

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constant/colors.dart';
 
-
 class CustomOrLoginRegisterWidget extends StatelessWidget {
   const CustomOrLoginRegisterWidget({super.key, required this.orWithText});
+
   final Text orWithText;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,19 +16,21 @@ class CustomOrLoginRegisterWidget extends StatelessWidget {
       children: [
         Container(
           width: double.maxFinite,
-          margin: EdgeInsets.symmetric(horizontal:45.0),
+          margin: EdgeInsets.symmetric(horizontal: 45.0).r,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center ,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
                 child: Divider(
                   color: AppColors.mediumDarkGray,
                 ),
               ),
-              const SizedBox(width: 8.0,),
-              orWithText,//text
-              const SizedBox(width: 8.0,),
+              8.verticalSpace,
+
+              orWithText, //text
+              8.verticalSpace,
+
               Expanded(
                 child: Divider(
                   color: AppColors.mediumDarkGray,
@@ -38,7 +42,6 @@ class CustomOrLoginRegisterWidget extends StatelessWidget {
         const SizedBox(
           height: 12.0,
         ),
-
       ],
     );
   }

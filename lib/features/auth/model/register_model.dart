@@ -1,0 +1,1 @@
+class RegisterModel {  final String email;  final String name;  final String password;  RegisterModel({    required this.name,    required this.email,    required this.password,  });  Map<String, dynamic> toMap() {    return {      'email': email,      'password': password,    };  }}
