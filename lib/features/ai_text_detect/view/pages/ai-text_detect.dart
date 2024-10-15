@@ -22,7 +22,6 @@ class AiTextDetect extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: CustomNavBar(),
     );
   }
 }

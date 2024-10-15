@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:textdetection/core/utils/bottom_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

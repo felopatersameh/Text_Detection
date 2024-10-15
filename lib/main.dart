@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: 'Text Detection',
           theme: themeLight(),
-          initialRoute: AppRoutes.textDetectScreen,
+          initialRoute: AppRoutes.mainScreen,
           onGenerateRoute: AppRoutes.generateRoute,
           debugShowCheckedModeBanner: false,
         ));
