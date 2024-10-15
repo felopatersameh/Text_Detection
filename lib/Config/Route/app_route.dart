@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:textdetection/features/Main/View/Page/main_screen.dart';
+import 'package:textdetection/features/history/view/pages/history_page.dart';
 import 'package:textdetection/features/user/view/pages/account_page.dart';
 import 'package:textdetection/features/user/view/pages/settings_page.dart';
 
@@ -27,6 +28,7 @@ class AppRoutes {
   static const String homeScreen = '/home_screen';
   static const String accountScreen = '/account_screen';
   static const String accountSettingsScreen = '/account_settings_screen';
+  static const String historyScreen = '/account_settings_screen';
   static const String textDetectScreen = '/text_detect_screen';
   static const String extractedTextScreen = '/extracted_text_screen';
   static const String mainScreen = '/main_screen';
@@ -43,6 +45,7 @@ class AppRoutes {
     homeScreen: (_) => const HomeScreen(),
     accountScreen: (_) => const AccountScreen(),
     accountSettingsScreen: (_) => const AccountSettingsScreen(),
+    historyScreen: (_) => const HistoryScreen(),
     textDetectScreen: (_) => const AiTextDetect(),
     extractedTextScreen: (_) => const ExtractedText(),
     mainScreen: (_) => const MainScreen(),
