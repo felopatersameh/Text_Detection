@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:textdetection/test_screen/file_screen.dart';
+import 'package:textdetection/features/history/view/pages/history_page.dart';
 
 import '../../../../core/constant/assets.dart';
 import '../../../../core/constant/colors.dart';
@@ -18,11 +18,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-  int   currentIndex = 0;
+  int currentIndex = 0;
   List<Widget> screens = [
     const HomeScreen(),
     const AccountScreen(),
-    const FileScreen(),
+    const HistoryScreen(),
     const AiTextDetect(),
   ];
 
@@ -37,9 +37,18 @@ class _MainScreenState extends State<MainScreen> {
         buttonBackgroundColor: AppColors.drakBlue,
         key: _bottomNavigationKey,
         items: <Widget>[
-          Icon(IconlyLight.home, color: Colors.white,),
-          Icon(IconlyLight.profile, color: Colors.white,),
-          Icon(IconlyBold.folder,color: Colors.white,),
+          Icon(
+            IconlyLight.home,
+            color: Colors.white,
+          ),
+          Icon(
+            IconlyLight.profile,
+            color: Colors.white,
+          ),
+          Icon(
+            IconlyBold.folder,
+            color: Colors.white,
+          ),
           SizedBox(
             width: 30,
             height: 30,
@@ -47,7 +56,6 @@ class _MainScreenState extends State<MainScreen> {
               AppAssets.search,
             ),
           )
-
         ],
         onTap: (index) {
           setState(() {
@@ -58,4 +66,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
