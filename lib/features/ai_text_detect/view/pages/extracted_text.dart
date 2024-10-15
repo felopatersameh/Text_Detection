@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:textdetection/core/constant/string.dart';
 import 'package:textdetection/core/utils/Widget/custom_back_button.dart';
 
 import '../../../../core/constant/colors.dart';
+import '../../../auth/view/widgets/back_arrow.dart';
 
 class ExtractedText extends StatelessWidget {
   const ExtractedText({super.key});
@@ -9,20 +11,7 @@ class ExtractedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: CustomBackButton(),
-        centerTitle: true,
-        title: Text(
-          "Extracted Text",
-           style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: AppColors.drakBlue,
-
-           ),
-
-        ),
-      ),
+      appBar: backArrow(context,title: AppString.extractedTextHeader),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 40.0),
         child: Column(

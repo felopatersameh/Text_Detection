@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/core/constant/app_images.dart';
+import 'package:textdetection/core/constant/string.dart';
 import 'package:textdetection/core/utils/Validation/custom_validation.dart';
 import 'package:textdetection/core/utils/Widget/build_default_button.dart';
 import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
@@ -10,6 +11,7 @@ import 'package:textdetection/features/user/view_model/account_settings/account_
 import '../../../../core/constant/assets.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/utils/Widget/password_text__form_field.dart';
+import '../../../auth/view/widgets/back_arrow.dart';
 import '../../../auth/view/widgets/custom_text_form_field.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
@@ -22,24 +24,7 @@ class AccountSettingsScreen extends StatefulWidget {
 class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Account Settings"),
-        centerTitle: true,
-        leading: Container(
-          margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: IconButton(
-            padding: EdgeInsets.all(10),
-            icon: Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
-      ),
+      appBar:backArrow(context,title: AppString.accountSettingsHeader),
       body: _buildBody(context),
       resizeToAvoidBottomInset: false,
     );

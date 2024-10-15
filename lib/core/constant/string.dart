@@ -35,4 +35,6 @@ class AppString {
   static const String changedPasswordHeader = "Password Changed!";
   static const String changedPasswordHint = "Your password has been changed successfully.";
   static const String backToLogIN = "Back to Login";
+  static const String extractedTextHeader = "Extracted Text";
+  static const String accountSettingsHeader = "Account Settings";
 }

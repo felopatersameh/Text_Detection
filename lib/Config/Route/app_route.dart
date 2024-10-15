@@ -5,7 +5,7 @@ import 'package:textdetection/features/user/view/pages/account_page.dart';
 import 'package:textdetection/features/user/view/pages/settings_page.dart';
 import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
 import 'package:textdetection/features/auth/view/pages/password_changed.dart';
-import 'package:textdetection/main_screen.dart';
+import 'package:textdetection/features/Main/View/Page/main_screen.dart';
 
 import '../../features/ai_text_detect/view/pages/ai-text_detect.dart';
 import '../../features/ai_text_detect/view/pages/extracted_text.dart';

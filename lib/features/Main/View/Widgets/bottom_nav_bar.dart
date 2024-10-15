@@ -4,8 +4,8 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
 
-import '../../features/ai_text_detect/view/pages/ai-text_detect.dart';
-import '../../features/home/view/pages/home_screen.dart';
+import '../../../ai_text_detect/view/pages/ai-text_detect.dart';
+import '../../../home/view/pages/home_screen.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({super.key});

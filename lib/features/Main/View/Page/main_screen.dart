@@ -2,12 +2,12 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:textdetection/test_screen/file_screen.dart';
-import 'package:textdetection/test_screen/me_screen.dart';
 
-import 'core/constant/assets.dart';
-import 'core/constant/colors.dart';
-import 'features/ai_text_detect/view/pages/ai-text_detect.dart';
-import 'features/home/view/pages/home_screen.dart';
+import '../../../../core/constant/assets.dart';
+import '../../../../core/constant/colors.dart';
+import '../../../ai_text_detect/view/pages/ai-text_detect.dart';
+import '../../../home/view/pages/home_screen.dart';
+import '../../../user/view/pages/account_page.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
   int   currentIndex = 0;
   List<Widget> screens = [
     const HomeScreen(),
-    const MeScreen(),
+    const AccountScreen(),
     const FileScreen(),
     const AiTextDetect(),
   ];
