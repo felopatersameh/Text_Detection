@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
-import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'package:textdetection/features/user/model/user_data_model.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
@@ -36,7 +36,6 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Widget _buildBody(BuildContext context) {
-    SizeConfig.init(context);
     return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 50.w),

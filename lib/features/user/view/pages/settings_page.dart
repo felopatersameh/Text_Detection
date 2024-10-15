@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/core/constant/app_images.dart';
 import 'package:textdetection/core/constant/string.dart';
 import 'package:textdetection/core/utils/Validation/custom_validation.dart';
 import 'package:textdetection/core/utils/Widget/build_default_button.dart';
-import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import '../../../../core/constant/assets.dart';
@@ -24,7 +24,7 @@ class AccountSettingsScreen extends StatefulWidget {
 class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:backArrow(context,title: AppString.accountSettingsHeader),
+      appBar: backArrow(context, title: AppString.accountSettingsHeader),
       body: _buildBody(context),
       resizeToAvoidBottomInset: false,
     );
@@ -36,7 +36,6 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
   final GlobalKey<FormState> _passFormKey = GlobalKey<FormState>();
 
   Widget _buildBody(BuildContext context) {
-    SizeConfig.init(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,7 +140,8 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                       .changeUserName(_nameController.text);
                 }
 
-                if (_passwordController.text.isNotEmpty && _passFormKey.currentState!.validate()) {
+                if (_passwordController.text.isNotEmpty &&
+                    _passFormKey.currentState!.validate()) {
                   context
                       .read<AccountSettingsCubit>()
                       .changePassword(_passwordController.text);
