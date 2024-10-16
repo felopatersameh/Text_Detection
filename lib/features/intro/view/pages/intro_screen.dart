@@ -14,7 +14,7 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnBoardingSlider(
-      finishButtonText: AppString.loginName,
+      finishButtonText: AppString.finishOnboardingButton,
       onFinish: () {
         _onPressed(context);
       },
@@ -43,21 +43,20 @@ class IntroScreen extends StatelessWidget {
       speed: 1.8,
       pageBodies: [
         IntroCustomBody(
-          imageUrl: Assets.pngWelcome1,
-          title: 'Welcome to Quizzo!',
-          subtitle: 'Compete with friends,'
-              'earn points, and climb the leaderboard in this addictive trivia challenge.',
+          imagePath: Assets.pngWelcome1,
+          title: AppString.firstBoardTitle,
+          subtitle: AppString.firstBoardSubtitle,
         ),
         IntroCustomBody(
-            imageUrl: Assets.pngWelcome2,
-            title: "The Ultimate Trivia Challenge",
-            subtitle: "Put your knowledge to the test and prove "
-                "your expertise across a wide range of topics in this engaging game."),
+          imagePath: Assets.pngWelcome2,
+          title: AppString.secondBoardTitle,
+          subtitle: AppString.secondBoardSubtitle,
+        ),
         IntroCustomBody(
-            imageUrl: Assets.pngWelcome3,
-            title: "Test Your Knowledge with Quizzo",
-            subtitle: "Quizzo is the perfect app to challenge "
-                "yourself and your friends, with endless trivia fun at your fingertips."),
+          imagePath: Assets.pngWelcome3,
+          title: AppString.thirdBoardTitle,
+          subtitle: AppString.thirdBoardSubtitle,
+        ),
       ],
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/core/constant/app_constants.dart';
 import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
-
 import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
@@ -31,8 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    const double figmaDesignWidth = 428;
-    const double figmaDesignHeight = 926;
+
     print("Count :: ${++count}");
     return MultiBlocProvider(
       providers: [
@@ -47,7 +46,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: ScreenUtilInit(
-        designSize: Size(figmaDesignWidth, figmaDesignHeight),
+        designSize:
+            Size(AppConstants.figmaDesignWidth, AppConstants.figmaDesignHeight),
         child: MaterialApp(
           title: 'Text Detection',
           theme: themeLight(),

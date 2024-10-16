@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:textdetection/core/constant/text_style.dart';
 import '../../../../core/constant/colors.dart';
-
 
 class IntroCustomBody extends StatelessWidget {
   const IntroCustomBody({
     super.key,
-    required this.imageUrl,
+    required this.imagePath,
     required this.title,
     required this.subtitle,
   });
-  final String imageUrl ;
-  final String title ;
-  final String subtitle ;
+
+  final String imagePath;
+  final String title;
+  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +21,18 @@ class IntroCustomBody extends StatelessWidget {
       children: [
         Container(
           alignment: Alignment.topCenter,
-          color:AppColors.cream ,
+          color: AppColors.cream,
           child: Image.asset(
             fit: BoxFit.fitWidth,
-            imageUrl,
-            width: MediaQuery.sizeOf(context).height*.5,
+            imagePath,
+            width: MediaQuery.sizeOf(context).height * .5,
           ),
         ),
         Container(
           alignment: Alignment.bottomCenter,
-          width:MediaQuery.of(context).size.width,
+          width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(30),
-          height: MediaQuery.sizeOf(context).height*.25,
+          height: MediaQuery.sizeOf(context).height * .25,
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: BorderRadius.only(
@@ -46,24 +47,14 @@ class IntroCustomBody extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.nearBlack,
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: AppTextStyles.style24W700(),
               ),
               const SizedBox(
-                height: 20,
+                height: 20.0,
               ),
-              Text(
-                subtitle,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.darkGray,
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
+              Text(subtitle,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.style16x2W400()),
             ],
           ),
         ),

@@ -3,8 +3,6 @@ import '../../features/auth/view/pages/otp_verfication_screen.dart';
 import '../../features/auth/view/pages/password_changed.dart';
 import 'package:textdetection/features/user/view/pages/account_page.dart';
 import 'package:textdetection/features/user/view/pages/settings_page.dart';
-import 'package:textdetection/features/auth/view/pages/otp_verfication_screen.dart';
-import 'package:textdetection/features/auth/view/pages/password_changed.dart';
 import 'package:textdetection/features/Main/View/Page/main_screen.dart';
 
 import '../../features/ai_text_detect/view/pages/ai-text_detect.dart';
@@ -13,11 +11,9 @@ import '../../features/auth/view/pages/create_new_password_screen.dart';
 import '../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../features/auth/view/pages/login_screen.dart';
 import '../../features/auth/view/pages/register_screen.dart';
-import '../../features/auth/view/pages/create_new_password_screen.dart';
 import '../../features/intro/view/pages/intro_screen.dart';
 import '../../features/splash/view/pages/splash_screen.dart';
 import '../../features/home/view/pages/home_screen.dart';
-import '../../features/splash/view/pages/splash_screen.dart';
 
 class AppRoutes {
   static const String splash = '/';
