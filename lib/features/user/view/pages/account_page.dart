@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
 import 'package:textdetection/core/constant/assets.dart';
 import 'package:textdetection/core/constant/colors.dart';
-import 'package:textdetection/core/utils/extension/responsive/responsive_extension.dart';
+import 'package:textdetection/core/utils/Widget/custom_list_tile.dart';
 import 'package:textdetection/features/user/model/user_data_model.dart';
 import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
@@ -36,13 +37,13 @@ class _AccountScreenState extends State<AccountScreen> {
   }
 
   Widget _buildBody(BuildContext context) {
-    SizeConfig.init(context);
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50.w),
+        padding: EdgeInsets.symmetric(horizontal: 40.w),
         child: Column(
           children: [
             20.h.verticalSpace,
+            // Profile Image
             Material(
               shape: CircleBorder(),
               elevation: 10.w,
@@ -55,79 +56,39 @@ class _AccountScreenState extends State<AccountScreen> {
                     context.watch<AccountSettingsCubit>().state.imageUrl),
               ),
             ),
-            20.h.verticalSpace,
+            20.dm.verticalSpace,
             Text(
               context.watch<AccountSettingsCubit>().state.name,
-              style: TextStyle(fontSize: 18, color: AppColors.darkGray),
+              style: TextStyle(fontSize: 20.spMin, color: AppColors.darkGray),
             ),
-            30.h.verticalSpace,
-            Material(
-              elevation: 4.w,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6.w),
-              ),
-              child: ListTile(
-                title: Text("Email"),
-                titleTextStyle: TextStyle(color: Colors.black),
-                subtitle: Text(UserDataModel.email),
-                subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
-                tileColor: Colors.white,
-                leading: SvgPicture.asset(AppAssets.accountEmail),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.w)),
-                onTap: () {},
-              ),
+            30.dm.verticalSpace,
+            CustomListTile(
+              title: "Email",
+              subtitle: UserDataModel.email,
+              leading: SvgPicture.asset(AppAssets.accountEmail),
+              onTap: () {},
             ),
-            30.h.verticalSpace,
-            Material(
-              elevation: 4.w,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.w)),
-              child: ListTile(
-                title: Text("Themes"),
-                titleTextStyle: TextStyle(color: Colors.black),
-                subtitle: Text("Light Theme"),
-                subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
-                tileColor: Colors.white,
-                leading: SvgPicture.asset(AppAssets.accountTheme),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.w)),
-                onTap: () {},
-              ),
+            30.dm.verticalSpace,
+            CustomListTile(
+              title: "Themes",
+              subtitle: "Light Theme",
+              leading: SvgPicture.asset(AppAssets.accountTheme),
+              onTap: () {},
             ),
-            30.h.verticalSpace,
-            Material(
-              elevation: 4.w,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.w)),
-              child: ListTile(
-                title: Text("Language"),
-                titleTextStyle: TextStyle(color: Colors.black),
-                subtitle: Text("English"),
-                subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
-                tileColor: Colors.white,
-                leading: SvgPicture.asset(AppAssets.accountLanguage),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.w)),
-                onTap: () {},
-              ),
+            30.dm.verticalSpace,
+            CustomListTile(
+              title: "Language",
+              subtitle: "English",
+              leading: SvgPicture.asset(AppAssets.accountLanguage),
+              onTap: () {},
             ),
-            30.h.verticalSpace,
-            Material(
-              elevation: 4.w,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.w)),
-              child: ListTile(
-                title: Text("Account Settings"),
-                titleTextStyle: TextStyle(color: Colors.black),
-                tileColor: Colors.white,
-                leading: SvgPicture.asset(AppAssets.accountSettings),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.w)),
-                onTap: () {
-                  Navigator.pushNamed(context, AppRoutes.accountSettingsScreen);
-                },
-              ),
+            30.dm.verticalSpace,
+            CustomListTile(
+              title: "Account Settings",
+              leading: SvgPicture.asset(AppAssets.accountSettings),
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.accountSettingsScreen);
+              },
             ),
             30.h.verticalSpace,
           ],
