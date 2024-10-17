@@ -35,10 +35,10 @@ class _CustomListTileState extends State<CustomListTile> {
         borderRadius: BorderRadius.circular(6.w),
       ),
       child: ListTile(
-        title: Text("${widget.title}"),
+        title: Text(widget.title ?? ''),
         titleTextStyle: widget.titleTextStyle ??
             TextStyle(fontSize: 22.spMin, color: Colors.black),
-        subtitle: Text("${widget.subTitle}"),
+        subtitle: widget.subTitle != null ? Text("${widget.subTitle}") : null,
         subtitleTextStyle: widget.subtitleTextStyle ??
             TextStyle(fontSize: 20.spMin, color: AppColors.mediumGray),
         tileColor: widget.tileColor ?? Colors.white,
