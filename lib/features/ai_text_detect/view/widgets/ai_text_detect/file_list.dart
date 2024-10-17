@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
-import 'package:textdetection/features/ai_text_detect/view/pages/extracted_text.dart';
 import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_process.dart';
 
 import '../../../../../core/constant/colors.dart';
@@ -37,7 +36,7 @@ class FileList extends StatelessWidget {
           ),
           BuildCustomButton(
             text: "Confirm",
-            color: AppColors.drakBlue,
+            color: AppColors.darkBlue,
             height: 0.12,
             onPressed: () {
               Navigator.pushNamed(context, AppRoutes.extractedTextScreen);

@@ -40,8 +40,8 @@ class UploadImageContainer extends StatelessWidget {
           ),
               BuildCustomButton(
                 text: "Choose File",
-                color: AppColors.drakBlue,
-                height: 0.1,
+            color: AppColors.darkBlue,
+            height: 0.1,
                 width: 0.5,
                 onPressed: () async {
                   FilePickerResult? result = await FilePicker.platform.pickFiles(
