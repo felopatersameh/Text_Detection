@@ -36,10 +36,11 @@ class _CustomListTileState extends State<CustomListTile> {
       ),
       child: ListTile(
         title: Text("${widget.title}"),
-        titleTextStyle: widget.titleTextStyle,
+        titleTextStyle: widget.titleTextStyle ??
+            TextStyle(fontSize: 22.spMin, color: Colors.black),
         subtitle: Text("${widget.subTitle}"),
-        subtitleTextStyle:
-            widget.subtitleTextStyle ?? TextStyle(color: AppColors.mediumGray),
+        subtitleTextStyle: widget.subtitleTextStyle ??
+            TextStyle(fontSize: 20.spMin, color: AppColors.mediumGray),
         tileColor: widget.tileColor ?? Colors.white,
         leading: widget.leading,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.w)),
