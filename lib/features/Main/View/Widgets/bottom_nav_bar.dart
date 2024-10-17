@@ -1,9 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:textdetection/core/constant/assets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/core/constant/colors.dart';
-
+import 'package:textdetection/core/constant/icons.dart';
 import '../../../ai_text_detect/view/pages/ai-text_detect.dart';
 import '../../../home/view/pages/home_screen.dart';
 
@@ -26,23 +25,35 @@ class _CustomNavBarState extends State<CustomNavBar> {
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
-      height: 60,
+      height: 60.h,
       color: AppColors.blueDark,
       backgroundColor: AppColors.cream,
-      buttonBackgroundColor: AppColors.drakBlue,
+      buttonBackgroundColor: AppColors.darkBlue,
       key: _bottomNavigationKey,
       items: <Widget>[
-        Icon(IconlyLight.home, color: Colors.white,),
-        Icon(IconlyLight.profile, color: Colors.white,),
-        Icon(IconlyBold.folder,color: Colors.white,),
-        SizedBox(
-          width: 30,
-          height: 30,
-          child: Image.asset(
-            AppAssets.search,
-          ),
-        )
-
+        Icon(
+          AppIcons.bottomNavHomeIcon,
+          color: Colors.white,
+        ),
+        Icon(
+          AppIcons.bottomNavUserIcon,
+          color: Colors.white,
+        ),
+        Icon(
+          AppIcons.bottomNavHistoryIcon,
+          color: Colors.white,
+        ),
+        Icon(
+          AppIcons.bottomNavDetectionIcon,
+          color: Colors.white,
+        ),
+        // SizedBox(
+        //   width: 30.w,
+        //   height: 30.h,
+        //   child: Image.asset(
+        //     Assets.pngSearch,
+        //   ),
+        // ),
       ],
       onTap: (index) {
         setState(() {

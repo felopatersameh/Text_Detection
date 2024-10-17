@@ -2,9 +2,9 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
-import 'package:textdetection/core/constant/assets.dart';
 import '../../../../../core/constant/colors.dart';
 import '../../../../../core/utils/Widget/build_default_button.dart';
+import '../../../../../generated/assets.dart';
 
 class UploadImageContainer extends StatelessWidget {
   const UploadImageContainer({super.key });
@@ -23,7 +23,7 @@ class UploadImageContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
-            AppAssets.search,
+            Assets.pngSearch,
             height: 100,
             width: 100,
           ),

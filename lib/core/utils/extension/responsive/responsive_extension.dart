@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 extension WidthExtension on num {
-  double get w => this * SizeConfig.screenWidth / SizeConfig.figmaDesignWidth;
+  double get w => this * SizeConfig.screenWidth! / SizeConfig.figmaDesignWidth;
 
-  double get h => this * SizeConfig.screenHeight / SizeConfig.figmaDesignHeight;
+  double get h =>
+      this * SizeConfig.screenHeight! / SizeConfig.figmaDesignHeight;
 
   SizedBox get verticalSpace => SizedBox(height: toDouble());
 
@@ -11,8 +12,8 @@ extension WidthExtension on num {
 }
 
 class SizeConfig {
-  static late double screenWidth;
-  static late double screenHeight;
+  static double? screenWidth;
+  static double? screenHeight;
   static const figmaDesignWidth = 428;
   static const figmaDesignHeight = 926;
 
