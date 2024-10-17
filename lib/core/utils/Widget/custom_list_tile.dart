@@ -7,18 +7,18 @@ class CustomListTile extends StatefulWidget {
   const CustomListTile(
       {super.key,
       this.title,
-      this.subTitle,
+      this.subtitle,
       this.tileColor,
       this.leading,
-      this.onTab,
+      this.onTap,
       this.titleTextStyle,
       this.subtitleTextStyle});
 
   final String? title;
-  final String? subTitle;
+  final String? subtitle;
   final Color? tileColor;
   final Widget? leading;
-  final GestureTapCallback? onTab;
+  final GestureTapCallback? onTap;
   final TextStyle? titleTextStyle;
   final TextStyle? subtitleTextStyle;
 
@@ -38,13 +38,13 @@ class _CustomListTileState extends State<CustomListTile> {
         title: Text(widget.title ?? ''),
         titleTextStyle: widget.titleTextStyle ??
             TextStyle(fontSize: 22.spMin, color: Colors.black),
-        subtitle: widget.subTitle != null ? Text("${widget.subTitle}") : null,
+        subtitle: widget.subtitle != null ? Text("${widget.subtitle}") : null,
         subtitleTextStyle: widget.subtitleTextStyle ??
             TextStyle(fontSize: 20.spMin, color: AppColors.mediumGray),
         tileColor: widget.tileColor ?? Colors.white,
         leading: widget.leading,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6.w)),
-        onTap: widget.onTab,
+        onTap: widget.onTap,
       ),
     );
   }
