@@ -12,13 +12,40 @@ class Assets {
   static const String pngWelcome2 = 'assets/png/welcome2.png';
   static const String pngWelcome3 = 'assets/png/welcome3.png';
   static const String svgApple = 'assets/svg/apple.svg';
+  static const String svgAscan = 'assets/svg/ascan.svg';
   static const String svgBackArrow = 'assets/svg/back_arrow.svg';
   static const String svgDetectIcon = 'assets/svg/detectIcon.svg';
   static const String svgEmail = 'assets/svg/email.svg';
   static const String svgFacebookIc = 'assets/svg/facebook_ic.svg';
   static const String svgGoogleIc = 'assets/svg/google_ic.svg';
+  static const String svgImgtotext = 'assets/svg/imgtotext.svg';
   static const String svgLanguage = 'assets/svg/language.svg';
-  static const String svgManagement = 'assets/svg/management 1.svg';
+  static const String svgManagement
+
+  1
+
+  =
+
+  '
+
+  assets/svg/management 1.svg
+
+  ';
+
+  static const String svgPdftoext = 'assets/svg/pdftoext.svg';
+  static const String svgQR
+
+  Code
+
+  =
+
+  '
+
+  assets/svg/QR Code.svg
+
+  ';
   static const String svgSettings = 'assets/svg/settings.svg';
   static const String svgTheme = 'assets/svg/theme.svg';
+  static const String svgVector = 'assets/svg/Vector.svg';
+
 }

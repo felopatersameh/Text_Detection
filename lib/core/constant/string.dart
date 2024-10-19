@@ -70,6 +70,7 @@ class AppString {
 
 //--------------------------------------------------
   //Home => Tasks Titles => pdf, image, qr, etc....
+  static const String headerTaskScreen = 'Text Thief';
   static const String pdfTaskTile = 'Text from pdf';
   static const String imageTaskTile = 'Text from Image';
   static const String qrCodeTaskTile = 'Text from QR code';

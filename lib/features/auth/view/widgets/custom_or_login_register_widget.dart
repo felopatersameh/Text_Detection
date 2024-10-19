@@ -27,7 +27,6 @@ class CustomOrLoginRegisterWidget extends StatelessWidget {
                 ),
               ),
               8.verticalSpace,
-
               orWithText, //text
               8.verticalSpace,
 
