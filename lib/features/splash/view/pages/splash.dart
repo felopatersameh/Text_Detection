@@ -4,9 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
 
 import '../../../../core/constant/colors.dart';
-import '../../../../core/utils/Widget/pages_transition.dart';
 import '../../../../generated/assets.dart';
-import '../../../intro/view/pages/intro_screen.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
   const MyCustomSplashScreen({super.key});
@@ -82,7 +80,7 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
               AnimatedContainer(
                 duration: Duration(milliseconds: 2000),
                 curve: Curves.fastLinearToSlowEaseIn,
-                height: height / _fontSize,
+                height: (height*.9) / _fontSize,
               ),
               AnimatedOpacity(
                 duration: Duration(milliseconds: 1000),
