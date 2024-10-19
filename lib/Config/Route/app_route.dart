@@ -12,6 +12,7 @@ import '../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../features/auth/view/pages/login_screen.dart';
 import '../../features/auth/view/pages/register_screen.dart';
 import '../../features/intro/view/pages/intro_screen.dart';
+import '../../features/splash/view/pages/splash.dart';
 import '../../features/splash/view/pages/splash_screen.dart';
 import '../../features/home/view/pages/home_screen.dart';
 
@@ -32,7 +33,8 @@ class AppRoutes {
   static const String mainScreen = '/main_screen';
 
   static final Map<String, WidgetBuilder> routeBuilders = {
-    splash: (_) => const SplashScreen(),
+    splash: (_) => MyCustomSplashScreen(),
+    /*const SplashScreen(),*/
     onboarding: (_) => const IntroScreen(),
     loginScreen: (_) => const LoginScreen(),
     registerScreen: (_) => const RegisterScreen(),
@@ -45,7 +47,6 @@ class AppRoutes {
     accountSettingsScreen: (_) => const AccountSettingsScreen(),
     textDetectScreen: (_) => const AiTextDetect(),
     extractedTextScreen: (_) => const ExtractedText(),
-
     mainScreen: (_) => const MainScreen(),
   };
 

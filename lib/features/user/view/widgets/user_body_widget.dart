@@ -28,9 +28,9 @@ class UserBody extends StatelessWidget {
                     MediaQuery.orientationOf(context) == Orientation.portrait
                         ? 70.w
                         : 40.w,
-                backgroundImage: AssetImage(
-                    context.watch<AccountSettingsCubit>().state.imageUrl),
-              ),
+    //   backgroundImage: AssetImage(
+    //       context.watch<AccountSettingsCubit>().state.imageUrl),
+    // ),
             ),
             AppConstants.userVerticalSpace20,
             // Account Name
