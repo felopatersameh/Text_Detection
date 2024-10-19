@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/test_screen/file_screen.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/icons.dart';
-import '../../../ai_text_detect/view/pages/ai-text_detect.dart';
+import '../../../ai_text_detect/view/pages/ai_text_detect.dart';
 import '../../../home/view/pages/home_screen.dart';
 import '../../../user/view/pages/account_page.dart';
 
