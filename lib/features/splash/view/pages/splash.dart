@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
 
+import '../../../../core/Models/hive_app_model.dart';
 import '../../../../core/constant/colors.dart';
+import '../../../../core/services/service_locator.dart';
 import '../../../../generated/assets.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
@@ -55,7 +58,7 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
 
     Timer(Duration(seconds: 4), () {
       setState(() {
-        Navigator.of(context).pushReplacementNamed(AppRoutes.onboarding);
+        Navigator.of(context).pushReplacementNamed(getIt<HiveAppModel>().startScreen);
       });
     });
   }

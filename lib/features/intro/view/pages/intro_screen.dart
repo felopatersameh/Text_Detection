@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import '../../../../Config/Route/app_route.dart';
+import '../../../../core/Models/hive_app_model.dart';
 import '../../../../core/constant/string.dart';
+import '../../../../core/services/service_locator.dart';
 import '../widgets/intro_custom.dart';
 import '../../../../generated/assets.dart';
 
@@ -63,6 +65,9 @@ class IntroScreen extends StatelessWidget {
 
   Function? _onPressed(context) {
     Navigator.pushNamed(context, AppRoutes.loginScreen);
+    final hiveAppModel = getIt<HiveAppModel>();
+    hiveAppModel.onboarding = false;
+    hiveAppModel.save();
     return null;
   }
 }
