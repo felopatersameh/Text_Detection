@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/Config/Route/app_route.dart';
 
 import '../../../../core/constant/colors.dart';
 import '../../../../core/utils/Widget/pages_transition.dart';
@@ -56,7 +57,7 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
 
     Timer(Duration(seconds: 4), () {
       setState(() {
-        Navigator.pushReplacement(context, PageTransition(IntroScreen()));
+        Navigator.of(context).pushReplacementNamed(AppRoutes.onboarding);
       });
     });
   }
@@ -69,14 +70,8 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double height = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.lightBlueGray,
@@ -85,9 +80,10 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
           Column(
             children: [
               AnimatedContainer(
-                  duration: Duration(milliseconds: 2000),
-                  curve: Curves.fastLinearToSlowEaseIn,
-                  height: height / _fontSize),
+                duration: Duration(milliseconds: 2000),
+                curve: Curves.fastLinearToSlowEaseIn,
+                height: height / _fontSize,
+              ),
               AnimatedOpacity(
                 duration: Duration(milliseconds: 1000),
                 opacity: _textOpacity,

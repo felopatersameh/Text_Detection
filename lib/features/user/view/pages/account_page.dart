@@ -26,7 +26,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    context.read<AccountSettingsCubit>().initializeUserData();
+    // context.read<AccountSettingsCubit>().initializeUserData();
     super.initState();
   }
 

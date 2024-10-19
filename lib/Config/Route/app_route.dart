@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/utils/Widget/pages_transition.dart';
 import '../../features/auth/view/pages/otp_verfication_screen.dart';
 import '../../features/auth/view/pages/password_changed.dart';
 import 'package:textdetection/features/user/view/pages/account_page.dart';
@@ -51,7 +52,9 @@ class AppRoutes {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final builder = routeBuilders[settings.name];
-    if (builder != null) {
+    if (settings.name == onboarding) {
+      return PageTransition(IntroScreen());
+    } else if (builder != null) {
       return MaterialPageRoute(builder: builder);
     }
 
