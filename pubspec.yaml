@@ -53,6 +53,7 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   percent_indicator:
   flutter_screenutil: ^5.9.3
+  hive: ^2.2.3
 
 
 dev_dependencies:
