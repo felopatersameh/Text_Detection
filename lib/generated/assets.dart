@@ -20,32 +20,10 @@ class Assets {
   static const String svgGoogleIc = 'assets/svg/google_ic.svg';
   static const String svgImgtotext = 'assets/svg/imgtotext.svg';
   static const String svgLanguage = 'assets/svg/language.svg';
-  static const String svgManagement
-
-  1
-
-  =
-
-  '
-
-  assets/svg/management 1.svg
-
-  ';
-
+  static const String svgManagement1 = 'assets/svg/management 1.svg';
   static const String svgPdftoext = 'assets/svg/pdftoext.svg';
-  static const String svgQR
-
-  Code
-
-  =
-
-  '
-
-  assets/svg/QR Code.svg
-
-  ';
+  static const String svgQRCode = 'assets/svg/QR Code.svg';
   static const String svgSettings = 'assets/svg/settings.svg';
   static const String svgTheme = 'assets/svg/theme.svg';
   static const String svgVector = 'assets/svg/Vector.svg';
-
 }
