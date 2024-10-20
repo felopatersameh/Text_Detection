@@ -10,7 +10,7 @@ import 'core/services/service_locator.dart';
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 import 'features/auth/view_model/authentication/authentication_cubit.dart';
 
-void main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
   runApp(const MyApp());
@@ -25,6 +25,7 @@ void main() async {
   );
    */
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           theme: themes(),
           initialRoute: AppRoutes.splash,
           onGenerateRoute: AppRoutes.generateRoute,
+          debugShowCheckedModeBanner: false,
         ),
       ),
     );
