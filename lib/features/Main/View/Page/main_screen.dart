@@ -1,8 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/features/history/view/pages/history_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/generated/assets.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/icons.dart';
 import '../../../ai_text_detect/view/pages/ai_text_detect.dart';
@@ -18,7 +20,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-  int   currentIndex = 0;
+  int currentIndex = 0;
   List<Widget> screens = [
     const HomeScreen(),
     const AccountScreen(),
@@ -49,16 +51,10 @@ class _MainScreenState extends State<MainScreen> {
             AppIcons.bottomNavHistoryIcon,
             color: Colors.white,
           ),
-          Icon(
-            AppIcons.bottomNavDetectionIcon,
-            color: Colors.white,
-          ),
-          // SizedBox(
-          //   width: 30.w,
-          //   height: 30.h,
-          //   child: Image.asset(
-          //     Assets.pngSearch,
-          //   ),
+          Image.asset(Assets.pngSearch, height: 30.h, width: 30.w),
+          // Icon(
+          //   AppIcons.bottomNavDetectionIcon,
+          //   color: Colors.white,
           // ),
         ],
         onTap: (index) {

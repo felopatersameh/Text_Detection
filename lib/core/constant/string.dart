@@ -74,6 +74,7 @@ class AppString {
   static const String pdfTaskTile = 'Text from pdf';
   static const String imageTaskTile = 'Text from Image';
   static const String qrCodeTaskTile = 'Text from QR code';
+  static const String videoTile = 'Text from video';
 
   //--------------------------------------------------
 //USER => Account screen

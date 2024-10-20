@@ -26,4 +26,6 @@ class Assets {
   static const String svgSettings = 'assets/svg/settings.svg';
   static const String svgTheme = 'assets/svg/theme.svg';
   static const String svgVector = 'assets/svg/Vector.svg';
+  static const String svgVideo = 'assets/svg/Videocamera.svg';
+  static const String svgCamera= 'assets/svg/Camera Minimalistic.svg';
 }
