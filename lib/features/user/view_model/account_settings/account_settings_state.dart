@@ -1,10 +1,10 @@
 part of 'account_settings_cubit.dart';
 
 sealed class AccountSettingsState {
-  String name = UserDataModel.name;
-  String email = UserDataModel.email;
-  String password = UserDataModel.password;
-  String imageUrl = UserDataModel.imageUrl;
+  // String name = UserDataModel.name;
+  // String email = UserDataModel.email;
+  // String password = UserDataModel.password;
+  // String imageUrl = UserDataModel.imageUrl;
 }
 
 final class AccountSettingsInitial extends AccountSettingsState {}

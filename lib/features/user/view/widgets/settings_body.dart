@@ -44,7 +44,7 @@ class SettingsBody extends StatelessWidget {
                     ),
                     subtitle: Text(
                       // UserDataModel.name,
-                      context.watch<AccountSettingsCubit>().state.name,
+                      "context.watch<AccountSettingsCubit>().state.name,",
                       style: TextStyle(color: AppColors.mediumGray),
                     ),
                     backgroundColor: AppColors.lightBlueGray,

@@ -12,22 +12,27 @@ class CustomTextSource extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 173.w,
-      height: 51.h,
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 1.w,
+    return Column(
+      children: [
+        Container(
+          width: 173.w,
+          height: 51.h,
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 1.w,
+            ),
+            borderRadius: AppConstants.defaultCircularBorder,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(assetPath),
+              Text(taskTitle, style: AppTextStyles.style16xW700Dblue()),
+            ],
+          ),
         ),
-        borderRadius: AppConstants.defaultCircularBorder,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(assetPath),
-          Text(taskTitle, style: AppTextStyles.style16xW700Dblue()),
-        ],
-      ),
+        AppConstants.userVerticalSpace30, //imageToText
+      ],
     );
   }
 }

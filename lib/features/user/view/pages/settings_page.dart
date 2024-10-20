@@ -16,7 +16,6 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
     return Scaffold(
       appBar: backArrow(context, title: AppString.accountSettingsHeader),
       body: SettingsBody(),
-      resizeToAvoidBottomInset: false,
     );
   }
 

@@ -12,7 +12,7 @@ import 'features/auth/view_model/authentication/authentication_cubit.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  runApp(const MyApp(),);
+  runApp(const MyApp());
   /*
  Future<void> main() async {
   await Firebase.initializeApp(

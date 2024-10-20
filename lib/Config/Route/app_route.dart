@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:textdetection/features/user/view/widgets/image_view.dart';
 import '../../core/utils/Widget/pages_transition.dart';
 import '../../features/auth/view/pages/otp_verfication_screen.dart';
 import '../../features/auth/view/pages/password_changed.dart';
@@ -31,6 +32,7 @@ class AppRoutes {
   static const String textDetectScreen = '/text_detect_screen';
   static const String extractedTextScreen = '/extracted_text_screen';
   static const String mainScreen = '/main_screen';
+  static const String imageView = '/image_view';
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => MyCustomSplashScreen(),
@@ -48,6 +50,8 @@ class AppRoutes {
     textDetectScreen: (_) => const AiTextDetect(),
     extractedTextScreen: (_) => const ExtractedText(),
     mainScreen: (_) => const MainScreen(),
+    imageView: (_) => const ImageView(),
+
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {

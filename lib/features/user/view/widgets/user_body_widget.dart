@@ -7,6 +7,7 @@ import 'package:textdetection/core/constant/text_style.dart';
 import '../../../../generated/assets.dart';
 import '../../view_model/account_settings/account_settings_cubit.dart';
 import 'custom_material_widget.dart';
+import 'image_user.dart';
 
 class UserBody extends StatelessWidget {
   const UserBody({super.key});
@@ -20,22 +21,10 @@ class UserBody extends StatelessWidget {
           children: [
             //profile image
             AppConstants.userVerticalSpace20,
-            Material(
-              shape: CircleBorder(),
-              elevation: AppConstants.userElevation1,
-              child: CircleAvatar(
-                radius:
-                    MediaQuery.orientationOf(context) == Orientation.portrait
-                        ? 70.w
-                        : 40.w,
-                //   backgroundImage: AssetImage(
-                //       context.watch<AccountSettingsCubit>().state.imageUrl),
-              ),
-            ),
+            ImageUser(),
             AppConstants.userVerticalSpace20,
-            // Account Name
             Text(
-              context.watch<AccountSettingsCubit>().state.name,
+              "name",
               style: AppTextStyles.style14Bold(),
             ),
             //------------------------

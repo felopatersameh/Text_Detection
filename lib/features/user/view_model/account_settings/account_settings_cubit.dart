@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:textdetection/features/user/model/user_data_model.dart';
+import '../../model/user_data_model.dart';
 
 part 'account_settings_state.dart';
 
@@ -7,12 +7,6 @@ class AccountSettingsCubit extends Cubit<AccountSettingsState> {
   AccountSettingsCubit() : super(AccountSettingsInitial());
 
   void initializeUserData() {
-    /// TODO get data from firebase
-    UserDataModel.name;
-    UserDataModel.email;
-    UserDataModel.password;
-    UserDataModel.imageUrl;
-
     emit(InitializedUser());
   }
 
