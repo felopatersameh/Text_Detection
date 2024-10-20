@@ -18,7 +18,7 @@ import '../../features/splash/view/pages/splash.dart';
 import '../../features/home/view/pages/home_screen.dart';
 
 class AppRoutes {
-  static const String splash = '/';
+  static const String splash = '/splash_screen'; // To prevent override with default route => '/'
   static const String onboarding = '/onboarding';
   static const String loginScreen = '/login_screen';
   static const String registerScreen = '/register_screen';
