@@ -10,7 +10,7 @@ class UserDataModel {
   static DateTime? updatedAt;
   static String _accessToken = '';
   static String _refreshToken = '';
-  static List<FileElement>? files;
+  static List<FileElement> files = [];
 
   // Private Constructor
   // To prevent creating more than one user
@@ -34,35 +34,51 @@ class FileElement {
   String fileLink;
 
   // "now()" will be executed at creating the instance
-  DateTime? createdAt = DateTime.now();
+  final DateTime createdAt = DateTime.now();
   DateTime? removedAt;
   bool favorite;
   bool archive;
-  List<QuestionsGenerated>? questionsGenerated;
+  QuestionsGenerated questionsGenerated = QuestionsGenerated();
 
   FileElement({
     required this.title,
     required this.fileLink,
     this.favorite = false,
     this.archive = false,
-    this.questionsGenerated,
   });
 }
 
 class QuestionsGenerated {
-  final List<String> _questions = [];
-  final List<String> _answer = [];
+  final List<String> _allQuestions = [];
+  final List<String> _allAnswers = [];
+
+  List<String> get allQuestions => _allQuestions;
+
+  List<String> get allAnswers => _allAnswers;
 
   QuestionsGenerated();
 
-  void addQuestion({required String question, required String answer}) {
-    _questions.add(question);
-    _answer.add(answer);
+// Use these methods instead of setters to ensure that each question has an answer
+  void addQuestion({
+    required String question,
+    required String answer,
+  }) {
+    _allQuestions.add(question);
+    _allAnswers.add(answer);
   }
 
-  void addAllQuestion(
-      {required List<String> questions, required List<String> answers}) {
-    _questions.addAll(questions);
-    _answer.addAll(answers);
+  void addAllQuestion({
+    required List<String> questions,
+    required List<String> answers,
+  }) {
+    /// For test only
+    if (questions.length != answers.length) {
+      print("-----------------------------------------------");
+      print("------------ Check Your Code!! ----------------");
+      print("-----------------------------------------------");
+      return;
+    }
+    _allQuestions.addAll(questions);
+    _allAnswers.addAll(answers);
   }
 }
