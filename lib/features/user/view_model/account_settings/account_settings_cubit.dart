@@ -26,7 +26,7 @@ class AccountSettingsCubit extends Cubit<AccountSettingsState> {
   }
 
   void changeImage(String newImageUrl) {
-    UserDataModel.imageUrl = newImageUrl;
+    UserDataModel.photo = newImageUrl;
     emit(ImageChanged());
   }
 }
