@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:textdetection/features/history/view/pages/history_page.dart';
 import 'package:textdetection/features/user/view/widgets/image_view.dart';
 import '../../core/utils/Widget/pages_transition.dart';
 import '../../features/auth/view/pages/otp_verfication_screen.dart';
@@ -29,6 +30,7 @@ class AppRoutes {
   static const String homeScreen = '/home_screen';
   static const String accountScreen = '/account_screen';
   static const String accountSettingsScreen = '/account_settings_screen';
+  static const String historyScreen = '/history_screen';
   static const String textDetectScreen = '/text_detect_screen';
   static const String extractedTextScreen = '/extracted_text_screen';
   static const String mainScreen = '/main_screen';
@@ -36,7 +38,6 @@ class AppRoutes {
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => MyCustomSplashScreen(),
-    /*const SplashScreen(),*/
     onboarding: (_) => const IntroScreen(),
     loginScreen: (_) => const LoginScreen(),
     registerScreen: (_) => const RegisterScreen(),
@@ -51,6 +52,7 @@ class AppRoutes {
     extractedTextScreen: (_) => const ExtractedText(),
     mainScreen: (_) => const MainScreen(),
     imageView: (_) => const ImageView(),
+    historyScreen: (_) => const HistoryScreen(),
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
