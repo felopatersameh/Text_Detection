@@ -34,10 +34,10 @@ class HomeBody extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(
-            color: AppColors.white,
-          ),
-          AppConstants.userVerticalSpace60,
+          // const Divider(
+          //   color: AppColors.white,
+          // ),
+          _sizeBox(),
           SliverToBoxAdapter(
             child: GestureDetector(
               child: CustomTextSource(
@@ -49,7 +49,7 @@ class HomeBody extends StatelessWidget {
               },
             ),
           ),
-          AppConstants.userVerticalSpace30, //imageToText
+          _sizeBox(), //imageToText
           SliverToBoxAdapter(
             child: GestureDetector(
               child: CustomTextSource(
@@ -61,7 +61,7 @@ class HomeBody extends StatelessWidget {
               },
             ),
           ),
-          AppConstants.userVerticalSpace30, //pdfToText
+          _sizeBox(), //pdfToText
           SliverToBoxAdapter(
             child: GestureDetector(
               child: CustomTextSource(
@@ -73,7 +73,14 @@ class HomeBody extends StatelessWidget {
               },
             ),
           ),
-          AppConstants.userVerticalSpace30, //qrToText
+          _sizeBox()
+          //qrToText
         ]);
+  }
+
+  SliverToBoxAdapter _sizeBox() {
+    return SliverToBoxAdapter(
+          child: AppConstants.userVerticalSpace30 ,
+        );
   }
 }
