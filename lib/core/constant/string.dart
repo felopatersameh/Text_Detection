@@ -87,5 +87,11 @@ class AppString {
   static const String settingsUserScreenSub = 'account settings';
   static const String saveSettingsScreenTitle = 'Save Changes';
 
+//--------------------------------------------------
+// Messages
+  static const String succeedLogin = 'Login successfully';
+  static const String succeedRegister = 'Registration has been completed successfully.';
+  static const String errorSimilarPassword = 'Password is not Similar';
+
 //Todo: اللي يضيف أي سترينج يميزه بكومنت بعد اذنكم
 }

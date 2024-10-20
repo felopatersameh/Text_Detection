@@ -33,7 +33,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       child: TextFormField(
         controller: widget.controller,
         decoration: InputDecoration(
+          errorMaxLines: 3,
           hintText: widget.hint,
+          // hintMaxLines:widget.hint.characters.length ,
           border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: AppConstants.defaultCircularBorder),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/core/utils/Validation/custom_validation.dart';
+import 'package:textdetection/features/auth/view_model/authentication/authentication_cubit.dart';
 import '../../../../../core/constant/field_id_password.dart';
+import '../../../../../core/utils/Widget/custom_messages.dart';
 import '../../../model/register_model.dart';
 import '../../../../../core/constant/app_constants.dart';
 import '../../../../../core/utils/Validation/validate_email_password.dart';
@@ -41,6 +45,12 @@ class _FormRegisterState extends State<FormRegister> {
             CustomTextFormField(
               hint: AppString.userNameHint,
               controller: usernameController,
+              validator: (p0) => customValidate(
+                value: p0 ?? "",
+                titleCheck: AppString.userNameHint,
+                minLength: 5,
+                maxLength: 20,
+              ),
             ),
             12.verticalSpace,
             CustomTextFormField(
@@ -58,12 +68,12 @@ class _FormRegisterState extends State<FormRegister> {
             ),
             12.verticalSpace,
             CustomPasswordTextFromField(
+              hintText: AppString.confirmPasswordHint,
               controller: confirmController,
               fieldId: FieldIdPassword.password2Register,
               isLogin: false,
             ),
             12.verticalSpace,
-
             BuildCustomButton(
               text: AppString.registerName,
               onPressed: () {
@@ -73,7 +83,22 @@ class _FormRegisterState extends State<FormRegister> {
                   password: passwordController.text,
                 );
                 if (keyForm.currentState?.validate() == true) {
-                  Navigator.of(context).pop(context);
+                  if (confirmController.text == passwordController.text) {
+                    Navigator.of(context).pop(context);
+                    context.read<AuthenticationCubit>().createAccount(account);
+                    customMessages(
+                      context,
+                      massageState: MessageState.succeed,
+                      massage: AppString.succeedRegister,
+                    );
+                    // ToDO:Massage register is done
+                  } else {
+                    customMessages(
+                      context,
+                      massageState: MessageState.error,
+                      massage: AppString.errorSimilarPassword,
+                    );
+                  }
                 }
               },
             ),
