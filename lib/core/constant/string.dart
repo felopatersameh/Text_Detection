@@ -96,6 +96,10 @@ class AppString {
   static const String succeedLogin = 'Login successfully';
   static const String succeedRegister = 'Registration has been completed successfully.';
   static const String errorSimilarPassword = 'Password is not Similar';
+//--------------------------------------------------
+  // History
+  static const String historyHeader = "History Screen";
+//--------------------------------------------------
 
 //Todo: اللي يضيف أي سترينج يميزه بكومنت بعد اذنكم
 }
