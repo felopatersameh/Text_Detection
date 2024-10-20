@@ -12,7 +12,7 @@ class Assets {
   static const String pngWelcome2 = 'assets/png/welcome2.png';
   static const String pngWelcome3 = 'assets/png/welcome3.png';
   static const String svgApple = 'assets/svg/apple.svg';
-  static const String svgAscan = 'assets/svg/ascan.svg';
+  static const String svgAscan = 'assets/svg/scan 1.png';
   static const String svgBackArrow = 'assets/svg/back_arrow.svg';
   static const String svgDetectIcon = 'assets/svg/detectIcon.svg';
   static const String svgEmail = 'assets/svg/email.svg';

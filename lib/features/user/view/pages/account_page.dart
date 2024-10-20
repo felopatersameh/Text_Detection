@@ -7,11 +7,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My Account"),
-        centerTitle: true,
-      ),
-      body: UserBody(),
+      body: SafeArea(child: UserBody()),
     );
   }
 }
