@@ -51,13 +51,17 @@ class AppRoutes {
     extractedTextScreen: (_) => const ExtractedText(),
     mainScreen: (_) => const MainScreen(),
     imageView: (_) => const ImageView(),
-
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final builder = routeBuilders[settings.name];
     if (settings.name == onboarding) {
       return PageTransition(IntroScreen());
+    } else if (settings.name == imageView) {
+      return PageRouteBuilder(
+        opaque: false,
+        pageBuilder: (BuildContext context, _, __) => const ImageView(),
+      );
     } else if (builder != null) {
       return MaterialPageRoute(builder: builder);
     }

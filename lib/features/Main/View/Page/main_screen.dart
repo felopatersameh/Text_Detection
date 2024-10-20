@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:textdetection/features/history/view/pages/history_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';

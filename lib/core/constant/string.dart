@@ -87,6 +87,9 @@ class AppString {
   static const String settingsUserScreenTitle = 'Manage Account';
   static const String settingsUserScreenSub = 'account settings';
   static const String saveSettingsScreenTitle = 'Save Changes';
+  static const String changeUserName = 'Change User Name';
+  static const String changePassword = 'Change Password';
+  static const String changePhoto= 'Change Profile Image';
 
 //--------------------------------------------------
 // Messages

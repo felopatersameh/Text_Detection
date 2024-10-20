@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive/hive.dart';
-import 'package:textdetection/Config/Route/app_route.dart';
+import 'package:textdetection/core/constant/string.dart';
 
 import '../../../../core/Models/hive_app_model.dart';
 import '../../../../core/constant/colors.dart';
@@ -88,8 +87,7 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
               AnimatedOpacity(
                 duration: Duration(milliseconds: 1000),
                 opacity: _textOpacity,
-                child: Text(
-                  'Text Thief App',
+                child: Text(AppString.appName,
                   style: TextStyle(
                     color: AppColors.black,
                     fontWeight: FontWeight.bold,

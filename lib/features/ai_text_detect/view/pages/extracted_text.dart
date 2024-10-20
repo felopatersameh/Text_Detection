@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/core/constant/string.dart';
-import 'package:textdetection/core/utils/Widget/custom_back_button.dart';
+import '../../../../core/constant/string.dart';
 
 import '../../../../core/constant/colors.dart';
 import '../../../auth/view/widgets/back_arrow.dart';

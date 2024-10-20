@@ -9,11 +9,13 @@ class CustomMaterialWidget extends StatelessWidget {
       {super.key,
       required this.title,
       required this.subTitle,
-      required this.assetName});
+      this.assetName,
+      this.onTap});
 
   final String title;
   final String subTitle;
-  final String assetName;
+  final String? assetName;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +34,12 @@ class CustomMaterialWidget extends StatelessWidget {
             //2
             subtitleTextStyle: TextStyle(color: AppColors.mediumGray),
             tileColor: Colors.white,
-            leading: SvgPicture.asset(assetName),
+
+            leading: assetName != null ? SvgPicture.asset(assetName!) : null,
             //3
             shape: RoundedRectangleBorder(
                 borderRadius: AppConstants.materialUserCircularDefault),
-            onTap: () {},
+            onTap: onTap,
           ),
         ),
         AppConstants.userVerticalSpace30,
