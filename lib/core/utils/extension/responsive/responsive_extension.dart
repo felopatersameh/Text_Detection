@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 
 extension WidthExtension on num {
@@ -25,3 +26,4 @@ class SizeConfig {
     screenHeight = MediaQuery.of(context).size.height;
   }
 }
+*/

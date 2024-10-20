@@ -1,7 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:textdetection/features/history/view/pages/history_page.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:textdetection/test_screen/file_screen.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/icons.dart';
 import '../../../ai_text_detect/view/pages/ai_text_detect.dart';
@@ -17,13 +18,14 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-  int currentIndex = 0;
+  int   currentIndex = 0;
   List<Widget> screens = [
     const HomeScreen(),
     const AccountScreen(),
-    const FileScreen(),
+    const HistoryScreen(),
     const AiTextDetect(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
