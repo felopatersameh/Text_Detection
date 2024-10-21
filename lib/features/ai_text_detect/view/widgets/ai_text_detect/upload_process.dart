@@ -1,14 +1,13 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:textdetection/core/constant/text_style.dart';
-import '../../../../../core/constant/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class UploadProcess extends StatefulWidget {
+import '../../../view_model/cubit/file_cubit.dart';
+import '../../../view_model/cubit/upload_cubit.dart';
+
+class UploadProcess extends StatelessWidget {
   final String fileName;
   final Function onCancel;
+
   const UploadProcess({
     super.key,
     required this.fileName,
@@ -16,87 +15,75 @@ class UploadProcess extends StatefulWidget {
   });
 
   @override
-  State<UploadProcess> createState() => _UploadProcessState();
-}
-
-class _UploadProcessState extends State<UploadProcess> {
-  double percent = 0;
-  Timer? timer;
-
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(const Duration(milliseconds: 1000), (_) {
-      setState(() {
-        percent += 10;
-        if (percent >= 100) {
-          timer?.cancel();
-        }
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-         Icon(
-          IconlyLight.document,
-          color: AppColors.cornFlowerPrimary,
-          size: 24.w,
-        ),
-        Expanded(
-          child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        widget.fileName,
-                        style: AppTextStyles.style11(),
-                        maxLines: 1,
+    return BlocProvider(
+      create: (_) => UploadCubit()..startUpload(),
+      child: BlocBuilder<UploadCubit, UploadState>(
+        builder: (context, state) {
+          double percent = 0;
+          String statusText = '';
+
+          if (state is UploadInProgress) {
+            percent = state.percent;
+            statusText = "${percent.toStringAsFixed(0)}%";
+          } else if (state is UploadComplete) {
+            statusText = "Upload Complete";
+          } else if (state is UploadCancelled) {
+            statusText = "Upload Cancelled";
+          }
+
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(
+                Icons.file_present,
+                color: Colors.blue,
+                size: 24,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              fileName,
+                              style: TextStyle(fontSize: 16),
+                              maxLines: 1,
+                            ),
+                          ),
+                          Text(
+                            statusText,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
                       ),
-                    ),
-                    Text(
-                      "${percent.toStringAsFixed(0)}%",
-                      style: AppTextStyles.style11(),
-                    ),
-                  ],
+                      const SizedBox(height: 8),
+                      LinearProgressIndicator(
+                        value: percent / 100,
+                        color: Colors.blue,
+                      ),
+                    ],
+                  ),
                 ),
-                SizedBox(height: 8.h),
-                LinearPercentIndicator(
-                  padding: const EdgeInsets.all(0),
-                  lineHeight: 2.0.h,
-                  percent: percent / 100,
-                  progressColor: AppColors.cornFlowerPrimary,
-                ),
-              ],
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {
-            timer?.cancel(); // Cancel the upload process
-            widget.onCancel(); // Trigger cancel callback
-          },
-          child: Icon(
-            Icons.close_rounded,
-            color: AppColors.blueDark,
-            size: 15.w,
-          ),
-        ),
-      ],
+              ),
+              IconButton(
+                onPressed: () {
+                  context.read<FileCubit>().addFile(fileName);
+                  debugPrint("File added: $fileName");
+                  onCancel();
+                },
+                icon: Icon(Icons.close),
+                color: Colors.red,
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

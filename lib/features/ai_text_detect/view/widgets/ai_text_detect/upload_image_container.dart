@@ -53,9 +53,9 @@ class UploadImageContainer extends StatelessWidget {
               );
               if (result != null) {
                 PlatformFile file = result.files.first;
-                onFilePicked(file.name); // Notify the parent about the new file
+                onFilePicked(file.name);
               } else {
-                // User canceled the picker
+                print("File picker canceled");
               }
             },
           ),
