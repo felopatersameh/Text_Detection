@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:textdetection/core/constant/text_style.dart';
 import '../../../../../core/constant/colors.dart';
 
 class UploadProcess extends StatefulWidget {
@@ -45,14 +47,14 @@ class _UploadProcessState extends State<UploadProcess> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Icon(
+         Icon(
           IconlyLight.document,
           color: AppColors.cornFlowerPrimary,
-          size: 24,
+          size: 24.w,
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding:  EdgeInsets.symmetric(horizontal: 20.0.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -61,30 +63,21 @@ class _UploadProcessState extends State<UploadProcess> {
                   children: [
                     Expanded(
                       child: Text(
-                        widget.fileName, // Display dynamic file name
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
-                          overflow:
-                              TextOverflow.ellipsis,
-                        ),
+                        widget.fileName,
+                        style: AppTextStyles.style11(),
                         maxLines: 1,
                       ),
                     ),
                     Text(
-                      "${percent.toStringAsFixed(0)}%", // Display progress
-                      style: const TextStyle(
-                        fontSize: 11,
-                        color: AppColors.lightGray,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      "${percent.toStringAsFixed(0)}%",
+                      style: AppTextStyles.style11(),
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8.h),
                 LinearPercentIndicator(
                   padding: const EdgeInsets.all(0),
-                  lineHeight: 2.0,
+                  lineHeight: 2.0.h,
                   percent: percent / 100,
                   progressColor: AppColors.cornFlowerPrimary,
                 ),
@@ -97,10 +90,10 @@ class _UploadProcessState extends State<UploadProcess> {
             timer?.cancel(); // Cancel the upload process
             widget.onCancel(); // Trigger cancel callback
           },
-          child: const Icon(
+          child: Icon(
             Icons.close_rounded,
             color: AppColors.blueDark,
-            size: 15,
+            size: 15.w,
           ),
         ),
       ],

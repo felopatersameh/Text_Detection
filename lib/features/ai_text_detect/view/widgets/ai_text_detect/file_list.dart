@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
 import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_image_container.dart';
 import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_process.dart';
 
+import '../../../../../core/constant/app_constants.dart';
 import '../../../../../core/constant/colors.dart';
+import '../../../../../core/constant/text_style.dart';
 import '../../../../../core/utils/Widget/build_default_button.dart';
 
 class FileList extends StatefulWidget {
@@ -37,13 +40,10 @@ class _FileListState extends State<FileList> {
           UploadImageContainer(onFilePicked: addFile),
 
           Padding(
-            padding: const EdgeInsets.only(top: 30.0, bottom: 20),
+            padding: const EdgeInsets.only(top: 30.0, bottom: 20).r,
             child: Text(
               "Files",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+                style: AppTextStyles.style16xW700()
             ),
           ),
           Expanded(
@@ -54,10 +54,8 @@ class _FileListState extends State<FileList> {
                 onCancel: () => removeFile(index),
               ),
               itemCount: files.length,
-              separatorBuilder: (context, index) => const SizedBox(
-                height: 20,
+              separatorBuilder: (context, index) => AppConstants.userVerticalSpace20,
               ),
-            ),
           ),
           BuildCustomButton(
             text: "Confirm",

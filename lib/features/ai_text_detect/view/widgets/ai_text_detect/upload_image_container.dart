@@ -1,7 +1,10 @@
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
+import 'package:textdetection/core/constant/app_constants.dart';
+import 'package:textdetection/core/constant/text_style.dart';
 import '../../../../../core/constant/colors.dart';
 import '../../../../../core/utils/Widget/build_default_button.dart';
 import '../../../../../generated/assets.dart';
@@ -14,31 +17,28 @@ class UploadImageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(32),
-      decoration: const BoxDecoration(
+      padding:  EdgeInsets.all(32).r,
+      decoration:  BoxDecoration(
         border: DashedBorder.fromBorderSide(
-          dashLength: 15,
-          side: BorderSide(color: AppColors.cornFlowerPrimary, width: 2),
+          dashLength: 15.w,
+          side: BorderSide(color: AppColors.cornFlowerPrimary, width: 2.w),
         ),
-        borderRadius: BorderRadius.all(Radius.circular(2)),
+        borderRadius: AppConstants.defaultCircularBorder,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(
             Assets.pngSearch,
-            height: 100,
-            width: 100,
+            height: 100.h,
+            width: 100.w,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            padding:  EdgeInsets.symmetric(vertical: 20.0.h),
             child: Text(
               "Drag or drop file here\n- OR -",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-                color: AppColors.blueGary,
-              ),
+              style: AppTextStyles.style16xW700()
             ),
           ),
           BuildCustomButton(
