@@ -1,12 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:textdetection/Config/Route/app_route.dart';
+import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_image_container.dart';
 import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_process.dart';
 
 import '../../../../../core/constant/colors.dart';
 import '../../../../../core/utils/Widget/build_default_button.dart';
 
-class FileList extends StatelessWidget {
+class FileList extends StatefulWidget {
   const FileList({super.key});
+
+  @override
+  State<FileList> createState() => _FileListState();
+}
+
+class _FileListState extends State<FileList> {
+  List<String> files = [];
+
+  void addFile(String fileName) {
+    setState(() {
+      files.add(fileName);
+    });
+  }
+
+  void removeFile(int index) {
+    setState(() {
+      files.removeAt(index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +34,8 @@ class FileList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          UploadImageContainer(onFilePicked: addFile),
+
           Padding(
             padding: const EdgeInsets.only(top: 30.0, bottom: 20),
             child: Text(
@@ -27,8 +49,11 @@ class FileList extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               shrinkWrap: true,
-              itemBuilder: (context, index) => const UploadProcess(),
-              itemCount: 3,
+              itemBuilder: (context, index) => UploadProcess(
+                fileName: files[index],
+                onCancel: () => removeFile(index),
+              ),
+              itemCount: files.length,
               separatorBuilder: (context, index) => const SizedBox(
                 height: 20,
               ),

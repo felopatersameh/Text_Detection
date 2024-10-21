@@ -7,18 +7,21 @@ import '../../../../../core/utils/Widget/build_default_button.dart';
 import '../../../../../generated/assets.dart';
 
 class UploadImageContainer extends StatelessWidget {
-  const UploadImageContainer({super.key });
+  final Function(String) onFilePicked;
+
+  const UploadImageContainer({super.key, required this.onFilePicked});
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(32),
       decoration: const BoxDecoration(
-          border: DashedBorder.fromBorderSide(
-              dashLength: 15,
-              side: BorderSide(color: AppColors.cornFlowerPrimary, width: 2)
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(2))),
+        border: DashedBorder.fromBorderSide(
+          dashLength: 15,
+          side: BorderSide(color: AppColors.cornFlowerPrimary, width: 2),
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(2)),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -38,27 +41,23 @@ class UploadImageContainer extends StatelessWidget {
               ),
             ),
           ),
-              BuildCustomButton(
-                text: "Choose File",
+          BuildCustomButton(
+            text: "Choose File",
             color: AppColors.darkBlue,
             height: 0.1,
-                width: 0.5,
-                onPressed: () async {
-                  FilePickerResult? result = await FilePicker.platform.pickFiles(
-                    type: FileType.custom,
-                    allowedExtensions: ['jpg', 'png', 'jpeg','pdf','doc'],
-                  );
-                  if (result != null) {
-                    PlatformFile file = result.files.first;
-                    print(file.name);
-                    print(file.bytes);
-                    print(file.size);
-                    print(file.extension);
-                    print(file.path);
-                  } else {
-                    // User canceled the picker
-                  }
-                },
+            width: 0.5,
+            onPressed: () async {
+              FilePickerResult? result = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['jpg', 'png', 'jpeg', 'pdf', 'doc'],
+              );
+              if (result != null) {
+                PlatformFile file = result.files.first;
+                onFilePicked(file.name); // Notify the parent about the new file
+              } else {
+                // User canceled the picker
+              }
+            },
           ),
         ],
       ),

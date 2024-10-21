@@ -5,7 +5,13 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import '../../../../../core/constant/colors.dart';
 
 class UploadProcess extends StatefulWidget {
-  const UploadProcess({super.key});
+  final String fileName;
+  final Function onCancel;
+  const UploadProcess({
+    super.key,
+    required this.fileName,
+    required this.onCancel,
+  });
 
   @override
   State<UploadProcess> createState() => _UploadProcessState();
@@ -13,20 +19,26 @@ class UploadProcess extends StatefulWidget {
 
 class _UploadProcessState extends State<UploadProcess> {
   double percent = 0;
+  Timer? timer;
 
   @override
   void initState() {
-    Timer? timer;
+    super.initState();
+
     timer = Timer.periodic(const Duration(milliseconds: 1000), (_) {
       setState(() {
         percent += 10;
         if (percent >= 100) {
           timer?.cancel();
-          // percent=0;
         }
       });
     });
-    super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -36,7 +48,6 @@ class _UploadProcessState extends State<UploadProcess> {
       children: [
         const Icon(
           IconlyLight.document,
-          weight: 100,
           color: AppColors.cornFlowerPrimary,
           size: 24,
         ),
@@ -45,21 +56,25 @@ class _UploadProcessState extends State<UploadProcess> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "PDF",
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w500,
+                    Expanded(
+                      child: Text(
+                        widget.fileName, // Display dynamic file name
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w500,
+                          overflow:
+                              TextOverflow.ellipsis,
+                        ),
+                        maxLines: 1,
                       ),
                     ),
                     Text(
-                      "$percent%",
-                      style: TextStyle(
+                      "${percent.toStringAsFixed(0)}%", // Display progress
+                      style: const TextStyle(
                         fontSize: 11,
                         color: AppColors.lightGray,
                         fontWeight: FontWeight.w500,
@@ -67,12 +82,9 @@ class _UploadProcessState extends State<UploadProcess> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 LinearPercentIndicator(
                   padding: const EdgeInsets.all(0),
-                  //width: 350,
                   lineHeight: 2.0,
                   percent: percent / 100,
                   progressColor: AppColors.cornFlowerPrimary,
@@ -82,10 +94,12 @@ class _UploadProcessState extends State<UploadProcess> {
           ),
         ),
         InkWell(
-          onTap: () {},
+          onTap: () {
+            timer?.cancel(); // Cancel the upload process
+            widget.onCancel(); // Trigger cancel callback
+          },
           child: const Icon(
             Icons.close_rounded,
-            weight: 20,
             color: AppColors.blueDark,
             size: 15,
           ),

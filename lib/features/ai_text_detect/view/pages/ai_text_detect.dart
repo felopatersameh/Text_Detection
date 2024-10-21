@@ -13,7 +13,6 @@ class AiTextDetect extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 40.0),
           child: Column(
             children: [
-              UploadImageContainer(),
               FileList(),
             ],
           ),
