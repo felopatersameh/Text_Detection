@@ -24,7 +24,6 @@ class _UploadProcessState extends State<UploadProcess> {
   @override
   void initState() {
     super.initState();
-
     timer = Timer.periodic(const Duration(milliseconds: 1000), (_) {
       setState(() {
         percent += 10;
