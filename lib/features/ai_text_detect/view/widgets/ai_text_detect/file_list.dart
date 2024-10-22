@@ -72,14 +72,11 @@ class FileList extends StatelessWidget {
                 height: 0.12,
                 onPressed: files.isNotEmpty
                     ? () {
-                        Navigator.pushNamed(
-                            context, AppRoutes.extractedTextScreen);
-                      }
-                    : () {
-                        Navigator.pushNamed(
-                            context, AppRoutes.textDetectScreen);
-                      }, // Disable button if no files
+                  Navigator.pushNamed(context, AppRoutes.extractedTextScreen);
+                }
+                    : null, // Button disabled when no files
               ),
+
             ],
           ),
         );

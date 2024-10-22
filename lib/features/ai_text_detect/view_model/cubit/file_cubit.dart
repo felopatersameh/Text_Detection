@@ -15,8 +15,13 @@ class FileCubit extends Cubit<FileState> {
   }
 
   void removeFile(int index) {
-    files.removeAt(index);
-    emit(FileSuccess(files));
+    if (index >= 0 && index < files.length) {
+      files.removeAt(index);
+      emit(FileSuccess(files));
+    } else {
+      debugPrint("Invalid index: $index. Cannot remove file.");
+    }
   }
+
 }
 
