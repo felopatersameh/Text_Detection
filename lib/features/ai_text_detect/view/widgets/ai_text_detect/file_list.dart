@@ -74,7 +74,7 @@ class FileList extends StatelessWidget {
                     ? () {
                   Navigator.pushNamed(context, AppRoutes.extractedTextScreen);
                 }
-                    : null, // Button disabled when no files
+                    : null,
               ),
 
             ],
