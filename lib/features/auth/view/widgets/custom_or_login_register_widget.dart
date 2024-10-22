@@ -26,9 +26,9 @@ class CustomOrLoginRegisterWidget extends StatelessWidget {
                   color: AppColors.mediumDarkGray,
                 ),
               ),
-              8.verticalSpace,
+              8.horizontalSpace,
               orWithText, //text
-              8.verticalSpace,
+              8.horizontalSpace,
 
               Expanded(
                 child: Divider(

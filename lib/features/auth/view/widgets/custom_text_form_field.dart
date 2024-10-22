@@ -39,7 +39,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: AppConstants.defaultCircularBorder),
-          hintStyle: AppTextStyles.style16xW500(),
+          hintStyle: AppTextStyles.style16W500(),
           suffixIcon: widget.suffixIcon,
           filled: true,
           fillColor: AppColors.offWhite,
