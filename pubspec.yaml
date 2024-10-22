@@ -51,7 +51,7 @@ dependencies:
   mobkit_dashed_border: ^0.0.6
   file_picker: ^8.1.2
   curved_navigation_bar: ^1.0.6
-  percent_indicator:
+  percent_indicator: ^4.2.2
   flutter_screenutil: ^5.9.3
   hive: ^2.2.3
   get_it: ^8.0.0

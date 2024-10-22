@@ -1,96 +1,105 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import '../../../../../core/constant/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/core/constant/colors.dart';
 
-class UploadProcess extends StatefulWidget {
-  const UploadProcess({super.key});
+import '../../../view_model/cubit/file_cubit.dart';
+import '../../../view_model/cubit/upload_cubit.dart';
 
-  @override
-  State<UploadProcess> createState() => _UploadProcessState();
-}
+class UploadProcess extends StatelessWidget {
+  final String fileName;
+  final int fileIndex;
+  final Function onCancel;
+  final Function onComplete;
 
-class _UploadProcessState extends State<UploadProcess> {
-  double percent = 0;
-
-  @override
-  void initState() {
-    Timer? timer;
-    timer = Timer.periodic(const Duration(milliseconds: 1000), (_) {
-      setState(() {
-        percent += 10;
-        if (percent >= 100) {
-          timer?.cancel();
-          // percent=0;
-        }
-      });
-    });
-    super.initState();
-  }
+  const UploadProcess({
+    super.key,
+    required this.fileName,
+    required this.onCancel,
+    required this.onComplete, required this.fileIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Icon(
-          IconlyLight.document,
-          weight: 100,
-          color: AppColors.cornFlowerPrimary,
-          size: 24,
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "PDF",
-                      style: TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w500,
+    return BlocProvider(
+      create: (_) => UploadCubit()..startUpload(),
+      child: BlocConsumer<UploadCubit, UploadState>(
+        listener: (context, state) {
+          if (state is UploadComplete) {
+            onComplete();
+          } else if (state is UploadCancelled) {
+            onCancel();
+          }
+        },
+        builder: (context, state) {
+          double percent = 0;
+          String statusText = '';
+
+          if (state is UploadInProgress) {
+            percent = state.percent;
+            statusText = "${percent.toStringAsFixed(0)}%";
+          } else if (state is UploadComplete) {
+            percent = 100;
+            statusText = "Complete";
+          } else if (state is UploadCancelled) {
+            statusText = "Cancelled";
+          }
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(
+                  IconlyLight.document,
+                  color: AppColors.cornFlowerPrimary,
+                  size: 24.w,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              fileName,
+                              style: TextStyle(fontSize: 16),
+                              maxLines: 1,
+                            ),
+                          ),
+                          Text(
+                            statusText,
+                            style: TextStyle(fontSize: 16),
+                          ),
+                        ],
                       ),
-                    ),
-                    Text(
-                      "$percent%",
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: AppColors.lightGray,
-                        fontWeight: FontWeight.w500,
+                      const SizedBox(height: 8),
+                      LinearProgressIndicator(
+                        value: percent / 100,
+                        color: Colors.blue,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const SizedBox(
-                  height: 8,
+              ),
+              IconButton(
+                onPressed: () {
+                  context.read<FileCubit>().removeFile(fileIndex);
+                  debugPrint("File removed: $fileIndex");
+                  onCancel();
+                },
+                icon:  Icon(
+                  Icons.close_rounded,
+                  color: AppColors.blueDark,
+                  size: 15.w,
                 ),
-                LinearPercentIndicator(
-                  padding: const EdgeInsets.all(0),
-                  //width: 350,
-                  lineHeight: 2.0,
-                  percent: percent / 100,
-                  progressColor: AppColors.cornFlowerPrimary,
-                ),
-              ],
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {},
-          child: const Icon(
-            Icons.close_rounded,
-            weight: 20,
-            color: AppColors.blueDark,
-            size: 15,
-          ),
-        ),
-      ],
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

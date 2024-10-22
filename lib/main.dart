@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/features/ai_text_detect/view_model/cubit/upload_cubit.dart';
 import 'core/constant/app_constants.dart';
 import 'core/constant/string.dart';
+import 'features/ai_text_detect/view_model/cubit/file_cubit.dart';
 import 'features/user/view_model/account_settings/account_settings_cubit.dart';
 import 'Config/Route/app_route.dart';
 import 'Config/Themes/light.dart';
@@ -43,6 +45,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthenticationCubit(),
         ),
+        BlocProvider(create: (context) => FileCubit()),
+        BlocProvider(create: (context) => UploadCubit()),
+
       ],
       child: ScreenUtilInit(
         designSize:
