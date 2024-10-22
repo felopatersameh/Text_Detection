@@ -10,13 +10,13 @@ class FileCubit extends Cubit<FileState> {
 
   void addFile(String fileName) {
     files.add(fileName);
-    emit(FileSuccess(files, message: 'File added successfully.'));
+    debugPrint("Current files: $files");
+    emit(FileSuccess(files));
   }
 
   void removeFile(int index) {
-    if (index < 0 || index >= files.length) return;
     files.removeAt(index);
-    emit(FileSuccess(files, message: 'File removed successfully.'));
+    emit(FileSuccess(files));
   }
 }
 

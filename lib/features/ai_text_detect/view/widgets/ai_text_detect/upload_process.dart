@@ -1,24 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/core/constant/colors.dart';
 
 import '../../../view_model/cubit/file_cubit.dart';
 import '../../../view_model/cubit/upload_cubit.dart';
 
 class UploadProcess extends StatelessWidget {
   final String fileName;
+  final int fileIndex;
   final Function onCancel;
+  final Function onComplete;
 
   const UploadProcess({
     super.key,
     required this.fileName,
     required this.onCancel,
+    required this.onComplete, required this.fileIndex,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => UploadCubit()..startUpload(),
-      child: BlocBuilder<UploadCubit, UploadState>(
+      child: BlocConsumer<UploadCubit, UploadState>(
+        listener: (context, state) {
+          if (state is UploadComplete) {
+            onComplete();
+          } else if (state is UploadCancelled) {
+            onCancel();
+          }
+        },
         builder: (context, state) {
           double percent = 0;
           String statusText = '';
@@ -27,18 +40,18 @@ class UploadProcess extends StatelessWidget {
             percent = state.percent;
             statusText = "${percent.toStringAsFixed(0)}%";
           } else if (state is UploadComplete) {
-            statusText = "Upload Complete";
+            percent = 100;
+            statusText = "Complete";
           } else if (state is UploadCancelled) {
-            statusText = "Upload Cancelled";
+            statusText = "Cancelled";
           }
-
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Icon(
-                Icons.file_present,
-                color: Colors.blue,
-                size: 24,
+                  IconlyLight.document,
+                  color: AppColors.cornFlowerPrimary,
+                  size: 24.w,
               ),
               Expanded(
                 child: Padding(
@@ -73,12 +86,15 @@ class UploadProcess extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  context.read<FileCubit>().addFile(fileName);
-                  debugPrint("File added: $fileName");
+                  context.read<FileCubit>().removeFile(fileIndex);
+                  debugPrint("File removed: $fileIndex");
                   onCancel();
                 },
-                icon: Icon(Icons.close),
-                color: Colors.red,
+                icon:  Icon(
+                  Icons.close_rounded,
+                  color: AppColors.blueDark,
+                  size: 15.w,
+                ),
               ),
             ],
           );
