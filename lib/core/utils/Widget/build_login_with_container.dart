@@ -19,16 +19,15 @@ class BuildLoginWithContainer extends StatelessWidget {
               context.read<AuthenticationCubit>().loginByFacebook(),
           svgPicture: Assets.svgFacebookIc,
         ),
-        8.verticalSpace,
+        8.horizontalSpace,
         CustomLoginWith(
           onPressed: () => context.read<AuthenticationCubit>().loginByGoogle(),
           svgPicture: Assets.svgGoogleIc,
         ),
-        8.verticalSpace,
-        CustomLoginWith(
-          onPressed: () => context.read<AuthenticationCubit>().loginByApple(),
-          svgPicture: Assets.svgApple,
-        ),
+        // CustomLoginWith(
+        //   onPressed: () => context.read<AuthenticationCubit>().loginByApple(),
+        //   svgPicture: Assets.svgApple,
+        // ),
       ],
     );
   }

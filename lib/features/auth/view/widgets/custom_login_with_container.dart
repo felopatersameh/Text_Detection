@@ -12,8 +12,9 @@ const CustomLoginWith({super.key, required this.svgPicture, required this.onPres
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 105.w,
-      height: 56.h,
+      width: 100.w,
+      height: 55.h,
+      padding: EdgeInsets.all(5),
       decoration: ShapeDecoration(
         color: AppColors.white,
         shape: RoundedRectangleBorder(
