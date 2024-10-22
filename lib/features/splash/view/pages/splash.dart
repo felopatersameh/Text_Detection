@@ -57,7 +57,8 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
 
     Timer(Duration(seconds: 4), () {
       setState(() {
-        Navigator.of(context).pushReplacementNamed(getIt<HiveAppModel>().startScreen);
+        Navigator.of(context)
+            .pushReplacementNamed(getIt<HiveAppModel>().startScreen);
       });
     });
   }
@@ -75,48 +76,51 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
 
     return Scaffold(
       backgroundColor: AppColors.lightBlueGray,
-      body: Stack(
-        children: [
-          Column(
-            children: [
-              AnimatedContainer(
-                duration: Duration(milliseconds: 2000),
-                curve: Curves.fastLinearToSlowEaseIn,
-                height: (height*.9) / _fontSize,
-              ),
-              AnimatedOpacity(
-                duration: Duration(milliseconds: 1000),
-                opacity: _textOpacity,
-                child: Text(AppString.appName,
-                  style: TextStyle(
-                    color: AppColors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: animation1!.value,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Column(
+              children: [
+                AnimatedContainer(
+                  duration: Duration(milliseconds: 2000),
+                  curve: Curves.fastLinearToSlowEaseIn,
+                  height: (height * .9) / _fontSize,
+                ),
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: 1000),
+                  opacity: _textOpacity,
+                  child: Text(
+                    AppString.appName,
+                    style: TextStyle(
+                      color: AppColors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: animation1!.value,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Center(
-            child: AnimatedOpacity(
-              duration: Duration(milliseconds: 2000),
-              curve: Curves.fastLinearToSlowEaseIn,
-              opacity: _containerOpacity,
-              child: AnimatedContainer(
+              ],
+            ),
+            Center(
+              child: AnimatedOpacity(
                 duration: Duration(milliseconds: 2000),
                 curve: Curves.fastLinearToSlowEaseIn,
-                height: width / _containerSize,
-                width: width / _containerSize,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
+                opacity: _containerOpacity,
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 2000),
+                  curve: Curves.fastLinearToSlowEaseIn,
+                  height: width / _containerSize,
+                  width: width / _containerSize,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Image.asset(Assets.pngDetectiveLogo),
                 ),
-                child: Image.asset(Assets.pngDetectiveLogo),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
