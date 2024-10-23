@@ -57,6 +57,7 @@ dependencies:
   get_it: ^8.0.0
   hive_flutter: ^1.1.0
   cherry_toast: ^1.11.0
+  equatable: ^2.0.5
 
 
 

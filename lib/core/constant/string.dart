@@ -73,7 +73,7 @@ class AppString {
   static const String headerTaskScreen = 'Text Thief';
   static const String pdfTaskTile = 'Text from pdf';
   static const String imageTaskTile = 'Text from Image';
-  static const String qrCodeTaskTile = 'Text from QR code';
+  static const String qrCodeTaskTile = 'Text from QR';
   static const String videoTile = 'Text from video';
 
   //--------------------------------------------------
@@ -97,5 +97,12 @@ class AppString {
   static const String succeedRegister = 'Registration has been completed successfully.';
   static const String errorSimilarPassword = 'Password is not Similar';
 
+//--------------------------------------------------
+// Text Detection => FileList
+  static const String fileListTitle = 'Choose File';
+  static const String fileListNoFile = 'No file selected';
+  static const String imageNotSelected = 'No image selected';
+  static const String files = 'Files';
+  static const String filesConfirmed = 'Confirm';
 //Todo: اللي يضيف أي سترينج يميزه بكومنت بعد اذنكم
 }

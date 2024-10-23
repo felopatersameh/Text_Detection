@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../Config/Route/app_route.dart';
+import '../../../../core/Config/Route/app_route.dart';
 import '../../../../core/constant/app_constants.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/constant/text_style.dart';

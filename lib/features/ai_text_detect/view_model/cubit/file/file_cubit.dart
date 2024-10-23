@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-
 part 'file_state.dart';
 
 class FileCubit extends Cubit<FileState> {
