@@ -34,7 +34,7 @@ class SettingsBody extends StatelessWidget {
                 CustomExpansionTileWidget(
                   title: AppString.changeUserName,
                   subtitle: "Current Username",
-                  assetName: Assets.pngProfile,
+                  leadingIcon: SvgPicture.asset(Assets.svgEmail),
                   controller: _nameController,
                   hint: AppString.userNameHint,
                   validator: (value) => customValidate(value: value!),
@@ -43,7 +43,7 @@ class SettingsBody extends StatelessWidget {
                 CustomExpansionTileWidget(
                   title: AppString.changePassword,
                   subtitle: "********",
-                  leadingIcon: Icon(Icons.lock),
+                  leadingIcon: SvgPicture.asset(Assets.svgLockPassword),
                   controller: _passwordController,
                   hint: "Enter your new password",
                   validator: (value) => customValidate(value: value ?? ""),
@@ -141,7 +141,7 @@ class CustomExpansionTileWidget extends StatelessWidget {
     return Material(
       elevation: AppConstants.userElevation2,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6.w),
+        borderRadius: AppConstants.materialUserCircularDefault,
       ),
       child: child ??
           ExpansionTile(
@@ -149,7 +149,7 @@ class CustomExpansionTileWidget extends StatelessWidget {
             subtitle: subtitle?.isNotEmpty == false
                 ? Text(
                     subtitle ?? "",
-                    style: TextStyle(color: AppColors.mediumGray),
+                    style: TextStyle(color: AppColors.white),
                   )
                 : null,
             backgroundColor: AppColors.lightBlueGray,

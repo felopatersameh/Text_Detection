@@ -78,7 +78,7 @@ class MyCustomSplashScreenState extends State<MyCustomSplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
+      backgroundColor: AppColors.cornFlowerPrimary,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {

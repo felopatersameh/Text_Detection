@@ -104,5 +104,7 @@ class AppString {
   static const String imageNotSelected = 'No image selected';
   static const String files = 'Files';
   static const String filesConfirmed = 'Confirm';
+  static const String cameraPicker = 'Camera';
+  static const String galleryPicker = 'Gallery';
 //Todo: اللي يضيف أي سترينج يميزه بكومنت بعد اذنكم
 }
