@@ -1,19 +1,19 @@
 import '../../../generated/assets.dart';
 
 class UserDataModel {
-  static String? _name;
-  static String? _email;
-  static String? _password;
+  static String _name = "User Name";
+  static String _email = "Email@gmail.com";
+  static String _password = '';
   static String _imageUrl = Assets.pngProfile;
 
   // Private Constructor
   UserDataModel._();
 
-  static String get name => _name!;
+  static String get name => _name;
 
-  static String get email => _email!;
+  static String get email => _email;
 
-  static String get password => _password!;
+  static String get password => _password;
 
   static String get imageUrl => _imageUrl;
 

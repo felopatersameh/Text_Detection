@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_onboarding_slider/background_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:textdetection/features/user/model/user_data_model.dart';
+import 'package:textdetection/features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import '../../../../Config/Route/app_route.dart';
 import '../../../../core/constant/app_constants.dart';
@@ -30,7 +34,8 @@ class UserBody extends StatelessWidget {
                 ImageUser(),
                 AppConstants.userVerticalSpace20,
                 Text(
-                  "name",
+                  // UserDataModel.name,
+                  context.watch<AccountSettingsCubit>().state.name,
                   style: AppTextStyles.style14Bold(),
                 ),
                 //------------------------
@@ -38,7 +43,7 @@ class UserBody extends StatelessWidget {
                 //1 => Email Material.
                 CustomMaterialWidget(
                   title: AppString.emailUserScreenTitle,
-                  subTitle: AppString.emailUserScreenSub,
+                  subTitle: UserDataModel.email,
                   assetName: Assets.svgEmail,
                 ),
                 //2 => Themes Material.

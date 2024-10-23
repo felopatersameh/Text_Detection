@@ -1,4 +1,6 @@
+import 'package:cherry_toast/cherry_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,20 +11,19 @@ import '../../../../core/utils/Validation/custom_validation.dart';
 import '../../../../core/utils/Widget/build_default_button.dart';
 import '../../../../generated/assets.dart';
 import '../../../auth/view/widgets/custom_text_form_field.dart';
-
+import '../../view_model/account_settings/account_settings_cubit.dart';
 
 class SettingsBody extends StatelessWidget {
   SettingsBody({super.key});
 
   final _passwordController = TextEditingController();
   final _nameController = TextEditingController();
-  // final _imageUrlController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-        shrinkWrap: true,
-        physics: const RangeMaintainingScrollPhysics(),
+      shrinkWrap: true,
+      physics: const RangeMaintainingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
@@ -34,7 +35,7 @@ class SettingsBody extends StatelessWidget {
                 CustomExpansionTileWidget(
                   title: AppString.changeUserName,
                   subtitle: "Current Username",
-                  assetName: Assets.pngProfile,
+                  assetName: Assets.svgEmail,
                   controller: _nameController,
                   hint: AppString.userNameHint,
                   validator: (value) => customValidate(value: value!),
@@ -46,7 +47,8 @@ class SettingsBody extends StatelessWidget {
                   leadingIcon: Icon(Icons.lock),
                   controller: _passwordController,
                   hint: "Enter your new password",
-                  validator: (value) => customValidate(value: value ?? ""),
+                  validator: (value) =>
+                      customValidate(value: value ?? "", minLength: 8),
                 ),
                 AppConstants.userVerticalSpace30,
                 CustomExpansionTileWidget(
@@ -75,32 +77,36 @@ class SettingsBody extends StatelessWidget {
               child: BuildCustomButton(
                 text: AppString.saveSettingsScreenTitle,
                 onPressed: () {
-                  // if (_nameController.text.isNotEmpty) {
-                  //   context
-                  //       .read<AccountSettingsCubit>()
-                  //       .changeUserName(_nameController.text);
-                  // }
-                  //
-                  // if (_passwordController.text.isNotEmpty &&
-                  //     _passFormKey.currentState!.validate()) {
-                  //   context
-                  //       .read<AccountSettingsCubit>()
-                  //       .changePassword(_passwordController.text);
-                  // }
-                  // if (_imageUrlController.text.isNotEmpty) {
-                  //   context
-                  //       .read<AccountSettingsCubit>()
-                  //       .changePassword(_imageUrlController.text);
-                  // }
-                  //
-                  // /// Todo this image here is for test only
-                  // context
-                  //     .read<AccountSettingsCubit>()
-                  //     .changeImage(Assets.pngWelcome3);
-                  //
-                  // ///
-                  // _nameController.clear();
-                  // _passwordController.clear();
+                  if (_nameController.text.isNotEmpty) {
+                    context
+                        .read<AccountSettingsCubit>()
+                        .changeUserName(_nameController.text);
+                    CherryToast.success(
+                      title: Text("Your Username Changed"),
+                    ).show(context);
+                  }
+
+                  if (customValidate(
+                          value: _passwordController.text, minLength: 8) ==
+                      null) {
+                    context
+                        .read<AccountSettingsCubit>()
+                        .changePassword(_passwordController.text);
+                    CherryToast.success(title: Text("Your Password Changed"))
+                        .show(context);
+                  } else if (_passwordController.text.isNotEmpty) {
+                    CherryToast.error(title: Text("Check Password Rules"))
+                        .show(context);
+                  }
+
+                  /// Todo this image here is for test only
+                  context
+                      .read<AccountSettingsCubit>()
+                      .changeImage(Assets.pngWelcome3);
+
+                  ///
+                  _nameController.clear();
+                  _passwordController.clear();
                   // _imageUrlController.clear();
                 },
               ),
