@@ -12,10 +12,12 @@ import 'core/services/service_locator.dart';
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 import 'features/auth/view_model/authentication/authentication_cubit.dart';
 
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
   runApp(const MyApp());
+
   /*
  Future<void> main() async {
   await Firebase.initializeApp(
