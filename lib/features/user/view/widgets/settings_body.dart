@@ -99,7 +99,7 @@ class SettingsBody extends StatelessWidget {
                         .show(context);
                   }
 
-                  /// Todo this image here is for test only
+                  /// this image here is for test only
                   context
                       .read<AccountSettingsCubit>()
                       .changeImage(Assets.pngWelcome3);
