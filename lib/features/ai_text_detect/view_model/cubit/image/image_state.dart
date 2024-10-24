@@ -28,3 +28,4 @@ class ImagePickerError extends ImagePickerState {
   @override
   List<Object?> get props => [error];
 }
+

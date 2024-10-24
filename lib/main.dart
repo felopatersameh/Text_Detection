@@ -8,14 +8,23 @@ import 'core/Config/Themes/light.dart';
 import 'core/constant/app_constants.dart';
 import 'core/constant/string.dart';
 import 'features/ai_text_detect/view_model/cubit/file/file_cubit.dart';
+import 'features/ai_text_detect/view_model/cubit/text_recognition/text_recognition_cubit.dart';
 import 'features/user/view_model/account_settings/account_settings_cubit.dart';
 import 'core/services/service_locator.dart';
 import 'features/auth/view_model/PasswordVisibility/password_visibility_cubit.dart';
 import 'features/auth/view_model/authentication/authentication_cubit.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+    apiKey: "AIzaSyBuMHPh3BemdBWfhovFB0MkVbnAyfuNhok",
+    appId: "1:233050846038:android:cd999efcb359a887ae5cf7",
+    messagingSenderId: "text-recognition-depi",
+    projectId: "text-recognition-depi",
+  ));
   runApp(const MyApp());
   /*
  Future<void> main() async {
@@ -45,9 +54,18 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthenticationCubit(),
         ),
-        BlocProvider(create: (context) => FileCubit()),
-        BlocProvider(create: (context) => UploadCubit()),
-        BlocProvider(create: (context) => ImagePickerCubit()),
+        BlocProvider(
+          create: (context) => FileCubit(),
+        ),
+        BlocProvider(
+          create: (context) => UploadCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ImagePickerCubit(),
+        ),
+        BlocProvider(
+          create: (context) => TextRecognitionCubit(),
+        ),
       ],
       child: ScreenUtilInit(
         designSize:

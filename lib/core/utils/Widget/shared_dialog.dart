@@ -3,7 +3,17 @@ import 'package:flutter/material.dart';
 
 import '../../constant/colors.dart';
 
-showLoading(BuildContext context) {
+hideLoading(BuildContext context) {
+  Navigator.pop(context);
+}
+
+showMessage(BuildContext context,
+    {String? title,
+    String? body,
+    String? posButtonTitle,
+    String? negButtonTitle,
+    Function? onPosButtonClick,
+    Function? onNegButtonClick}) {
   showDialog(
       context: context,
       barrierDismissible: false,
@@ -11,16 +21,23 @@ showLoading(BuildContext context) {
       useRootNavigator: true,
       builder: (context) {
         return CupertinoAlertDialog(
-          content: Row(
-            children: [
-              Text('Loading...'),
-              Spacer(),
-              CircularProgressIndicator(
-                color: AppColors.lightBlueGray,
-                backgroundColor: AppColors.darkBlue,
-              ),
-            ],
-          ),
-        );
+            title: title != null ? Text(title) : null,
+            content: body != null ? Text(body) : null,
+            actions: [
+              if (posButtonTitle != null)
+                TextButton(
+                    onPressed: () {
+                      onPosButtonClick?.call();
+                      Navigator.pop(context);
+                    },
+                    child: Text(posButtonTitle)),
+              if (negButtonTitle != null)
+                TextButton(
+                    onPressed: () {
+                      onNegButtonClick?.call();
+                      Navigator.pop(context);
+                    },
+                    child: Text(negButtonTitle))
+            ]);
       });
 }

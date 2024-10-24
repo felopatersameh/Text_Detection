@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:textdetection/core/constant/string.dart';
 
 import '../../../../core/constant/colors.dart';
-import '../../../../core/constant/text_style.dart';
 import '../../../auth/view/widgets/back_arrow.dart';
 import '../../view_model/cubit/image/image_cubit.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:textdetection/core/constant/app_constants.dart';
+
+import '../widgets/image_picker/custom_image_picker_source.dart';
 
 class ImagePickerScreen extends StatelessWidget {
   const ImagePickerScreen({super.key});
@@ -34,7 +33,6 @@ class ImagePickerView extends StatelessWidget {
           padding: AppConstants.customFormPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               BlocBuilder<ImagePickerCubit, ImagePickerState>(
                 builder: (context, state) {
@@ -43,7 +41,6 @@ class ImagePickerView extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     );
                   }
-
                   if (state is ImagePickerSuccess) {
                     return Center(
                       child: Column(
@@ -65,7 +62,7 @@ class ImagePickerView extends StatelessWidget {
                             onPressed: () {
                               context.read<ImagePickerCubit>().resetImage();
                             },
-                            child: Text('Detect the Text'),
+                            child: Text('Let\'s get the text'),
                           ),
                         ],
                       ),
@@ -80,42 +77,8 @@ class ImagePickerView extends StatelessWidget {
                       ),
                     );
                   }
-
                   return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          AppString.imageNotSelected,
-                          style: AppTextStyles.style16xW700(),
-                        ),
-                        AppConstants.userVerticalSpace16,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ElevatedButton.icon(
-                              onPressed: () {
-                                context
-                                    .read<ImagePickerCubit>()
-                                    .pickImage(ImageSource.camera);
-                              },
-                              icon: Icon(Icons.camera_alt),
-                              label: Text(AppString.cameraPicker),
-                            ),
-                            AppConstants.userVerticalSpace16w,
-                            ElevatedButton.icon(
-                              onPressed: () {
-                                context
-                                    .read<ImagePickerCubit>()
-                                    .pickImage(ImageSource.gallery);
-                              },
-                              icon: Icon(Icons.photo_library),
-                              label: Text(AppString.galleryPicker),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    child: CustomImagePickerSource(),
                   );
                 },
               ),
