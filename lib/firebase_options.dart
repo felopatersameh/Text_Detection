@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'text-recognition-depi',
     storageBucket: 'text-recognition-depi.appspot.com',
   );
+
 }
