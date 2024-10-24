@@ -4,8 +4,8 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/core/constant/colors.dart';
 
-import '../../../view_model/cubit/file_cubit.dart';
-import '../../../view_model/cubit/upload_cubit.dart';
+import '../../../view_model/cubit/file/file_cubit.dart';
+import '../../../view_model/cubit/upload/upload_cubit.dart';
 
 class UploadProcess extends StatelessWidget {
   final String fileName;

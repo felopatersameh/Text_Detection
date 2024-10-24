@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:textdetection/core/utils/Validation/custom_validation.dart';
 import 'package:textdetection/features/auth/view_model/authentication/authentication_cubit.dart';
+import '../../../../../core/constant/enums.dart';
 import '../../../../../core/constant/field_id_password.dart';
 import '../../../../../core/utils/Widget/custom_messages.dart';
 import '../../../model/register_model.dart';

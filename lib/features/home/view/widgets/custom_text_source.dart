@@ -22,7 +22,7 @@ class CustomTextSource extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          constraints: BoxConstraints(maxWidth: 175, minHeight: 51).w,
+          constraints: BoxConstraints(maxWidth: 200, minHeight: 60).w,
           decoration: BoxDecoration(
             border: Border.all(
               width: 1.w,
@@ -30,16 +30,16 @@ class CustomTextSource extends StatelessWidget {
             borderRadius: AppConstants.defaultCircularBorder,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SvgPicture.asset(
                 assetPath,
-                width: 25.w,
-                height: 25.w,
+                width: 20.w,
+                height: 20.w,
               ),
               Text(
                 taskTitle,
-                style: AppTextStyles.style16xW500(),
+                style: AppTextStyles.style14xW500(),
                 maxLines: taskTitle.length,
               ),
             ],

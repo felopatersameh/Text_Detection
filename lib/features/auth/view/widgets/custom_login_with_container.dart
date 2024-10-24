@@ -12,8 +12,8 @@ const CustomLoginWith({super.key, required this.svgPicture, required this.onPres
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100.w,
-      height: 55.h,
+      width: 90.w,
+      height: 50.h,
       padding: EdgeInsets.all(5),
       decoration: ShapeDecoration(
         color: AppColors.white,
@@ -27,9 +27,9 @@ const CustomLoginWith({super.key, required this.svgPicture, required this.onPres
           onTap:onPressed,
           child:  SvgPicture.asset(
             svgPicture,
-            width: 26.0.w,
-            height: 26.0.h,
-          ),
+          width: 24.0.sw,
+          height: 24.0.sh,
+        ),
           ),
       );
   }
