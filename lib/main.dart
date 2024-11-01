@@ -25,17 +25,6 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
-
-  /*
- Future<void> main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  ).then(
-    (value) {
-      print("Firebase.initialized");
-    },
-  );
-   */
 }
 
 
