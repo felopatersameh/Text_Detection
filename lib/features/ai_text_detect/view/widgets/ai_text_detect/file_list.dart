@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../Config/Route/app_route.dart';
+import '../../../../../core/Config/Route/app_route.dart';
 import '../../../../../core/constant/app_constants.dart';
-import '../../../../../core/constant/colors.dart';
+import '../../../../../core/constant/string.dart';
 import '../../../../../core/constant/text_style.dart';
 import '../../../../../core/utils/Widget/build_default_button.dart';
-import '../../../view_model/cubit/file_cubit.dart';
+import '../../../view_model/cubit/file/file_cubit.dart';
 import 'upload_image_container.dart';
 import 'upload_process.dart';
 
@@ -37,7 +37,7 @@ class FileList extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 30.0, bottom: 20).r,
                 child: Text(
-                  "Files",
+                  AppString.files,
                   style: AppTextStyles.style16xW700cornFlowerPrimary(),
                 ),
               ),
@@ -59,24 +59,38 @@ class FileList extends StatelessWidget {
                       )
                     : Center(
                         child: Text(
-                          "No files selected",
+                          AppString.fileListNoFile,
                           style: AppTextStyles.style16xW700(),
                         ),
                       ),
               ),
-
-              // SizedBox(height:50 ,),
-              BuildCustomButton(
-                text: "Confirm",
-                color: AppColors.darkBlue,
-                height: 0.12,
-                onPressed: files.isNotEmpty
-                    ? () {
-                  Navigator.pushNamed(context, AppRoutes.extractedTextScreen);
-                }
-                    : null,
+              Padding(
+                padding: const EdgeInsets.only(top: 32).r,
+                // Adjust padding if needed
+                child: BuildCustomButton(
+                  onPressed: () {
+                    files.isNotEmpty
+                        ? () {
+                            Navigator.pushNamed(
+                                context, AppRoutes.extractedTextScreen);
+                          }
+                        : null;
+                    // Handle button press for verification (consider adding logic if needed)
+                  },
+                  text: AppString.filesConfirmed,
+                ),
               ),
 
+              // BuildCustomButton(
+              //   text: "Confirm",
+              //   // color: AppColors.darkBlue,
+              //   // height: 0.12,
+              //   onPressed: files.isNotEmpty
+              //       ? () {
+              //     Navigator.pushNamed(context, AppRoutes.extractedTextScreen);
+              //   }
+              //       : null,
+              // ),
             ],
           ),
         );

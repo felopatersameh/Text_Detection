@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:textdetection/features/ai_text_detect/view/widgets/ai_text_detect/upload_image_container.dart';
 import '../widgets/ai_text_detect/file_list.dart';
 
 class AiTextDetect extends StatelessWidget {

@@ -9,8 +9,23 @@ class ExtractedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String recognizedText =
+        ModalRoute.of(context)?.settings.arguments as String? ?? '';
     return Scaffold(
-      appBar: backArrow(context,title: AppString.extractedTextHeader),
+      appBar: backArrow(
+        context,
+        title: AppString.extractedTextHeader,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.copy),
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Text copied to clipboard')),
+              );
+            },
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 40.0),
         child: Column(
@@ -18,12 +33,11 @@ class ExtractedText extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-                " EXTRACTED TEXT FROM FILE",
+              " EXTRACTED TEXT FROM FILE",
               style: TextStyle(
                 fontSize: 16,
                 color: AppColors.darkGray,
                 fontWeight: FontWeight.w500,
-
               ),
             ),
             Padding(
@@ -35,8 +49,9 @@ class ExtractedText extends StatelessWidget {
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(10), // Rounded corners
                 ),
-                padding: EdgeInsets.symmetric(vertical: 15), // Padding for the icon
-                child:Text(
+                padding:
+                    EdgeInsets.symmetric(vertical: 15), // Padding for the icon
+                child: Text(
                   "EXTRACTED TEXT FROM FILE\n"
                   "EXTRACTED TEXT FROM FILE\n"
                   "EXTRACTED TEXT FROM FILE\n"
@@ -55,15 +70,13 @@ class ExtractedText extends StatelessWidget {
                   "EXTRACTED TEXT FROM FILE\n"
                   "EXTRACTED TEXT FROM FILE\n"
                   "EXTRACTED TEXT FROM FILE\n"
-                  "EXTRACTED TEXT FROM FILE\n"
-                      ,
+                  "EXTRACTED TEXT FROM FILE\n",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14,
                     color: AppColors.darkGray,
                   ),
                 ),
-
               ),
             ),
           ],

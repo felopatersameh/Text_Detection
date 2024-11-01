@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:textdetection/features/history/view/pages/history_page.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:textdetection/generated/assets.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/icons.dart';
 import '../../../ai_text_detect/view/pages/ai_text_detect.dart';
@@ -19,8 +18,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
-  int currentIndex = 0;
-  List<Widget> screens = [
+  int _currentIndex = 0;
+  final List<Widget> _screens = [
     const HomeScreen(),
     const AccountScreen(),
     const HistoryScreen(),
@@ -29,36 +28,43 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double navBarHeight = 55.0;
     return Scaffold(
-      body: screens[currentIndex],
+      body: _screens[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
-        height: 60.h,
+        letIndexChange: (index) => true,
+        height: navBarHeight,
         color: AppColors.blueDark,
         backgroundColor: AppColors.cream,
         buttonBackgroundColor: AppColors.darkBlue,
+        animationDuration: Duration(milliseconds: 300),
         key: _bottomNavigationKey,
         items: <Widget>[
           Icon(
             AppIcons.bottomNavHomeIcon,
+            size: 24.sp.clamp(20, 30),
             color: Colors.white,
           ),
           Icon(
             AppIcons.bottomNavUserIcon,
+            size: 24.sp.clamp(20, 30),
             color: Colors.white,
           ),
           Icon(
             AppIcons.bottomNavHistoryIcon,
+            size: 24.sp.clamp(20, 30),
             color: Colors.white,
           ),
-          Image.asset(Assets.pngSearch, height: 30.h, width: 30.w),
-          // Icon(
-          //   AppIcons.bottomNavDetectionIcon,
-          //   color: Colors.white,
-          // ),
+          // Image.asset(Assets.pngSearch, height: 30.h, width: 30.w),
+          Icon(
+            AppIcons.bottomNavDetectionIcon,
+            size: 24.sp.clamp(20, 30),
+            color: Colors.white,
+          ),
         ],
         onTap: (index) {
           setState(() {
-            currentIndex = index;
+            _currentIndex = index;
           });
         },
       ),

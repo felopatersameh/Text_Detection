@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233050846038",
+    "project_id": "text-recognition-depi",
+    "storage_bucket": "text-recognition-depi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233050846038:android:cd999efcb359a887ae5cf7",
+        "android_client_info": {
+          "package_name": "com.demon.textdetection.textdetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233050846038-m1t34d5mq23m6pqa0nnpanorl2cbrtfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuMHPh3BemdBWfhovFB0MkVbnAyfuNhok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233050846038-m1t34d5mq23m6pqa0nnpanorl2cbrtfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

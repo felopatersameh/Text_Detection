@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
-import '../../../../Config/Route/app_route.dart';
+import '../../../../core/Config/Route/app_route.dart';
 import '../../../../core/Models/hive_app_model.dart';
 import '../../../../core/constant/string.dart';
 import '../../../../core/services/service_locator.dart';
