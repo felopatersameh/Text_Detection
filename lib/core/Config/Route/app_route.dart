@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:textdetection/features/user/view/widgets/image_view.dart';
-import 'package:textdetection/features/user/view/pages/account_page.dart';
+import '../../../features/user/view/widgets/image_view.dart';
+import '../../../features/user/view/pages/account_page.dart';
 import 'package:textdetection/features/user/view/pages/settings_page.dart';
-import 'package:textdetection/features/Main/View/Page/main_screen.dart';
+import '../../../features/Main/View/Page/main_screen.dart';
 
-import '../../../features/ai_text_detect/view/pages/ai_text_detect.dart';
-import '../../../features/ai_text_detect/view/pages/extracted_text.dart';
-import '../../../features/ai_text_detect/view/pages/image_picker_screen.dart';
+import '../../../features/PdfTexts/view/pages/ai_text_detect.dart';
+import '../../../features/ExtractedText/View/Pages/extracted_text.dart';
+import '../../../features/ImageText/View/Pages/image_picker_screen.dart';
 import '../../../features/auth/view/pages/create_new_password_screen.dart';
 import '../../../features/auth/view/pages/forgot_password_screen.dart';
 import '../../../features/auth/view/pages/login_screen.dart';
@@ -20,21 +20,21 @@ import '../../utils/Widget/pages_transition.dart';
 
 class AppRoutes {
   static const String splash = '/';
-  static const String onboarding = '/onboarding';
-  static const String loginScreen = '/login_screen';
-  static const String registerScreen = '/register_screen';
-  static const String forgotPassword = '/forgot_password_screen';
-  static const String otpScreen = '/otp_screen';
-  static const String createNewPassword = '/create_new_password_screen';
-  static const String passwordChanged = '/password_changed_screen';
-  static const String homeScreen = '/home_screen';
-  static const String accountScreen = '/account_screen';
-  static const String accountSettingsScreen = '/account_settings_screen';
-  static const String textDetectScreen = '/text_detect_screen';
-  static const String imagePickerScreen = '/image_picker_screen.dart';
-  static const String extractedTextScreen = '/extracted_text_screen';
-  static const String mainScreen = '/main_screen';
-  static const String imageView = '/image_view';
+  static const String onboarding = 'onboarding/';
+  static const String loginScreen = 'login_screen/';
+  static const String registerScreen = 'register_screen/';
+  static const String forgotPassword = 'forgot_password_screen/';
+  static const String otpScreen = 'otp_screen/';
+  static const String createNewPassword = 'create_new_password_screen/';
+  static const String passwordChanged = 'password_changed_screen/';
+  static const String homeScreen = 'home_screen/';
+  static const String accountScreen = 'account_screen/';
+  static const String accountSettingsScreen = 'account_settings_screen/';
+  static const String textDetectScreen = 'text_detect_screen/';
+  static const String imagePickerScreen = 'image_picker_screen.dart/';
+  static const String extractedTextScreen = 'extracted_text_screen/';
+  static const String mainScreen = 'mainScreen/';
+  static const String imageView = 'image_view/';
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => const MyCustomSplashScreen(),

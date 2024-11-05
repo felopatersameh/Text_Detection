@@ -6,10 +6,10 @@ import 'core/Config/Route/app_route.dart';
 import 'core/Config/Themes/light.dart';
 import 'core/constant/app_constants.dart';
 import 'core/constant/string.dart';
-import 'features/ai_text_detect/view_model/cubit/file/file_cubit.dart';
-import 'features/ai_text_detect/view_model/cubit/image/image_cubit.dart';
-import 'features/ai_text_detect/view_model/cubit/text_recognition/text_recognition_cubit.dart';
-import 'features/ai_text_detect/view_model/cubit/upload/upload_cubit.dart';
+import 'features/PdfTexts/view_model/cubit/file/file_cubit.dart';
+import 'features/ImageText/ViewModel/image_cubit.dart';
+import 'features/PdfTexts/view_model/cubit/text_recognition/text_recognition_cubit.dart';
+import 'features/PdfTexts/view_model/cubit/upload/upload_cubit.dart';
 import 'features/user/view_model/account_settings/account_settings_cubit.dart';
 
 import 'core/services/service_locator.dart';
@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           title: AppString.appName,
           theme: themes(),
-          initialRoute: AppRoutes.splash,
+          initialRoute: AppRoutes.mainScreen,
           onGenerateRoute: AppRoutes.generateRoute,
           debugShowCheckedModeBanner: false,
         ),
