@@ -1,0 +1,1 @@
+import 'dart:io';class ExtractedTextArguments {  final String extractedText;  final File selectedFiles;  ExtractedTextArguments({required this.extractedText, required this.selectedFiles});}

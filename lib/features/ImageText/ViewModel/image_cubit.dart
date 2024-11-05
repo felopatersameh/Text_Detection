@@ -2,9 +2,13 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../../core/services/pdf_util.dart';
+import 'package:textdetection/core/Config/Route/app_route.dart';
+
+import '../../ExtractedText/Model/extracted_text_arguments.dart';
+
 part 'image_state.dart';
 
 class ImagePickerCubit extends Cubit<ImagePickerState> {
@@ -35,7 +39,7 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
     emit(ImagePickerInitial());
   }
 
-  Future<void> extractText() async {
+  Future<void> extractText(context) async {
     final TextRecognizer textRecognizer = TextRecognizer();
     try {
       final inputImage = InputImage.fromFile(selectedImage!);
@@ -53,13 +57,19 @@ class ImagePickerCubit extends Cubit<ImagePickerState> {
         }
       }
       final extractedText = extractedTextBuffer.toString();
-      await PdfUtil.createPdf(
-        text: extractedText,
-        selectedImage: selectedImage!,
+      Navigator.of(context).pushNamed(
+        AppRoutes.extractedTextScreen,
+        arguments: ExtractedTextArguments(
+          extractedText: extractedText,
+          selectedFiles: selectedImage!,
+        ),
       );
+      // await PdfUtil.createPdf(
+      //   text: extractedText,
+      //   fileSelected: selectedImage!,
+      // );
     } catch (e) {
       emit(TextRecognitionError("Error extracting text or saving PDF: $e"));
     }
   }
 }
-

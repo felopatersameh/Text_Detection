@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import '../../../features/ExtractedText/Model/extracted_text_arguments.dart';
 import '../../../features/user/view/widgets/image_view.dart';
 import '../../../features/user/view/pages/account_page.dart';
 import 'package:textdetection/features/user/view/pages/settings_page.dart';
@@ -38,7 +40,6 @@ class AppRoutes {
 
   static final Map<String, WidgetBuilder> routeBuilders = {
     splash: (_) => const MyCustomSplashScreen(),
-    /*const SplashScreen(),*/
     onboarding: (_) => const IntroScreen(),
     loginScreen: (_) => const LoginScreen(),
     registerScreen: (_) => const RegisterScreen(),
@@ -51,19 +52,27 @@ class AppRoutes {
     accountSettingsScreen: (_) => const AccountSettingsScreen(),
     textDetectScreen: (_) => const AiTextDetect(),
     imagePickerScreen: (_) => const ImagePickerScreen(),
-    extractedTextScreen: (_) => const ExtractedText(),
     mainScreen: (_) => const MainScreen(),
     imageView: (_) => const ImageView(),
   };
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final builder = routeBuilders[settings.name];
+
     if (settings.name == onboarding) {
       return PageTransition(IntroScreen());
     } else if (settings.name == imageView) {
       return PageRouteBuilder(
         opaque: false,
         pageBuilder: (BuildContext context, _, __) => const ImageView(),
+      );
+    } else if (settings.name == extractedTextScreen) {
+      final args = settings.arguments as ExtractedTextArguments;
+      return MaterialPageRoute(
+        builder: (_) => ExtractedText(
+          text: args.extractedText,
+          fileSelected: args.selectedFiles,
+        ),
       );
     } else if (builder != null) {
       return MaterialPageRoute(builder: builder);

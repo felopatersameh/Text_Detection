@@ -52,6 +52,7 @@ class AppString {
   //--------------------------------------------------
   //Ai => ExtractedText screen
   static const String extractedTextHeader = 'Extracted Text';
+  static const String generatedPdf = 'Generated Pdf';
   //--------------------------------------------------
   //Me =>user Screen
   static const String accountSettingsHeader = 'Account Settings';
