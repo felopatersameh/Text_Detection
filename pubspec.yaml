@@ -63,6 +63,9 @@ dependencies:
   google_mlkit_barcode_scanning: ^0.13.0
   google_mlkit_text_recognition: ^0.14.0
   flutter_launcher_icons: ^0.14.1
+  pdf: ^3.11.1
+  open_file: ^3.5.9
+  permission_handler: ^10.2.0
 
 
 
@@ -112,11 +115,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  fonts:
+     - family: Roboto
+       fonts:
+         - asset: assets/Fonts/Roboto-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
