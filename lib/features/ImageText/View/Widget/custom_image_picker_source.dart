@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../../core/constant/icons.dart';
 
-import '../../../../../core/constant/app_constants.dart';
-import '../../../../../core/constant/string.dart';
-import '../../../../../core/constant/text_style.dart';
-import '../../../view_model/cubit/image/image_cubit.dart';
+import '../../../../core/constant/app_constants.dart';
+import '../../../../core/constant/string.dart';
+import '../../../../core/constant/text_style.dart';
+import '../../ViewModel/image_cubit.dart';
+
+TextStyle _styleTextLabel = AppTextStyles.style14Bold();
 
 class CustomImagePickerSource extends StatelessWidget {
   const CustomImagePickerSource({super.key});
@@ -25,18 +28,24 @@ class CustomImagePickerSource extends StatelessWidget {
           children: [
             ElevatedButton.icon(
               onPressed: () {
-                context.read<ImagePickerCubit>().pickImage(ImageSource.camera);
+                context.read<ImagePickerCubit>().pickImages(ImageSource.camera);
               },
-              icon: Icon(Icons.camera_alt),
-              label: Text(AppString.cameraPicker),
+              icon: AppIcons.camera,
+              label: Text(
+                AppString.cameraPicker,
+                style: _styleTextLabel,
+              ),
             ),
             AppConstants.userVerticalSpace16w,
             ElevatedButton.icon(
               onPressed: () {
-                context.read<ImagePickerCubit>().pickImage(ImageSource.gallery);
+                context.read<ImagePickerCubit>().pickImages(ImageSource.gallery);
               },
-              icon: Icon(Icons.photo_library),
-              label: Text(AppString.galleryPicker),
+              icon: AppIcons.photo_library,
+              label: Text(
+                AppString.galleryPicker,
+                style: _styleTextLabel,
+              ),
             ),
           ],
         ),

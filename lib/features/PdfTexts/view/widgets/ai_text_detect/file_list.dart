@@ -17,7 +17,6 @@ class FileList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<FileCubit, FileState>(
       listener: (context, state) {
-        // You can handle success/failure messages here if needed
       },
       builder: (context, state) {
         List<String> files = [];

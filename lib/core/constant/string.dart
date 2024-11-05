@@ -77,6 +77,9 @@ class AppString {
   static const String videoTile = 'Text from video';
 
   //--------------------------------------------------
+
+  //--------------------------------------------------
+
 //USER => Account screen
   static const String emailUserScreenTitle = 'Email';
   static const String emailUserScreenSub = 'Email@gmail.com';
@@ -99,6 +102,8 @@ class AppString {
 
 //--------------------------------------------------
 // Text Detection => FileList
+  static const String imagePicker = 'Image Picker';
+  static const String resetImages = 'Reset Images';
   static const String fileListTitle = 'Choose File';
   static const String fileListNoFile = 'No file selected';
   static const String imageNotSelected = 'No image selected';

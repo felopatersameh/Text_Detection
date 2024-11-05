@@ -22,7 +22,7 @@ class CustomTextSource extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          constraints: BoxConstraints(maxWidth: 200, minHeight: 60).w,
+          constraints: BoxConstraints(maxWidth: 200.sw, minHeight: 80.sh),
           decoration: BoxDecoration(
             border: Border.all(
               width: 1.w,

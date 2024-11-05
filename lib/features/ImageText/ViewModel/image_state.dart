@@ -29,3 +29,20 @@ class ImagePickerError extends ImagePickerState {
   List<Object?> get props => [error];
 }
 
+class TextExtracted extends ImagePickerState {
+  final String extractedText;
+  TextExtracted(this.extractedText);
+}
+
+class PdfCreationLoading extends ImagePickerState {}
+
+class PdfCreated extends ImagePickerState {
+  final String filePath;
+  PdfCreated(this.filePath);
+}
+
+class TextRecognitionError extends ImagePickerState {
+  final String errorMessage;
+  TextRecognitionError(this.errorMessage);
+}
+

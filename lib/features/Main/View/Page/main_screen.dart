@@ -5,7 +5,7 @@ import 'package:textdetection/features/history/view/pages/history_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constant/colors.dart';
 import '../../../../core/constant/icons.dart';
-import '../../../ai_text_detect/view/pages/ai_text_detect.dart';
+import '../../../PdfTexts/view/pages/ai_text_detect.dart';
 import '../../../home/view/pages/home_screen.dart';
 import '../../../user/view/pages/account_page.dart';
 

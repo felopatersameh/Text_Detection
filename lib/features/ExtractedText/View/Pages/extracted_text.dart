@@ -9,22 +9,22 @@ class ExtractedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String recognizedText =
-        ModalRoute.of(context)?.settings.arguments as String? ?? '';
+    // final String recognizedText =
+    //     ModalRoute.of(context)?.settings.arguments as String? ?? '';
     return Scaffold(
       appBar: backArrow(
         context,
         title: AppString.extractedTextHeader,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.copy),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Text copied to clipboard')),
-              );
-            },
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     icon: const Icon(Icons.copy),
+        //     onPressed: () {
+        //       ScaffoldMessenger.of(context).showSnackBar(
+        //         const SnackBar(content: Text('Text copied to clipboard')),
+        //       );
+        //     },
+        //   ),
+        // ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 40.0),
