@@ -71,6 +71,9 @@ The app is continually evolving, with the following features planned for future 
 3. **Gana Ahmed Mohmed**
 4. **Kareem Wael Tolba**
 5. **Heba Ramzi Zaki**
+---
+## 🎥 presentation
+- [DEPI Representation.pptx](https://github.com/user-attachments/files/17951455/Copy.of.DEPI.Representation.pptx)
 
 
 ---
