@@ -68,7 +68,7 @@ The app is continually evolving, with the following features planned for future 
 ## ✨The Team
 1. **Omar Muhammad Abdul Khaliq**
 2. **Felopater Sameh Salama**
-3. **Gana Ahmed Mohmed **
+3. **Gana Ahmed Mohmed**
 4. **Kareem Wael Tolba**
 5. **Heba Ramzi Zaki**
 
